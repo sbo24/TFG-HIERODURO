@@ -1,9 +1,9 @@
-body{
+body {
     background-color: white;
     color: black;
 }
 
-header{
+header {
     margin-bottom: 10%;
 }
 
@@ -50,43 +50,43 @@ header{
 
 
 
- .card {
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-     transition: 0.3s;
- }
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
 
- .card:hover {
-     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
- }
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 
- .card-img-top {
-     height: 15vw;
-     object-fit: cover;
- }
+.card-img-top {
+    height: 15vw;
+    object-fit: cover;
+}
 
- .container {
-     color: #333;
-    
-     margin: 0 auto;
-     padding: 20px;
-     border-radius: 5px;
- }
+.container {
+    color: #333;
 
- .btn-primary {
-     background-color: #333;
-     border-color: #333;
- }
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
 
- .btn-primary:hover {
-     background-color: #666;
-     border-color: #666;
- }
+.btn-primary {
+    background-color: #333;
+    border-color: #333;
+}
 
- h2.section-title {
-     color: #333;
-     font-size: 24px;
-     font-weight: bold;
- }
+.btn-primary:hover {
+    background-color: #666;
+    border-color: #666;
+}
+
+h2.section-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
 
 
 
@@ -264,35 +264,96 @@ tbody tr {
     /* Escalar ligeramente la imagen al hacer hover */
 }
 
-  .swiper-container {
-      width: 100%;
-      padding: 20px 0;
-      position: relative;
-  }
+.swiper-container {
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+}
 
-  .swiper-slide {
-      background-color: #f8f9fa;
-      border-radius: 10px;
-      padding: 20px;
-      box-sizing: border-box;
-  }
+.swiper-slide {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-  .swiper-pagination {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-  }
+.swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-  .swiper-pagination-bullet {
-      width: 10px;
-      height: 10px;
-      background-color: #0074f0;
-      border-radius: 50%;
-      margin: 0 5px;
-      cursor: pointer;
-  }
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #0074f0;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
 
-  .swiper-pagination-bullet-active {
-      background-color: #fff;
-  }
+.swiper-pagination-bullet-active {
+    background-color: #fff;
+}
+
+
+
+ .vehicle-card {
+     border: 1px solid #ccc;
+     border-radius: 10px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     transition: all 0.3s ease;
+ }
+
+ .vehicle-card:hover {
+     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+ }
+
+ .card-img {
+     border-top-left-radius: 10px;
+     border-bottom-left-radius: 10px;
+ }
+
+ .revision-list-item {
+     background-color: #f9f9f9;
+     border: none;
+ }
+
+.vehicle-image {
+    max-width: 300px;
+}
+
+.vehicle-description {
+    margin-top: 20px;
+}
+
+.vehicle-info {
+    font-size: 18px;
+    color: #555;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.revision-list-item {
+    padding: 8px 0;
+}
+
+.revision-list {
+    max-height:300px;
+    /* Altura máxima de la lista */
+    overflow-y: auto;
+    /* Habilitar el desplazamiento vertical */
+    -webkit-overflow-scrolling: touch;
+}
+
+.revision-list-item {
+   
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
