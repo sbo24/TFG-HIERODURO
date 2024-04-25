@@ -1,0 +1,257 @@
+/* Custom styles for navbar */
+
+header {
+    position: relative;
+    z-index: 999;
+
+    /* Asegurarse de que esté por encima de todo */
+}
+
+.navbar-brand img {
+    max-height: 50px;
+}
+
+.navbar-nav .nav-link {
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: #ff0000;
+
+        /* Cambiar color al pasar el cursor */
+    }
+}
+
+.navbar {
+    transition: top 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    /* Asegurarse de que esté por encima del contenido */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-dark {
+    background-color: #525252 !important;
+    color: white !important;
+
+    /* Color de fondo oscuro cuando se desplaza hacia abajo */
+
+    .navbar-brand {
+        color: white;
+
+        /* Cambiar color del texto del logo */
+    }
+
+    .navbar-nav .nav-link {
+        color: white;
+
+        /* Cambiar color del texto de los enlaces */
+
+        &:hover {
+            color: #ff0000;
+
+            /* Cambiar color del texto de los enlaces al pasar el cursor */
+        }
+    }
+
+    .navbar-brand img {
+        filter: brightness(0) invert(1);
+
+        /* Cambiar color de la imagen del logo a blanco */
+    }
+}
+
+.navbar-light .navbar-brand img {
+    filter: brightness(0) invert(1);
+
+    /* Cambiar color de la imagen del logo a blanco */
+}
+
+.navbar-scroll {
+    top: -100px;
+
+    /* Altura del navbar, ajustar según sea necesario */
+}
+
+.invert-logo {
+    filter: brightness(0) invert(1);
+}
+
+/* Estilos para los botones dentro del menú colapsable en pantallas pequeñas */
+
+.navbar-dark {
+    .navbar-nav .nav-item .btn {
+        color: rgb(255, 236, 236);
+
+        /* Cambiar color del texto de los botones */
+        border-radius: 20px;
+        padding: 8px 20px;
+
+        &:hover {
+            color: #ff0000;
+
+            /* Cambiar color del texto de los botones al pasar el cursor sobre ellos */
+        }
+    }
+
+    .d-lg-block .btn {
+        color: rgb(255, 255, 255) !important;
+
+        /* Cambiar color del texto de los botones */
+
+        &:hover {
+            color: #ff0000 !important;
+
+            /* Cambiar color del texto de los botones al pasar el cursor sobre ellos */
+        }
+    }
+}
+
+/* Estilos para los botones "Iniciar Sesión" y "Registrarse" en pantallas grandes cuando el navbar está en scroll */
+
+/* Define the shape and color of the hamburger lines */
+
+.navbar-toggler {
+    span {
+        display: block;
+        background-color: #4f4f4f;
+        height: 3px;
+        width: 25px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        position: relative;
+        left: 0;
+        opacity: 1;
+        transition: all 0.35s ease-out;
+        transform-origin: center left;
+
+        &:nth-child(1) {
+            margin-top: 0.3em;
+        }
+    }
+
+    &:not(.collapsed) span {
+        &:nth-child(1) {
+            transform: translate(15%, -33%) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+        }
+
+        &:nth-child(3) {
+            transform: translate(15%, 33%) rotate(-45deg);
+        }
+    }
+
+    span {
+        &:nth-child(1) {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+
+        &:nth-child(2) {
+            opacity: 1;
+        }
+
+        &:nth-child(3) {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+
+    outline: none;
+    border: none;
+    box-shadow: none;
+
+    &:focus,
+    &:active {
+        outline: none;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+
+
+.navbar-toggler-icon:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        /* Color de fondo */
+        border-top: 1px solid #ddd;
+
+        /* Borde superior */
+        padding: 10px;
+
+        /* Espaciado interior */
+    }
+
+    .navbar-nav {
+        text-align: center;
+
+        /* Centrar los elementos */
+
+        .nav-item {
+            margin-bottom: 10px;
+
+            /* Espaciado entre elementos */
+        }
+
+        .nav-link {
+            color: #333;
+
+            /* Color del texto */
+            font-weight: bold;
+
+            /* Negrita */
+        }
+
+        .btn {
+            margin-top: 10px;
+
+            /* Espaciado entre botones y enlaces */
+        }
+
+        .btn-outline-dark {
+            border-color: #343a40;
+
+            /* Color del borde */
+            color: #343a40;
+
+            /* Color del texto */
+        }
+
+        .nav-item:hover {
+            background-color: #343a40;
+
+            /* Cambiar el color de fondo al pasar el ratón */
+            color: #fff;
+            border-radius: 20px;
+
+            /* Cambiar el color del texto al pasar el ratón */
+        }
+
+        .btn-dark {
+            background-color: #343a40;
+
+            /* Color de fondo */
+            border-color: #343a40;
+
+            /* Color del borde */
+
+            &:hover {
+                background-color: #23272b;
+
+                /* Cambiar el color de fondo al pasar el ratón */
+                border-color: #23272b;
+
+                /* Cambiar el color del borde al pasar el ratón */
+            }
+        }
+    }
+}
