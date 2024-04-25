@@ -1,0 +1,298 @@
+body{
+    background-color: white;
+    color: black;
+}
+
+header{
+    margin-bottom: 10%;
+}
+
+
+
+.animate-onload {
+    animation: fade-in 1s ease-out;
+}
+
+.animate-hover:hover {
+    animation: bounce 0.5s ease;
+}
+
+.animate-click {
+    transition: transform 0.3s ease;
+}
+
+.animate-click:active {
+    transform: scale(0.9);
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+
+
+ .card {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     transition: 0.3s;
+ }
+
+ .card:hover {
+     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+ }
+
+ .card-img-top {
+     height: 15vw;
+     object-fit: cover;
+ }
+
+ .container {
+     color: #333;
+    
+     margin: 0 auto;
+     padding: 20px;
+     border-radius: 5px;
+ }
+
+ .btn-primary {
+     background-color: #333;
+     border-color: #333;
+ }
+
+ .btn-primary:hover {
+     background-color: #666;
+     border-color: #666;
+ }
+
+ h2.section-title {
+     color: #333;
+     font-size: 24px;
+     font-weight: bold;
+ }
+
+
+
+
+
+
+
+
+/* Ajusta el margen superior de la fila de la tabla */
+.row.mt-5 {
+    margin-top: 0;
+}
+
+/* Ajusta el margen inferior de la fila con la imagen del vehículo */
+.row.align-items-center.mb-3 {
+    margin-bottom: 0;
+}
+
+
+
+.table-striped tbody .bg_green {
+    background-color: #242c00;
+    color: white;
+    /* Cambia este color al color que desees */
+}
+
+.table-striped tbody .bg_green_soft {
+    background-color: #809d00;
+    color: white;
+    /* Cambia este color al color que desees */
+}
+
+.table-curved tr:last-child td:first-child {
+    border-radius: 0 0 0 6px;
+}
+
+
+
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-color: #fff;
+    --bs-table-striped-color: #fff;
+    --bs-table-hover-color: #fff;
+    /* Establece el color de fondo transparente */
+}
+
+
+/* Eliminar el estilo de borde para todos los elementos */
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    border: none;
+}
+
+/* Aplicar bordes redondeados a todas las filas de la tabla */
+tbody tr {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Añadir un borde a todas las celdas del tbody */
+tbody tr {
+    border: 1px solid rgb(255, 255, 255);
+}
+
+
+/* Clase especial para los th */
+.special-th {
+    color: rgb(0, 0, 0) !important;
+    /* Color del texto */
+    background-color: white !important;
+    /* Fondo blanco */
+    border: 2px solid red !important;
+    /* Borde rojo */
+
+}
+
+
+
+
+#calculator {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+#results {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+#results {
+    display: none;
+}
+
+
+
+#results {
+    margin-top: 20px;
+}
+
+.result-card {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.result-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.result-item {
+    margin-bottom: 5px;
+}
+
+
+.swiper-wrapper .card {
+    border: none;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    background-color: #d3d3d3;
+    /* Gris claro para el color de fondo */
+    color: #333;
+    /* Color de texto por defecto */
+}
+
+.swiper-wrapper .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    background-color: #747474;
+    /* Azul profesional en hover */
+    color: #fff;
+    /* Texto blanco en hover */
+}
+
+
+
+.swiper-wrapper .card-title,
+.swiper-wrapper .card-text {
+    transition: font-size 0.3s, color 0.3s;
+    /* Animación suave del tamaño del texto y del color */
+}
+
+.swiper-wrapper .card:hover .card-title,
+.swiper-wrapper .card:hover .card-text {
+    font-size: 1.2em;
+    /* Aumentar ligeramente el tamaño del texto en hover */
+    color: #fff;
+    /* Texto blanco en hover */
+}
+
+
+
+.swiper-wrapper .card-img-top {
+    transition: transform 0.3s;
+    /* Animación suave de la imagen */
+}
+
+.swiper-wrapper .card:hover .card-img-top {
+    transform: scale(1.1);
+    /* Escalar ligeramente la imagen al hacer hover */
+}
+
+  .swiper-container {
+      width: 100%;
+      padding: 20px 0;
+      position: relative;
+  }
+
+  .swiper-slide {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+  }
+
+  .swiper-pagination {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+  .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background-color: #0074f0;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+  }
+
+  .swiper-pagination-bullet-active {
+      background-color: #fff;
+  }

@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>UserSite</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/user_site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div id="blur-effect" class="blur-effect"></div>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm ">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#">
+                    <img src="img/header/header.png" alt="Logo" class="d-inline-block align-text-top animated fadeInUp">
+                </a>
+                <button id="navbar-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end animated fadeInUp" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Vehículos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Comparar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center justify-content-center ms-lg-3">
+                        <button type="button" class="btn btn-outline-dark me-2" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                            data-bs-target="#registerModal">Registrarse</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Div de desenfoque -->
+
+
+
+    <!-- Modal de Iniciar Sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Contenido del modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Contenido del formulario de inicio de sesión -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registrarse -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Contenido del modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Contenido del formulario de registro -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="intro-section mt-20 mt-sm-0">
+        <div class="container bg-black text-white">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <h1 class="display-3 mb-4">¡Bienvenido a tu Área Privada!</h1>
+                    <p class="lead">Descubre el acceso exclusivo a las últimas noticias, eventos y actualizaciones del
+                        mundo
+                        automotriz.</p>
+                    <p class="lead">¡Explora y mantente al tanto de todo lo que te interesa!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container mt-5">
+
+        <div class="swiper-container" style="overflow-x: hidden;">
+            <div class="swiper-wrapper d-flex">
+                <!-- Aquí se generarán las diapositivas de los vehículos del usuario -->
+                <div class="swiper-slide col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-black text-white py-3">
+                            <h5 class="card-title text-center fw-bold m-0">Nombre del Coche</h5>
+                        </div>
+                        <img src="img/header/car.png" class="card-img-top" alt="Car 3">
+                        <div class="card-body">
+                            <p class="card-text text-center mb-3">Descripción breve del coche.</p>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <i class="fas fa-car fa-lg"></i>
+                                    <p class="mb-0">Modelo: Modelo del coche</p>
+                                </div>
+                                <div class="col text-center">
+                                    <i class="fas fa-cogs fa-lg"></i>
+                                    <p class="mb-0">Motor: Tipo de motor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light border-top-0 py-3 w-100">
+                            <a href="#" class="btn btn-dark w-100">Detalles</a>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="swiper-slide col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-black text-white py-3">
+                            <h5 class="card-title text-center fw-bold m-0">Nombre del Coche</h5>
+                        </div>
+                        <img src="img/header/car.png" class="card-img-top" alt="Car 3">
+                        <div class="card-body">
+                            <p class="card-text text-center mb-3">Descripción breve del coche.</p>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <i class="fas fa-car fa-lg"></i>
+                                    <p class="mb-0">Modelo: Modelo del coche</p>
+                                </div>
+                                <div class="col text-center">
+                                    <i class="fas fa-cogs fa-lg"></i>
+                                    <p class="mb-0">Motor: Tipo de motor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light border-top-0 py-3 w-100">
+                            <a href="#" class="btn btn-dark w-100">Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide  col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-black text-white py-3">
+                            <h5 class="card-title text-center fw-bold m-0">Nombre del Coche</h5>
+                        </div>
+                        <img src="img/header/car.png" class="card-img-top" alt="Car 3">
+                        <div class="card-body">
+                            <p class="card-text text-center mb-3">Descripción breve del coche.</p>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <i class="fas fa-car fa-lg"></i>
+                                    <p class="mb-0">Modelo: Modelo del coche</p>
+                                </div>
+                                <div class="col text-center">
+                                    <i class="fas fa-cogs fa-lg"></i>
+                                    <p class="mb-0">Motor: Tipo de motor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light border-top-0 py-3 w-100">
+                            <a href="#" class="btn btn-dark w-100">Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide  col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-black text-white py-3">
+                            <h5 class="card-title text-center fw-bold m-0">Nombre del Coche</h5>
+                        </div>
+                        <img src="img/header/car.png" class="card-img-top" alt="Car 3">
+                        <div class="card-body">
+                            <p class="card-text text-center mb-3">Descripción breve del coche.</p>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <i class="fas fa-car fa-lg"></i>
+                                    <p class="mb-0">Modelo: Modelo del coche</p>
+                                </div>
+                                <div class="col text-center">
+                                    <i class="fas fa-cogs fa-lg"></i>
+                                    <p class="mb-0">Motor: Tipo de motor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light border-top-0 py-3 w-100">
+                            <a href="#" class="btn btn-dark w-100">Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Agrega más divs con la clase "swiper-slide" para cada vehículo -->
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+
+    <section class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6 mb-4">
+                <div class="card border-0 rounded-3 shadow-lg mb-4 h-100">
+                    <div class="card-body text-center">
+                        <h2 class="text-danger mb-4">¡Descubre tu Próximo Vehículo en Hierro Duro!</h2>
+                        <p class="fs-5 text-secondary">En Hierro Duro, entendemos que cada conductor tiene su propio estilo
+                            y necesidades únicas. Es por eso que te ofrecemos la oportunidad de agregar un nuevo vehículo a
+                            tu colección con solo unos pocos clics. ¿Estás listo para descubrir tu próxima joya sobre
+                            ruedas?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-4">
+                <div class="card border-0 rounded-3 shadow-lg mb-4 h-100">
+                    <div class="card-body text-center">
+                        <h3 class="text-danger mb-3">¿Por qué agregar un nuevo vehículo?</h3>
+                        <p class="text-secondary fs-5 mb-4">Actualiza tu estilo de conducción y refleja tu personalidad.
+                            Explora las últimas tecnologías y características de seguridad. Encuentra el vehículo perfecto
+                            que se adapte a tus necesidades y presupuesto.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-4">
+                <div class="card border-0 rounded-3 shadow-lg mb-4 h-100">
+                    <div class="card-body text-center">
+                        <h3 class="text-danger mb-3">¿Qué puedes esperar?</h3>
+                        <p class="text-secondary fs-5 mb-4">Una amplia gama de marcas y modelos para elegir. Asistencia
+                            personalizada de nuestro equipo experto. Proceso de compra simple y transparente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-4">
+                <div class="card border-0 rounded-3 shadow-lg mb-4 h-100">
+                    <div class="card-body text-center">
+                        <h3 class="text-danger mb-3">¿Cómo puedes empezar?</h3>
+                        <p class="fs-5 text-secondary">Simplemente haz clic en el botón "Agregar Nuevo Vehículo" a
+                            continuación y déjanos guiarte en este emocionante viaje hacia tu próximo automóvil de ensueño.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <button class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#modalAgregarVehiculo">Agregar
+                    Nuevo Vehículo</button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="news-section mt-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Últimas Noticias</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card border-0">
+                        <img src="https://cdn-imgix.headout.com/media/images/7d0797d8d3e5a6961697266f94016da9-Monaco%201.jpg"
+                            class="card-img-top rounded-3" alt="Noticia 1">
+                        <div class="card-body">
+                            <h3 class="card-title">Título de la Noticia 1</h3>
+                            <p class="card-text">Breve descripción de la Noticia 1.</p>
+                            <a href="#" class="btn btn-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0">
+                        <img src="https://xxboxnews.blob.core.windows.net/prod/sites/2/2024/03/Nurburgring_Nordschleife-Track_Promotion-11-16x9-1-1fb8f0d4ec940133b77e.jpg"
+                            class="card-img-top rounded-3" alt="Noticia 2">
+                        <div class="card-body">
+                            <h3 class="card-title">Título de la Noticia 2</h3>
+                            <p class="card-text">Breve descripción de la Noticia 2.</p>
+                            <a href="#" class="btn btn-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0">
+                        <img src="https://cdn.motor1.com/images/mgl/W8oJZg/s3/2024-audi-rs6-avant-performance-pricing.jpg"
+                            class="card-img-top rounded-3" alt="Noticia 3">
+                        <div class="card-body">
+                            <h3 class="card-title">Título de la Noticia 3</h3>
+                            <p class="card-text">Breve descripción de la Noticia 3.</p>
+                            <a href="#" class="btn btn-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <div class="container">
+        <div class="container mt-5">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide col-md-6">
+                        <div class="card shadow">
+                            <img src="img/header/car.png" class="card-img-top" alt="Car 3">
+                            <div class="card-body">
+                                <h5 class="card-title text-center fw-bold mb-3">Nombre del Coche</h5>
+                                <p class="card-text text-center">Descripción breve del coche.</p>
+                                <div class="d-grid gap-2">
+                                    <a href="#" class="btn btn-dark btn-lg">Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide col-md-6">
+                        <div class="card shadow">
+                            <img src="img/header/car.png" class="card-img-top" alt="Car 3">
+                            <div class="card-body">
+                                <h5 class="card-title text-center fw-bold mb-3">Nombre del Coche</h5>
+                                <p class="card-text text-center">Descripción breve del coche.</p>
+                                <div class="d-grid gap-2">
+                                    <a href="#" class="btn btn-dark btn-lg">Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide col-md-6">
+                        <div class="card shadow">
+                            <img src="img/header/car.png" class="card-img-top" alt="Car 3">
+                            <div class="card-body">
+                                <h5 class="card-title text-center fw-bold mb-3">Nombre del Coche</h5>
+                                <p class="card-text text-center">Descripción breve del coche.</p>
+                                <div class="d-grid gap-2">
+                                    <a href="#" class="btn btn-dark btn-lg">Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide col-md-6 ">
+                        <div class="card shadow">
+                            <img src="img/header/car.png" class="card-img-top" alt="Car 3">
+                            <div class="card-body">
+                                <h5 class="card-title text-center fw-bold mb-3">Nombre del Coche</h5>
+                                <p class="card-text text-center">Descripción breve del coche.</p>
+                                <div class="d-grid gap-2">
+                                    <a href="#" class="btn btn-dark btn-lg">Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+    <div class="modal fade" id="modalAgregarVehiculo" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Nuevo Vehículo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario para la selección de marca, modelo y motor -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="marca" class="form-label">Marca:</label>
+                            <select class="form-select" id="marca">
+                                <option selected>Selecciona la marca</option>
+                                <!-- Aquí puedes agregar las opciones de marca -->
+                                <option value="audi">Audi</option>
+                                <option value="bmw">BMW</option>
+                                <option value="mercedes">Mercedes-Benz</option>
+                                <!-- Agrega más opciones según sea necesario -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modelo" class="form-label">Modelo:</label>
+                            <select class="form-select" id="modelo">
+                                <option selected>Selecciona el modelo</option>
+                                <!-- Aquí puedes agregar las opciones de modelo según la marca seleccionada -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="motor" class="form-label">Motor:</label>
+                            <select class="form-select" id="motor">
+                                <option selected>Selecciona el motor</option>
+                                <!-- Aquí puedes agregar las opciones de motor según la marca y modelo seleccionados -->
+                            </select>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row mt-10 justify-content-between">
+            <div class="col-lg-4">
+                <div class="row flex-column justify-content-start text-white animate-onload">
+
+
+                    <div class="col-6 w-100">
+                        <!-- Imagen del vehículo -->
+                        <div class=" text-center w-100">
+                            <img src="img/header/car.png" alt="Imagen del vehículo" class="w-100">
+                        </div>
+                    </div>
+                    <div class="col-6 w-100">
+                        <div class="row align-items-center">
+                            <!-- Descripción del vehículo -->
+                            <div class="col-12 text-center">
+                                <!-- Iconos y descripción del vehículo -->
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <!-- Icono de caballo -->
+                                        <i class="fas fa-horse mr-2 fs-5 text-danger"></i>
+                                        <!-- Descripción de los caballos de fuerza -->
+                                        <span class="text-white">250 HP</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <!-- Icono de Newton metro -->
+                                        <i class="fas fa-bolt mr-2 fs-5 text-danger"></i>
+                                        <!-- Descripción de los Newton metro -->
+                                        <span class="text-white">300 Nm</span>
+                                    </div>
+                                </div>
+                                <!-- Breve descripción del vehículo -->
+                                <p class="text-white text-center">El Audi A4 3.2 V6 B8 destaca por su tracción Quattro
+                                    para
+                                    mejor
+                                    estabilidad, su
+                                    motor V6 produce un sonido deportivo, incluye tecnología MMI para entretenimiento,
+                                    es
+                                    sorprendentemente
+                                    eficiente en combustible y forma parte de la icónica serie A4 de Audi, con más de 25
+                                    años de
+                                    historia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="table-responsive mt-5 mt-md-0">
+                    <table
+                        class="table table-striped table-bordered table-curved text-white animate-onload table-hover rounded text-white text-center">
+                        <thead>
+                            <tr>
+                                <th></th> <!-- Columna vacía -->
+                                <th scope="col" class="special-th ">Mantenimiento</th>
+                                <th scope="col" class="special-th">Próxima revisión</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Filas de mantenimiento -->
+                            <tr class="bg_green">
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+                            <tr class="bg_green">
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+                            <tr class="bg_green_soft ">
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+                            <tr>
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+                            <tr>
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+                            <tr>
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+                            <tr>
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+                            <tr>
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+                            <tr>
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+                            <tr>
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+                            <tr>
+                                <td>Cambio de aceite</td>
+                                <td>50,000 km</td>
+                                <td>50,000 km</td>
+                            </tr>
+
+                            <!-- Puedes agregar más filas para más mantenimientos -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-3 text-center">
+                    <button type="button" class="btn btn-danger p-3" data-toggle="modal"
+                        data-target="#agregarVehiculoModal">
+                        <strong>¿Tienes un nuevo coche para añadir? ¡Haz clic aquí!</strong>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-10 text-white">
+        <div class="row justify-content-around">
+            <div class="col-md-3">
+                <div id="gauge-deportividad"></div>
+                <p class="text-center">Índice de Deportividad</p>
+            </div>
+            <div class="col-md-3">
+                <div id="gauge-fiabilidad"></div>
+                <p class="text-center">Índice de Fiabilidad</p>
+            </div>
+            <div class="col-md-3">
+                <div id="gauge-calidad-precio"></div>
+                <p class="text-center">Índice de Calidad Precio</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5  text-white">
+        <div class="row justify-content-around">
+            <div class="col-md-3">
+                <div id="gauge-deportividad"></div>
+
+                <p class="text-center">Consejo: Para aumentar la deportividad, considera mejorar la aerodinámica y
+                    ajustar
+                    la suspensión.</p>
+            </div>
+            <div class="col-md-3">
+                <div id="gauge-fiabilidad"></div>
+
+                <p class="text-center">Consejo: Realiza un mantenimiento preventivo regular y utiliza repuestos de alta
+                    calidad para mejorar la fiabilidad.</p>
+            </div>
+            <div class="col-md-3">
+                <div id="gauge-calidad-precio"></div>
+
+                <p class="text-center">Consejo: Investiga y compara diferentes opciones antes de realizar una compra
+                    para
+                    obtener la mejor relación calidad-precio.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <footer class="footer mt-10 d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-3 mb-md-0 text-center">
+                    <ul class="list-inline text-xl-start text-center">
+                        <li class="list-inline-item"><a href="#">Enlace 1</a></li>
+                        <li class="list-inline-item"><a href="#">Enlace 2</a></li>
+                        <li class="list-inline-item"><a href="#">Enlace 3</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 text-center mb-3 mb-md-0">
+                    <img src="img/header/header.png" alt="Logo">
+                </div>
+                <div class="col-lg-4 text-xl-end text-center">
+
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram mx-sm-3"></i></a>
+                        <a href="#"><i class="fab fa-twitter mx-sm-3"></i></a>
+                        <a href="#"><i class="fab fa-facebook mx-sm-3"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" title="Ir arriba">
+        <i>
+            <div class="lights"></div>
+        </i>
+    </button>
+
+    <div class="bg-white">
+        <div class="container py-2"> <!-- Cambiado p-2 por py-2 para un mejor espaciado vertical -->
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-lg-6">
+                    <!-- Cambiado col-lg-6 a col-12 col-lg-6 para que ocupe todo el ancho en dispositivos pequeños -->
+                    <div
+                        class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start">
+                        <p class="text-center text-lg-start m-0 mb-3 mb-lg-0">Aviso legal</p>
+                        <!-- Agregado mb-3 y mb-lg-0 para separar los párrafos en dispositivos pequeños -->
+                        <p class="text-center text-lg-start m-0 pl-lg-3 mx-2">Política de privacidad</p>
+                        <!-- Agregado pl-lg-3 para agregar un relleno a la izquierda en dispositivos grandes -->
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <!-- Cambiado col-lg-6 a col-12 col-lg-6 para que ocupe todo el ancho en dispositivos pequeños -->
+                    <p class="text-center text-lg-end m-0">©2024 HIERRO DURO SLU, TODOS LOS DERECHOS RESERVADOS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 20,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#brandSelect').change(function () {
+                var brand = $(this).val();
+                if (brand !== '') {
+                    $('#modelGroup').show();
+                    var models = {};
+                    if (brand === 'toyota') {
+                        models = {
+                            "Camry": ["2.5L", "3.5L"],
+                            "Corolla": ["1.8L", "2.0L"],
+                            "RAV4": ["2.0L", "2.5L"]
+                        };
+                    } else if (brand === 'honda') {
+                        models = {
+                            "Civic": ["1.5L", "2.0L"],
+                            "Accord": ["1.5L", "2.0L"],
+                            "CR-V": ["1.5L", "2.0L"]
+                        };
+                    }
+                    var modelSelect = $('#modelSelect');
+                    modelSelect.empty();
+                    modelSelect.append('<option value="">Selecciona...</option>');
+                    $.each(models, function (model, engines) {
+                        modelSelect.append('<option value="' + model + '">' + model + '</option>');
+                    });
+                } else {
+                    $('#modelGroup').hide();
+                    $('#engineGroup').hide();
+                    $('#finalResult').hide();
+                    $('#brandLabel').hide(); // Ocultar la etiqueta del select de marca
+                }
+            });
+
+            $('#modelSelect').change(function () {
+                var model = $(this).val();
+                if (model !== '') {
+                    $('#engineGroup').show();
+                    var brand = $('#brandSelect').val();
+                    var engines = {};
+                    if (brand === 'toyota') {
+                        engines = {
+                            "2.5L": "2.5L",
+                            "3.5L": "3.5L"
+                        };
+                    } else if (brand === 'honda') {
+                        engines = {
+                            "1.5L": "1.5L",
+                            "2.0L": "2.0L"
+                        };
+                    }
+                    var engineSelect = $('#engineSelect');
+                    engineSelect.empty();
+                    engineSelect.append('<option value="">Selecciona...</option>');
+                    $.each(engines, function (engine, engineLabel) {
+                        engineSelect.append('<option value="' + engine + '">' + engineLabel + '</option>');
+                    });
+                } else {
+                    $('#engineGroup').hide();
+                    $('#finalResult').hide();
+                }
+            });
+
+            $('#engineSelect').change(function () {
+                var engine = $(this).val();
+                if (engine !== '') {
+                    var brand = $('#brandSelect').val();
+                    var model = $('#modelSelect').val();
+                    var finalSelect = $('#finalSelect');
+                    finalSelect.empty();
+                    finalSelect.append('<option value="">' + brand + ' ' + model + ' ' + engine + '</option>');
+                    $('#finalResult').show();
+                    // Ocultar los selects y etiquetas
+                    $('#brandSelect').hide();
+                    $('#modelGroup').hide();
+                    $('#engineGroup').hide();
+                    $('#brandLabel').hide();
+                    $('#modelLabel').hide();
+                    $('#engineLabel').hide();
+                    $('.form-group label').hide();
+                } else {
+                    $('#finalResult').hide();
+                }
+            });
+
+            // Agregamos un botón para reiniciar la selección
+            $('#resetSelection').click(function () {
+                $('#brandSelect').val('');
+                $('#modelSelect').val('');
+                $('#engineSelect').val('');
+                // Mostrar de nuevo los selects y etiquetas
+                $('#brandSelect').show();
+                $('#modelGroup').hide();
+                $('#engineGroup').hide();
+                $('#finalResult').hide();
+                $('#brandLabel').show();
+                $('#modelLabel').show();
+                $('#engineLabel').show();
+                $('.form-group label').show();
+            });
+        });
+
+
+
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Agrega la clase animate-onload a la columna al cargar la página
+            const column = document.querySelector('.animate-onload');
+            column.classList.add('animate-onload');
+        });
+
+        // Agrega la clase animate-hover cuando se pasa el cursor por encima
+        document.querySelectorAll('.form-control').forEach(item => {
+            item.addEventListener('mouseover', event => {
+                item.classList.add('animate-hover');
+            });
+            item.addEventListener('mouseout', event => {
+                item.classList.remove('animate-hover');
+            });
+        });
+
+        // Agrega la clase animate-click cuando se hace clic en los elementos
+        document.querySelectorAll('.form-control').forEach(item => {
+            item.addEventListener('click', event => {
+                item.classList.add('animate-click');
+                setTimeout(() => {
+                    item.classList.remove('animate-click');
+                }, 300);
+            });
+        });
+    </script>
+
+    <script>
+        // Función para mostrar u ocultar el efecto de desenfoque cuando se hace clic en el navbar-toggler
+        $(document).ready(function () {
+            $('#navbar-toggler').click(function () {
+                $('#blur-effect').toggle();
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Configuración de los medidores
+            var gaugeDeportividad = new JustGage({
+                id: "gauge-deportividad",
+                value: 25,
+                min: 0,
+                max: 100,
+                title: "Deportividad",
+                label: "%",
+                levelColors: ["#ff0000", "#FF4200", "#E4FF00", "#ffa500", "#00ff00"],
+                gaugeWidthScale: 0.3,
+                counter: true,
+                relativeGaugeSize: true
+            });
+
+            var gaugeFiabilidad = new JustGage({
+                id: "gauge-fiabilidad",
+                value: 60,
+                min: 0,
+                max: 100,
+                title: "Fiabilidad",
+                label: "%",
+                levelColors: ["#ff0000", "#FF4200", "#E4FF00", "#ffa500", "#00ff00"],
+                gaugeWidthScale: 0.3,
+                counter: true,
+                relativeGaugeSize: true
+            });
+
+            var gaugeCalidadPrecio = new JustGage({
+                id: "gauge-calidad-precio",
+                value: 90,
+                min: 0,
+                max: 100,
+                title: "Calidad Precio",
+                label: "%",
+                levelColors: ["#ff0000", "#FF4200", "#E4FF00", "#ffa500", "#00ff00"],
+                gaugeWidthScale: 0.3,
+                counter: true,
+                relativeGaugeSize: true
+            });
+        });
+
+
+    </script>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            var navbar = $('.navbar');
+
+            $(window).scroll(function () {
+                var scrollTop = $(this).scrollTop();
+
+                if (scrollTop > 0) { // Si el usuario ha comenzado a hacer scroll hacia abajo
+                    navbar.addClass('navbar-dark');
+                    $('.navbar-brand img').addClass('invert-logo');
+                    $('.modal-content').addClass('modal-dark');
+                    if (!$('.navbar').hasClass('at-top')) {
+                        $('.d-lg-block .btn').addClass('btn-scroll'); // Agrega clase específica para botones en scroll
+                    }
+                } else { // Si el usuario está en la parte superior de la página
+                    navbar.removeClass('navbar-dark');
+                    $('.navbar-brand img').removeClass('invert-logo');
+                    $('.modal-content').removeClass('modal-dark');
+                    $('.d-lg-block .btn').removeClass('btn-scroll'); // Remueve clase específica para botones en scroll
+                }
+            });
+        });
+
+    </script>
+
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        document.querySelector('.second-button').addEventListener('click', function () {
+
+            document.querySelector('.animated-icon2').classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>

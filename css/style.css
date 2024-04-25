@@ -1,0 +1,606 @@
+.fs-20 {
+    font-size: 20px;
+}
+
+.mb-5 {
+    margin-bottom: 5%;
+}
+
+.mb-10 {
+    margin-bottom: 10%;
+}
+
+.mt-15 {
+    margin-top: 15%;
+}
+
+.mt-10{
+    margin-top: 10%;
+}
+
+.mt-20 {
+    margin-top: 25%;
+}
+
+.mt-6 {
+    margin-top: 6%;
+}
+
+.ml-3 {
+    margin-left: 3%;
+}
+
+.pl-3 {
+    padding-left: 3%;
+}
+
+
+.bg_grey{
+    background-color: #4e4e4e;
+}
+
+
+
+
+
+
+body {
+    background-color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+.blur-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semi-transparente */
+    backdrop-filter: blur(5px);
+    /* Aplicar efecto de desenfoque */
+    z-index: 999;
+    display: none;
+    transition: backdrop-filter 0.5s ease;
+}
+
+/* Estilo para el header */
+header {
+    position: relative;
+    z-index: 999;
+    /* Asegurarse de que esté por encima de todo */
+}
+
+
+
+
+
+
+
+
+
+/* Custom styles for navbar */
+/* Custom styles for navbar */
+.navbar-brand img {
+    max-height: 50px;
+}
+
+.navbar-nav .nav-link {
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff0000;
+    /* Cambiar color al pasar el cursor */
+}
+
+.navbar {
+    transition: top 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Asegurarse de que esté por encima del contenido */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-dark {
+    background-color: #525252 !important;
+    color: white !important;
+    /* Color de fondo oscuro cuando se desplaza hacia abajo */
+}
+
+.navbar-dark .navbar-brand {
+    color: white;
+    /* Cambiar color del texto del logo */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    /* Cambiar color del texto de los enlaces */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ff0000;
+    /* Cambiar color del texto de los enlaces al pasar el cursor */
+}
+
+.navbar-dark .navbar-brand img,
+.navbar-light .navbar-brand img {
+    filter: brightness(0) invert(1);
+    /* Cambiar color de la imagen del logo a blanco */
+}
+
+.navbar-scroll {
+    top: -100px;
+    /* Altura del navbar, ajustar según sea necesario */
+}
+
+.invert-logo {
+    filter: brightness(0) invert(1);
+}
+
+/* Estilos para los botones dentro del menú colapsable en pantallas pequeñas */
+.navbar-dark .navbar-nav .nav-item .btn {
+    color: rgb(255, 236, 236);
+    /* Cambiar color del texto de los botones */
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+.navbar-dark .navbar-nav .nav-item .btn:hover {
+    color: #ff0000;
+    /* Cambiar color del texto de los botones al pasar el cursor sobre ellos */
+}
+
+/* Estilos para los botones "Iniciar Sesión" y "Registrarse" en pantallas grandes cuando el navbar está en scroll */
+.navbar-dark .d-lg-block .btn {
+    color: rgb(255, 255, 255) !important;
+    /* Cambiar color del texto de los botones */
+}
+
+.navbar-dark .d-lg-block .btn:hover {
+    color: #ff0000 !important;
+    /* Cambiar color del texto de los botones al pasar el cursor sobre ellos */
+}
+
+
+
+
+
+/* Define the shape and color of the hamburger lines */
+.navbar-toggler span {
+    display: block;
+    background-color: #4f4f4f;
+    height: 3px;
+    width: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    left: 0;
+    opacity: 1;
+    transition: all 0.35s ease-out;
+    transform-origin: center left;
+}
+
+
+/* top line needs a little padding */
+.navbar-toggler span:nth-child(1) {
+    margin-top: 0.3em;
+}
+
+/**
+ * Animate collapse into X.
+ */
+
+/* top line rotates 45 degrees clockwise and moves up and in a bit to close the center of the X in the center of the button */
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+    transform: translate(15%, -33%) rotate(45deg);
+}
+
+/* center line goes transparent */
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+    opacity: 0;
+}
+
+/* bottom line rotates 45 degrees counter clockwise, in, and down a bit to close the center of the X in the center of the button  */
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+    transform: translate(15%, 33%) rotate(-45deg);
+}
+
+
+/**
+ * Animate collapse open into hamburger menu
+ */
+
+/* top line moves back to initial position and rotates back to 0 degrees */
+.navbar-toggler span:nth-child(1) {
+    transform: translate(0%, 0%) rotate(0deg);
+}
+
+/* middle line goes back to regular color and opacity */
+.navbar-toggler span:nth-child(2) {
+    opacity: 1;
+}
+
+/* bottom line goes back to initial position and rotates back to 0 degrees */
+.navbar-toggler span:nth-child(3) {
+    transform: translate(0%, 0%) rotate(0deg);
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+      
+        /* Color de fondo */
+        border-top: 1px solid #ddd;
+        /* Borde superior */
+        padding: 10px;
+        /* Espaciado interior */
+    }
+
+    .navbar-nav {
+        text-align: center;
+        /* Centrar los elementos */
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 10px;
+        /* Espaciado entre elementos */
+    }
+
+    .navbar-nav .nav-link {
+        color: #333;
+        /* Color del texto */
+        font-weight: bold;
+        /* Negrita */
+    }
+
+    
+
+    .navbar-nav .btn {
+        margin-top: 10px;
+        /* Espaciado entre botones y enlaces */
+    }
+
+    .navbar-nav .btn-outline-dark {
+        border-color: #343a40;
+        /* Color del borde */
+        color: #343a40;
+        
+        /* Color del texto */
+    }
+
+    .navbar-nav .nav-item:hover {
+        background-color: #343a40;
+        /* Cambiar el color de fondo al pasar el ratón */
+        color: #fff;
+        border-radius: 20px;
+        /* Cambiar el color del texto al pasar el ratón */
+    }
+
+    .navbar-nav .btn-dark {
+        background-color: #343a40;
+        /* Color de fondo */
+        border-color: #343a40;
+        /* Color del borde */
+    }
+
+    .navbar-nav .btn-dark:hover {
+        background-color: #23272b;
+        /* Cambiar el color de fondo al pasar el ratón */
+        border-color: #23272b;
+        /* Cambiar el color del borde al pasar el ratón */
+    }
+}
+
+
+
+
+
+
+
+@keyframes fadeOutDown {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+        /* Desplazamiento hacia abajo */
+    }
+}
+
+.carousel-item {
+    background-color: #f8f9fa;
+    /* Color de fondo */
+    color: #333;
+    /* Color del texto */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #343a40;
+    /* Color de los íconos de control */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    /* Ancho de los botones de control */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    transition: opacity 0.5s ease-in-out;
+    /* Transición suave para los botones de control */
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 0.7;
+    /* Opacidad reducida al pasar el ratón */
+}
+
+
+
+
+
+
+
+
+
+/* Animation on first load */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    animation: fadeInDown 1s;
+}
+
+
+/* Custom styles for carousel */
+.carousel-inner {
+    transition: transform 0.5s ease;
+}
+
+.carousel-item h1,
+.carousel-item h2,
+.carousel-item p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.carousel-item.active h1,
+.carousel-item.active h2,
+.carousel-item.active p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-item img {
+    border-radius: 10px;
+}
+
+/* Animation on first load */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+
+
+
+
+  @keyframes countUp {
+      from {
+          opacity: 0;
+      }
+
+      to {
+          opacity: 1;
+      }
+  }
+
+  /* Estiliza los contadores */
+         .counter {
+             background-color: #61a6ef;
+             border-radius: 10px;
+             padding: 20px;
+             margin-bottom: 20px;
+             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+             transition: all 0.3s ease;
+         }
+    
+         .counter:hover {
+             transform: translateY(-5px);
+             box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.3);
+         }
+    
+         .counter h2 {
+             font-size: 32px;
+             color: #fff;
+         }
+    
+         .counter-value {
+             font-size: 48px;
+             color: #fff;
+             font-weight: bold;
+         }
+    
+         .text-muted {
+             color: #f8f9fa;
+             font-size: 16px;
+         }
+ 
+
+  
+
+
+
+
+   /* Estilos para la animación */
+   .slide-in {
+       opacity: 0;
+       transform: translateY(20px);
+       /* Inicia desde la izquierda */
+       transition: opacity .4s ease-in-out, transform 1s ease-in-out;
+   }
+
+   .visible {
+       opacity: 1;
+       transform: translateY(0);
+       /* Se desplaza a la posición original */
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.circle {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #ff7854, #fd267d);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-bottom: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background 0.3s ease;
+    cursor: pointer;
+    color: #fff;
+    /* Cambio de color de texto a blanco */
+}
+
+.circle i {
+    font-size: 2.5rem;
+}
+
+.circle:hover {
+    transform: scale(1.1) !important;
+    background: linear-gradient(135deg, #fd267d, #ff7854);
+    transition: transform 0.5s ease, background 0.3s ease;
+}
+
+.circle.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos para el texto dentro del círculo */
+.circle h3,
+.circle p {
+    color: #fff;
+    /* Cambio de color de texto a blanco */
+}
+
+
+
+
+
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffc107;
+}
+ a {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 40px;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #ff0a0a;
+    transform: scale(1.1);
+}
+
+#scrollToTopBtn i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-image: url('https://png.pngtree.com/png-vector/20220708/ourmid/pngtree-car-view-from-above-icon-ui-motor-view-vector-png-image_32571258.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+

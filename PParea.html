@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Cartas con Swiper.js y Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        .swiper-container {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            overflow: hidden;
+            /* Oculta cualquier desbordamiento */
+        }
+
+        .swiper-wrapper {
+            display: flex;
+        }
+
+        .swiper-slide {
+            flex-shrink: 0;
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 400px;
+        }
+
+        .swiper-slide img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container mt-5">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card ">
+                            <img src="img/header/car.png" class="card-img-top" alt="Car 1">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Nombre del Coche</h5>
+                                <p class="card-text text-center">Descripción breve del coche.</p>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-primary">Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <img src="img/header/car.png" class="card-img-top" alt="Car 2">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Nombre del Coche</h5>
+                                <p class="card-text text-center">Descripción breve del coche.</p>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-primary">Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <img src="img/header/car.png" class="card-img-top" alt="Car 3">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Nombre del Coche</h5>
+                                <p class="card-text text-center">Descripción breve del coche.</p>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-primary">Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <img src="img/header/car.png" class="card-img-top" alt="Car 3">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Nombre del Coche</h5>
+                                <p class="card-text text-center">Descripción breve del coche.</p>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-primary">Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more cards here if needed -->
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3, // Reduce el número de diapositivas mostradas a 1
+            slidesPerGroup: 1, // Reduce el número de diapositivas agrupadas a 1
+            spaceBetween: 30,
+            loop: true, // Habilita el modo de bucle
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+
+</html>
