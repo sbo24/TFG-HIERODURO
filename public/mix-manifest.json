@@ -31,6 +31,8 @@
     "/js/app.js": "/js/app.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
     "/js/components/ExampleComponent.vue": "/js/components/ExampleComponent.vue",
+    "/js/pages/header/openmodal.js": "/js/pages/header/openmodal.js",
+    "/js/pages/header/sendform.js": "/js/pages/header/sendform.js",
     "/js/pages/index/animated-containers.js": "/js/pages/index/animated-containers.js",
     "/js/pages/index/blur-effect.js": "/js/pages/index/blur-effect.js",
     "/js/pages/index/circles.js": "/js/pages/index/circles.js",

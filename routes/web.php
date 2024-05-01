@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+include_once 'api.php';
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
 });
 
 Auth::routes();
