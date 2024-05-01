@@ -1,11 +1,9 @@
-
-
 <div id="blur-effect" class="blur-effect"></div>
 
 <header>
     <nav class="navbar navbar-expand-lg bg-white shadow-sm  ">
         <div class="container-fluid ">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('index') }}">
                 <img src="../../img/header.png" alt="Logo" class="d-inline-block align-text-top animated fadeInUp">
             </a>
             <button id="navbar-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +14,7 @@
             <div class="collapse navbar-collapse justify-content-end animated fadeInUp" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link" href="{{ route('index') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Vehículos</a>
@@ -25,7 +23,7 @@
                         <a class="nav-link" href="#">Comparar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="{{ route('user') }}">Mi Area</a>
                     </li>
                 </ul>
                 <div class="d-flex align-items-center justify-content-center ms-lg-3">

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+@include('assets.index.index')
+@endsection
+
 @section('content')
 @include('components.header')
 <div id="carousel" class="carousel slide mt-20  mt-lg-5" data-bs-ride="carousel">
@@ -181,4 +185,10 @@
     </div>
 </div>
 
+
+@include('components.footer')
+@endsection
+
+@section('scripts')
+@include('assets.index.indexjs')
 @endsection
