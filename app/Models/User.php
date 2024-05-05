@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function privateVehicles()
+    {
+        return $this->hasMany(PrivateVehicle::class);
+    }
 }

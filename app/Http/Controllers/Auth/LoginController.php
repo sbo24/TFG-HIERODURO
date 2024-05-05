@@ -6,12 +6,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/home';
+    protected function redirectTo()
+    {
+        if (!Auth::check()) {
+            return route('index');
+        } else {
+            return '/';
+        }
+    }
 
     public function __construct()
     {
@@ -30,9 +39,17 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($request->wantsJson()) {
-            return response()->json(['success' => true, 'redirect' => $this->redirectTo]);
+            return response()->json(['success' => true]);
         } else {
-            return redirect()->intended($this->redirectPath());
+            return redirect()->intended(route('index'));
         }
     }
+
+    public function showLoginForm()
+    {
+        return redirect()->route('index');
+    }
+
+
+
 }

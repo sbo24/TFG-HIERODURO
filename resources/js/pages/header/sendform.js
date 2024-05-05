@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Capturamos el botón de inicio de sesión
     const loginButton = document.getElementById('loginButton');
+
+    // Almacenar la URL actual antes de enviar el formulario de inicio de sesión
+    const currentUrl = window.location.href;
+
     // Agregamos un evento de clic al botón
     loginButton.addEventListener('click', function () {
         // Enviamos el formulario utilizando AJAX
@@ -12,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // Si la autenticación es exitosa, redirigimos al usuario
-                    window.location.href = data.redirect;
+                    // Cargar dinámicamente el componente del encabezado usando Livewire
+                    Livewire.emit('headerReload');
                 } else {
                     // Si hay errores de validación, los mostramos en el modal
                     const errors = data.errors;
@@ -25,6 +29,4 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => console.error('Error:', error));
     });
-
-    
 });

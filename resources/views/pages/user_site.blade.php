@@ -12,16 +12,12 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <h1 class="display-3 mb-4">¡Bienvenido a tu Área Privada!</h1>
-                <p class="lead">Descubre el acceso exclusivo a las últimas noticias, eventos y actualizaciones del
-                    mundo
-                    automotriz.</p>
+                <p class="lead">Descubre el acceso exclusivo a las últimas noticias, eventos y actualizaciones del mundo automotriz.</p>
                 <p class="lead">¡Explora y mantente al tanto de todo lo que te interesa!</p>
             </div>
         </div>
     </div>
 </section>
-
-
 
 <div class="container mt-5 ">
     <h2 class="mb-5 text-center">Mis Vehículos</h2>
@@ -30,45 +26,28 @@
     <div class="row mb-4">
         <div class="col-md-3">
             <label for="yearFilter" class="form-label">Año:</label>
-            <select class="form-select" id="yearFilter">
+            <select class="form-select filter-select" id="yearFilter">
                 <option value="">Todos</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>
-                <!-- Agregar más años si es necesario -->
             </select>
         </div>
         <div class="col-md-3">
             <label for="brandFilter" class="form-label">Marca:</label>
-            <select class="form-select" id="brandFilter">
+            <select class="form-select filter-select" id="brandFilter">
                 <option value="">Todas</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Ford">Ford</option>
-                <option value="Chevrolet">Chevrolet</option>
-                <!-- Agregar más marcas si es necesario -->
             </select>
         </div>
         <div class="col-md-3">
-            <label for="brandFilter" class="form-label">Combustible:</label>
-            <select class="form-select" id="brandFilter">
-                <option value="">Todas</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Ford">Ford</option>
-                <option value="Chevrolet">Chevrolet</option>
-                <!-- Agregar más marcas si es necesario -->
+            <label for="fuelTypeFilter" class="form-label">Combustible:</label>
+            <select class="form-select filter-select" id="fuelTypeFilter">
+                <option value="">Todos</option>
             </select>
         </div>
         <div class="col-md-3">
-            <label for="brandFilter" class="form-label">Cambio:</label>
-            <select class="form-select" id="brandFilter">
-                <option value="">Todas</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Ford">Ford</option>
-                <option value="Chevrolet">Chevrolet</option>
-                <!-- Agregar más marcas si es necesario -->
+            <label for="gearboxFilter" class="form-label">Cambio:</label>
+            <select class="form-select filter-select" id="gearboxFilter">
+                <option value="">Todos</option>
             </select>
         </div>
-        <!-- Agregar más filtros aquí -->
     </div>
 
     <!-- Campo de búsqueda -->
@@ -77,22 +56,28 @@
         <button class="btn btn-outline-secondary" type="button" id="searchBtn"><i class="fas fa-search"></i></button>
     </div>
 
+    <!-- Lista de vehículos -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="vehicleList">
         <!-- Aquí se insertarán dinámicamente las tarjetas de vehículos -->
     </div>
 
+    <!-- Botón para cargar más vehículos -->
     <div class="text-center mt-4">
         <button class="btn btn-primary" id="loadMoreBtn">Cargar más</button>
     </div>
 </div>
 
-
-
-
+<div class="mt-5" id="vehicleDetailsContainer">
+    <!-- Aquí se mostrarán dinámicamente los detalles del vehículo -->
+</div>
 
 @include('components.footer')
 @endsection
 
 @section('scripts')
 @include('assets.userSite.userjs')
+
+<script>
+
+</script>
 @endsection

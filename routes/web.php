@@ -15,9 +15,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //INICIO
 
-Route::get('/home/userSite', function () {
+Route::middleware(['auth'])->get('/home/userSite', function () {
     return view('pages.user_site');
 })->name('user');
+
 
 //USER_SITE
 

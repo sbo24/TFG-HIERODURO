@@ -26,30 +26,32 @@
                         <a class="nav-link" href="{{ route('user') }}">Mi Área</a>
                     </li>
                 </ul>
-                @auth
-                <div class="dropdown">
-                    <button class="btn btn-outline-dark dropdown-toggle me-2" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Bienvenido, {{ Auth::user()->name }}
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="{{ route('user') }}">Mi Área</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="dropdown-item">Cerrar sesión</button>
-                            </form>
-                        </li>
-                    </ul>
+                <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center text-center text-lg-start ms-lg-3">
+                    @auth
+                    <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle me-2" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bienvenido, {{ Auth::user()->name }}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="{{ route('user') }}">Mi Área</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    @else
+                    <div class="mt-3 mt-lg-0">
+                        <button type="button" class="btn btn-outline-dark me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</button>
+                    </div>
+                    @endauth
                 </div>
-                @else
-                <div class="d-flex align-items-center justify-content-center ms-lg-3">
-                    <button type="button" class="btn btn-outline-dark me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</button>
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</button>
-                </div>
-                @endauth
 
             </div>
         </div>
@@ -65,7 +67,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!-- Formulario de inicio de sesión -->
+
                 <!-- Formulario de inicio de sesión -->
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
