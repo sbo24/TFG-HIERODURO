@@ -30,11 +30,14 @@
     "/js/pages/index/navbar.js": "/js/pages/index/navbar.js",
     "/js/pages/index/scroll.js": "/js/pages/index/scroll.js",
     "/js/pages/user_site/filters.js": "/js/pages/user_site/filters.js",
+    "/img/BMW/120/d/E87/image1.png": "/img/BMW/120/d/E87/image1.png",
+    "/img/BMW/120/d/F40/image1.png": "/img/BMW/120/d/F40/image1.png",
     "/img/car.png": "/img/car.png",
     "/img/cartop.png": "/img/cartop.png",
     "/img/carusel.png": "/img/carusel.png",
     "/img/derecha.png": "/img/derecha.png",
     "/img/header.png": "/img/header.png",
+    "/img/image1.png": "/img/image1.png",
     "/img/izquierda.png": "/img/izquierda.png",
     "/img/velocimetro.png": "/img/velocimetro.png"
 }

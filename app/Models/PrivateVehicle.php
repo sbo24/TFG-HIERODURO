@@ -11,4 +11,8 @@ class PrivateVehicle extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function detail()
+    {
+        return $this->belongsTo(Detalle::class, 'details_id');
+    }
 }
