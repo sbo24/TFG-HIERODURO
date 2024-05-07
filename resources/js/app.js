@@ -1,41 +1,20 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
+// Importa las dependencias y el bootstrap de la aplicación
 import './bootstrap';
 import { createApp } from 'vue';
-import ExampleComponent from './components/ExampleComponent.vue';
-import FilterCard from './components/FilterCard.vue';
+
+// Importa el componente necesario
+import VehicleList from './components/user_site/VehicleList.vue';
+import VehicleDetails from './components/user_site/VehicleDetails.vue';
+import Father from './components/user_site/Father.vue';
+
 
 // Crea la aplicación Vue
 const app = createApp({});
 
-// Registra los componentes
-app.component('example-component', ExampleComponent);
-app.component('filter-card', FilterCard);
+// Registra el componente globalmente
+app.component('vehicle-list', VehicleList);
+app.component('vehicle-details', VehicleDetails);
+app.component('father', Father);
 
 // Monta la aplicación en el elemento con el ID 'app'
-app.mount('#app');
-
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
-//     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
-// });
-
-/**
- * Finally, we will attach the application instance to a HTML element with
- * an "id" attribute of "app". This element is included with the "auth"
- * scaffolding. Otherwise, you will need to add an element yourself.
- */
-
 app.mount('#app');

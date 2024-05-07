@@ -137,4 +137,5 @@ class PrivateVehicleController extends Controller
             return response()->json(['message' => 'Error al actualizar el kilometraje del vehículo'], 500);
         }
     }
+
 }

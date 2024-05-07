@@ -17,7 +17,7 @@
                         <a class="nav-link" href="{{ route('index') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Vehículos</a>
+                        <a class="nav-link" href="{{ route('vehicle') }}">Vehículos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Comparar</a>
@@ -28,9 +28,9 @@
                 </ul>
                 <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center text-center text-lg-start ms-lg-3">
                     @auth
-                    <div class="dropdown">
+                    <div class="dropdown mr-1">
                         <button class="btn btn-outline-dark dropdown-toggle me-2" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Bienvenido, {{ Auth::user()->name }}
+                            Bienvenido, saul
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="{{ route('user') }}">Mi Área</a></li>
@@ -45,6 +45,7 @@
                             </li>
                         </ul>
                     </div>
+
                     @else
                     <div class="mt-3 mt-lg-0">
                         <button type="button" class="btn btn-outline-dark me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</button>

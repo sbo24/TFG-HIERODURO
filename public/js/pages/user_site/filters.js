@@ -186,8 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                 <ul class="list-group">
                                                     <li class="list-group-item revision-list-item p-2">
                                                         <strong>Cambio de aceite:</strong><br>
-                                                        Kilometraje: <span id="mileageValue">${vehicle.c_aceite}</span>
-                                                        <button class="btn btn-sm btn-outline-primary ml-2 editMileageBtn"><i class="fas fa-pencil-alt"></i></button><br>
+                                                        Kilometraje: <span id="mileageValue">${vehicle.c_aceite}</span><br>
                                                         Próxima revisión: ${proximaRevision} km
                                                     </li>
                                                 </ul>
@@ -207,57 +206,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('vehicleDetailsContainer').innerHTML = detailsHTML;
 
                 // Agregar evento de clic a los botones de edición de kilometraje
-                document.querySelectorAll('.editMileageBtn').forEach(btn => {
-                    btn.addEventListener('click', editMileage);
-                });
+              
+
             })
             .catch(error => console.error('Error fetching vehicle details:', error));
     };
 
-    function editMileage() {
-        const newMileageInput = prompt('Ingrese el nuevo kilometraje:'); // Solicitar al usuario el nuevo kilometraje
-
-        // Verificar si el usuario ingresó un nuevo kilometraje
-        if (newMileageInput !== null && !isNaN(newMileageInput)) {
-            const newMileage = parseInt(newMileageInput.replace(/\D/g, '')); // Convertir a número entero y eliminar cualquier caracter no numérico
-
-            // Obtener el token CSRF del meta tag
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
-
-            // Obtener el tipo de kilometraje
-            const mileageType = 'c_aceite'; // Definir el tipo de kilometraje aquí
-
-            // Actualizar el valor del kilometraje mostrado
-            const mileageValueElement = this.parentNode.querySelector('#mileageValue');
-            mileageValueElement.textContent = newMileage; // No agregamos 'km' aquí
-
-            // Enviar el nuevo kilometraje al servidor utilizando fetch
-            fetch('/api/v1/vehicles/change-mileage', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken // Agregar el token CSRF al encabezado
-                },
-                body: JSON.stringify({
-                    mileage_type: mileageType, // Tipo de kilometraje
-                    new_mileage: newMileage // Nuevo kilometraje
-                })
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al enviar el nuevo kilometraje al servidor');
-                    }
-                    // Aquí puedes manejar la respuesta del servidor si es necesario
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Se produjo un error al enviar el nuevo kilometraje al servidor.');
-                });
-        } else {
-            alert('Ingrese un valor válido para el kilometraje.'); // Mostrar un mensaje de alerta si el valor ingresado no es válido
-        }
-    }
-
-
+ 
 
 });
