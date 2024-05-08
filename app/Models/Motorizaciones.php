@@ -11,4 +11,8 @@ class Motorizaciones extends Model
     {
         return $this->belongsTo(Modelo::class);
     }
+    public function codigosVersion()
+    {
+        return $this->hasMany(CodigoModelo::class, 'version_id');
+    }
 }

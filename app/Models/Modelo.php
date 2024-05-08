@@ -14,6 +14,6 @@ class Modelo extends Model
 
     public function motorizaciones()
     {
-        return $this->hasMany(Motorizacion::class);
+        return $this->hasMany(Motorizaciones::class);
     }
 }

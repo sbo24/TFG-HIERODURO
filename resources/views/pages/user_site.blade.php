@@ -33,7 +33,7 @@
 </div>
 
 <div class="mt-5">
-    <div id="app">
+    <div id="user-components">
         <father></father>
     </div>
 </div>
@@ -42,7 +42,8 @@
 
 @include('components.footer')
 @endsection
-@vite('resources/js/app.js')
+
+@vite('resources/js/userApp.js')
 @section('scripts')
 @include('assets.userSite.userjs')
 

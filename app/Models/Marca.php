@@ -14,6 +14,6 @@ class Marca extends Model
 
     public function motorizaciones()
     {
-        return $this->hasManyThrough(Motorizacion::class, Modelo::class);
+        return $this->hasManyThrough(Motorizaciones::class, Modelo::class);
     }
 }
