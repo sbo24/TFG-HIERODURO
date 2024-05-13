@@ -13,12 +13,12 @@ use App\Http\Controllers\DetalleController;
 Route::middleware(['auth'])->group(function () {
     Route::get('/api/v1/privatevehicles', [PrivateVehicleController::class, 'index']);
     Route::get('/api/v1/privatevehicles/{id}', [PrivateVehicleController::class, 'show']);
-    Route::get('/api/v1/brands', [MarcaController::class, 'index']);
-    Route::get('api/v1/models/{marcaId}', [ModeloController::class, 'getmodelbybranchid']);
-    Route::get('api/v1/motorization/{modelId}', [MotorizacionController::class, 'getmotoriacionbymodelid']);
-    Route::get('api/v1/cp/{motorizacionId}', [CodigoController::class, 'getcpbymotocitation']);
-    Route::get('/api/v1/detalles/{marcaId}/{modeloId}/{versionId}/{codigoId}', [DetalleController::class, 'getDetails']);
-
     Route::post('/api/v1/vehicles/change-mileage', [PrivateVehicleController::class, 'changeMileage']);
 });
+
+Route::get('/api/v1/brands', [MarcaController::class, 'index']);
+Route::get('api/v1/models/{marcaId}', [ModeloController::class, 'getmodelbybranchid']);
+Route::get('api/v1/motorization/{modelId}', [MotorizacionController::class, 'getmotoriacionbymodelid']);
+Route::get('api/v1/cp/{motorizacionId}', [CodigoController::class, 'getcpbymotocitation']);
+Route::get('/api/v1/detalles/{marcaId}/{modeloId}/{versionId}/{codigoId}', [DetalleController::class, 'getDetails']);
 

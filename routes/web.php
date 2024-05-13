@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,3 +35,18 @@ Route::get('/home', function () {
 Route::get('/home/vehicles', function () {
     return view('pages.vehicle');
 })->name('vehicle');
+
+
+//COMPARATION
+
+Route::get('/home/comparation', function () {
+    return view('pages.comparation');
+})->name('comparation');
+
+//GOOGLE
+
+Route::get('/auth/google/redirect', [LoginController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('/auth/google/callback', [LoginController::class,  'handleGoogleCallback'])->name('google.callback');
+
+
+

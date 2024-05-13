@@ -20,7 +20,7 @@
                         <a class="nav-link" href="{{ route('vehicle') }}">Vehículos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Comparar</a>
+                        <a class="nav-link" href="{{ route('comparation') }}">Comparar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user') }}">Mi Área</a>
@@ -30,7 +30,7 @@
                     @auth
                     <div class="dropdown mr-1">
                         <button class="btn btn-outline-dark dropdown-toggle me-2" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Bienvenido, saul
+                            Bienvenido, {{ Auth::user()->name }}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="{{ route('user') }}">Mi Área</a></li>
@@ -68,14 +68,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
                 <!-- Formulario de inicio de sesión -->
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required autofocus>
+                        <input type="email" class="form-control custom-input @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required autofocus>
                         @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -83,21 +81,25 @@
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
+                        <input type="password" class="form-control custom-input @error('password') is-invalid @enderror" id="password" name="password" required>
                         @error('password')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                        <input type="checkbox" class="form-check-input custom-checkbox" id="remember" name="remember">
                         <label class="form-check-label" for="remember">Recuérdame</label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+                        <a href="{{ route('google.redirect') }}" class="btn btn-google btn-lg"><i class="fab fa-google"></i> Iniciar sesión con Google</a>
+                    </div>
                 </form>
-
             </div>
+
+
         </div>
     </div>
 </div>
@@ -120,7 +122,7 @@
 
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input id="name" type="text" class="form-control custom-input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -130,7 +132,7 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo electrónico</label>
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                        <input id="email" type="email" class="form-control custom-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -140,7 +142,7 @@
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                        <input id="password" type="password" class="form-control custom-input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -150,10 +152,13 @@
 
                     <div class="mb-3">
                         <label for="password-confirm" class="form-label">Confirmar contraseña</label>
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                        <input id="password-confirm" type="password" class="form-control custom-input" name="password_confirmation" required autocomplete="new-password">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
+                        <a href="{{ route('google.redirect') }}" class="btn btn-google btn-lg"><i class="fab fa-google"></i> Registrarse con Google</a>
+                    </div>
                 </form>
             </div>
         </div>

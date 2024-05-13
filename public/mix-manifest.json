@@ -17,6 +17,8 @@
     "/css/user_site/header.css.map": "/css/user_site/header.css.map",
     "/js/app.js": "/js/app.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
+    "/js/comparationApp.js": "/js/comparationApp.js",
+    "/js/components/comparation/Comparation.vue": "/js/components/comparation/Comparation.vue",
     "/js/components/ExampleComponent.vue": "/js/components/ExampleComponent.vue",
     "/js/components/Father.vue": "/js/components/Father.vue",
     "/js/components/FilterCard.vue": "/js/components/FilterCard.vue",
@@ -51,5 +53,6 @@
     "/img/header.png": "/img/header.png",
     "/img/image1.png": "/img/image1.png",
     "/img/izquierda.png": "/img/izquierda.png",
-    "/img/velocimetro.png": "/img/velocimetro.png"
+    "/img/velocimetro.png": "/img/velocimetro.png",
+    "/chart.js/chart.js": "/chart.js/chart.js"
 }

@@ -32,7 +32,9 @@
 
 
 @vite('resources/js/vehicleApp.js')
+
 @section('scripts')
+<script src="{{ asset('chart.js/chart.js') }}"></script>
 @include('assets.vehicle.vehiclejs')
 
 
