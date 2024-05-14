@@ -17,4 +17,6 @@ class ModeloController extends Controller
 
         return response()->json($modelos);
     }
+
+    
 }

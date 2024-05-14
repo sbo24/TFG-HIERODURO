@@ -255,3 +255,46 @@ header {
         }
     }
 }
+
+
+/* Estilos para el menú desplegable */
+
+.dropdown-menu {
+    background-color: #f8f9fa;
+
+    /* Color de fondo */
+    border: none;
+
+    /* Eliminar el borde */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* Añadir sombra */
+    padding: 0.5rem 0;
+
+    /* Añadir espaciado interno */
+    transition: all 0.3s ease;
+
+    /* Añadir transición suave */
+
+    .dropdown-item {
+        color: #333;
+
+        /* Color del texto */
+        padding: 0.5rem 1rem;
+
+        /* Añadir espaciado interno */
+        transition: background-color 0.3s ease;
+
+        /* Añadir transición de color de fondo */
+
+        &:hover {
+            background-color: #e9ecef;
+
+            /* Cambiar color de fondo al pasar el cursor */
+        }
+    }
+}
+
+/* Estilos para los elementos del menú desplegable */
+
+/* Estilos al pasar el cursor sobre los elementos del menú desplegable */

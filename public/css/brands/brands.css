@@ -1,0 +1,21 @@
+.marca {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Asegura que todas las columnas tengan la misma altura */
+}
+.marca a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  /* Hace que el enlace ocupe todo el espacio disponible verticalmente */
+}
+.marca img {
+  max-width: 100%;
+  max-height: 100%;
+  /* Asegura que la imagen se ajuste al contenedor */
+  object-fit: contain;
+}
+
+/*# sourceMappingURL=brands.css.map */

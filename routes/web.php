@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MarcaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,31 +16,39 @@ Auth::routes();
 //INICIO
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 //USER_SITE
-Route::middleware(['auth'])->get('/home/userSite', function () {
+Route::middleware(['auth'])->get('/zonaPrivada', function () {
     return view('pages.user_site');
 })->name('user');
 
 
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('pages.index');
 })->name('index');
 
 
 //CARSITE
 
-Route::get('/home/vehicles', function () {
+Route::get('/vehiculos', function () {
     return view('pages.vehicle');
 })->name('vehicle');
 
 
+//BRANDS
+
+
+Route::get('/marcas', [MarcaController::class, 'showAllBrands'])->name('brands');;
+Route::get('/marcas/{nombreMarca}', [MarcaController::class, 'showModelsByBrand']);
+
+
+
 //COMPARATION
 
-Route::get('/home/comparation', function () {
+Route::get('/duelos', function () {
     return view('pages.comparation');
 })->name('comparation');
 

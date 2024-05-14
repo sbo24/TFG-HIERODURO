@@ -20,6 +20,9 @@
                         <a class="nav-link" href="{{ route('vehicle') }}">Vehículos</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('brands') }}">Marcas</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('comparation') }}">Comparar</a>
                     </li>
                     <li class="nav-item">

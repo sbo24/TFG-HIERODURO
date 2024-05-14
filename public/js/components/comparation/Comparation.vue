@@ -118,11 +118,9 @@
                                     <li class="list-group"
                                         :class="{ 'text-success': detalle2[0].cv > detalle1[0].cv, 'text-danger': detalle2[0].cv < detalle1[0].cv }">
                                         CV: {{ detalle2[0].cv }}cv</li>
-                                    <li class="list-group"
-                                        >
+                                    <li class="list-group">
                                         Cambio: {{ detalle2[0].cambio }}</li>
-                                    <li class="list-group"
-                                        >
+                                    <li class="list-group">
                                         Combustible: {{ detalle2[0].combustible }}</li>
                                     <li class="list-group"
                                         :class="{ 'text-success': detalle2[0].par_medio > detalle1[0].par_medio, 'text-danger': detalle2[0].par_medio < detalle1[0].par_medio }">
@@ -176,14 +174,11 @@
                             <td
                                 :class="{ 'text-success': chasis2Wins > chasis1Wins, 'text-danger': chasis2Wins < chasis1Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group"
-                                        >
+                                    <li class="list-group">
                                         Dimensiones Neumaticos: {{ detalle2[0].neumaticos }}</li>
-                                    <li class="list-group"
-                                       >
+                                    <li class="list-group">
                                         Frenos Delanteros: {{ detalle2[0].frenos_del }}</li>
-                                    <li class="list-group"
-                                       >
+                                    <li class="list-group">
                                         Frenos Traseros: {{ detalle2[0].frenos_tras }}</li>
                                 </ul>
                             </td>
@@ -214,206 +209,162 @@
 
             </div>
         </div>
-         <div>
-    <canvas id="barChart"></canvas>
-  </div>
+        <div>
+
+        </div>
     </div>
 </template>
 
-
 <script>
+import Chart from 'chart.js/auto';
 
 
 export default {
-  data() {
-    return {
-      brands: [],
-      models1: [],
-      models2: [],
-      motorizations1: [],
-      motorizations2: [],
-      codes1: [],
-      codes2: [],
-      selectedBrand1: '',
-      selectedBrand2: '',
-      selectedModel1: '',
-      selectedModel2: '',
-      selectedMotorization1: '',
-      selectedMotorization2: '',
-      selectedCode1: '',
-      selectedCode2: '',
-      detalle1: null,
-      detalle2: null,
-    };
-  },
-  mounted() {
-    this.getBrands();
-  },
-  methods: {
-    async getBrands() {
-      try {
-        const response = await fetch('/api/v1/brands');
-        const data = await response.json();
-        this.brands = data;
-      } catch (error) {
-        console.error('Error fetching brands:', error);
-      }
+    data() {
+        return {
+            brands: [],
+            models1: [],
+            models2: [],
+            motorizations1: [],
+            motorizations2: [],
+            codes1: [],
+            codes2: [],
+            selectedBrand1: '',
+            selectedBrand2: '',
+            selectedModel1: '',
+            selectedModel2: '',
+            selectedMotorization1: '',
+            selectedMotorization2: '',
+            selectedCode1: '',
+            selectedCode2: '',
+            detalle1: null,
+            detalle2: null
+        };
     },
-    async getModels(brand, index) {
-      try {
-        const response = await fetch(`/api/v1/models/${brand}`);
-        const data = await response.json();
-        if (index === 1) {
-          this.models1 = data;
-        } else if (index === 2) {
-          this.models2 = data;
-        }
-      } catch (error) {
-        console.error('Error fetching models:', error);
-      }
+    mounted() {
+        this.getBrands();
     },
-    async getMotorizations(model, index) {
-      try {
-        const response = await fetch(`/api/v1/motorization/${model}`);
-        const data = await response.json();
-        if (index === 1) {
-          this.motorizations1 = data;
-        } else if (index === 2) {
-          this.motorizations2 = data;
-        }
-      } catch (error) {
-        console.error('Error fetching motorizations:', error);
-      }
-    },
-    async getCodes(motorization, index) {
-      try {
-        const response = await fetch(`/api/v1/cp/${motorization}`);
-        const data = await response.json();
-        if (index === 1) {
-          this.codes1 = data;
-        } else if (index === 2) {
-          this.codes2 = data;
-        }
-      } catch (error) {
-        console.error('Error fetching codes:', error);
-      }
-    },
-    async getDetalle(brand, model, motorization, code, index) {
-      try {
-        const response = await fetch(`/api/v1/detalles/${brand}/${model}/${motorization}/${code}`);
-        const data = await response.json();
-        if (index === 1) {
-          this.detalle1 = data;
-        } else if (index === 2) {
-          this.detalle2 = data;
-        }
-      } catch (error) {
-        console.error('Error fetching detalle:', error);
-      }
-    },
-    async onBrandChange(index) {
-      if (index === 1) {
-        this.selectedModel1 = '';
-        this.selectedMotorization1 = '';
-        this.selectedCode1 = '';
-        this.models1 = [];
-        this.motorizations1 = [];
-        this.codes1 = [];
-      } else if (index === 2) {
-        this.selectedModel2 = '';
-        this.selectedMotorization2 = '';
-        this.selectedCode2 = '';
-        this.models2 = [];
-        this.motorizations2 = [];
-        this.codes2 = [];
-      }
-      await this.getModels(this['selectedBrand' + index], index);
-    },
-    async onModelChange(index) {
-      if (index === 1) {
-        this.selectedMotorization1 = '';
-        this.selectedCode1 = '';
-      } else if (index === 2) {
-        this.selectedMotorization2 = '';
-        this.selectedCode2 = '';
-      }
-      await this.getMotorizations(this['selectedModel' + index], index);
-    },
-    async onMotorizationChange(index) {
-      if (index === 1) {
-        this.selectedCode1 = '';
-      } else if (index === 2) {
-        this.selectedCode2 = '';
-      }
-      await this.getCodes(this['selectedMotorization' + index], index);
-    },
-    async onCodeChange(index) {
-      if (this['selectedBrand' + index] && this['selectedModel' + index] && this['selectedMotorization' + index] && this['selectedCode' + index]) {
-        await this.getDetalle(this['selectedBrand' + index], this['selectedModel' + index], this['selectedMotorization' + index], this['selectedCode' + index], index);
-      }
-    },
-    renderChart() {
-      const ctx = document.getElementById('barChart').getContext('2d');
-      const barChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Torque', 'CV', 'Cambio', 'Combustible', 'Par Medio', 'Par Maximo'],
-          datasets: [
-            {
-              label: 'Vehicle 1',
-              backgroundColor: 'rgba(54, 162, 235, 0.5)',
-              borderColor: 'rgba(54, 162, 235, 1)',
-              borderWidth: 1,
-              data: [this.detalle1?.torque || 0, this.detalle1?.cv || 0, this.detalle1?.cambio || 0, this.detalle1?.combustible || 0, this.detalle1?.par_medio || 0, this.detalle1?.par_maximo || 0],
-            },
-            {
-              label: 'Vehicle 2',
-              backgroundColor: 'rgba(255, 99, 132, 0.5)',
-              borderColor: 'rgba(255, 99, 132, 1)',
-              borderWidth: 1,
-              data: [this.detalle2?.torque || 0, this.detalle2?.cv || 0, this.detalle2?.cambio || 0, this.detalle2?.combustible || 0, this.detalle2?.par_medio || 0, this.detalle2?.par_maximo || 0],
-            },
-          ],
+    methods: {
+        async getBrands() {
+            try {
+                const response = await fetch('/api/v1/brands');
+                const data = await response.json();
+                this.brands = data;
+            } catch (error) {
+                console.error('Error fetching brands:', error);
+            }
         },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
+        async getModels(brand, index) {
+            try {
+                const response = await fetch(`/api/v1/models/${brand}`);
+                const data = await response.json();
+                if (index === 1) {
+                    this.models1 = data;
+                } else if (index === 2) {
+                    this.models2 = data;
+                }
+            } catch (error) {
+                console.error('Error fetching models:', error);
+            }
         },
-      });
-    },
-  },
-  watch: {
-    selectedCode1: {
-      handler() {
-        if (this.selectedBrand1 && this.selectedModel1 && this.selectedMotorization1 && this.selectedCode1) {
-          this.getDetalle(this.selectedBrand1, this.selectedModel1, this.selectedMotorization1, this.selectedCode1, 1);
+        async getMotorizations(model, index) {
+            try {
+                const response = await fetch(`/api/v1/motorization/${model}`);
+                const data = await response.json();
+                if (index === 1) {
+                    this.motorizations1 = data;
+                } else if (index === 2) {
+                    this.motorizations2 = data;
+                }
+            } catch (error) {
+                console.error('Error fetching motorizations:', error);
+            }
+        },
+        async getCodes(motorization, index) {
+            try {
+                const response = await fetch(`/api/v1/cp/${motorization}`);
+                const data = await response.json();
+                if (index === 1) {
+                    this.codes1 = data;
+                } else if (index === 2) {
+                    this.codes2 = data;
+                }
+            } catch (error) {
+                console.error('Error fetching codes:', error);
+            }
+        },
+        async getDetalle(brand, model, motorization, code, index) {
+            try {
+                const response = await fetch(`/api/v1/detalles/${brand}/${model}/${motorization}/${code}`);
+                const data = await response.json();
+                if (index === 1) {
+                    this.detalle1 = data;
+                } else if (index === 2) {
+                    this.detalle2 = data;
+                }
+            } catch (error) {
+                console.error('Error fetching detalle:', error);
+            }
+        },
+        async onBrandChange(index) {
+            if (index === 1) {
+                this.selectedModel1 = '';
+                this.selectedMotorization1 = '';
+                this.selectedCode1 = '';
+                this.models1 = [];
+                this.motorizations1 = [];
+                this.codes1 = [];
+            } else if (index === 2) {
+                this.selectedModel2 = '';
+                this.selectedMotorization2 = '';
+                this.selectedCode2 = '';
+                this.models2 = [];
+                this.motorizations2 = [];
+                this.codes2 = [];
+            }
+            await this.getModels(this['selectedBrand' + index], index);
+        },
+        async onModelChange(index) {
+            if (index === 1) {
+                this.selectedMotorization1 = '';
+                this.selectedCode1 = '';
+            } else if (index === 2) {
+                this.selectedMotorization2 = '';
+                this.selectedCode2 = '';
+            }
+            await this.getMotorizations(this['selectedModel' + index], index);
+        },
+        async onMotorizationChange(index) {
+            if (index === 1) {
+                this.selectedCode1 = '';
+            } else if (index === 2) {
+                this.selectedCode2 = '';
+            }
+            await this.getCodes(this['selectedMotorization' + index], index);
+        },
+        async onCodeChange(index) {
+            if (this['selectedBrand' + index] && this['selectedModel' + index] && this['selectedMotorization' + index] && this['selectedCode' + index]) {
+                await this.getDetalle(this['selectedBrand' + index], this['selectedModel' + index], this['selectedMotorization' + index], this['selectedCode' + index], index);
+            }
         }
-      },
-      immediate: false,
     },
-    selectedCode2: {
-      handler() {
-        if (this.selectedBrand2 && this.selectedModel2 && this.selectedMotorization2 && this.selectedCode2) {
-          this.getDetalle(this.selectedBrand2, this.selectedModel2, this.selectedMotorization2, this.selectedCode2, 2);
+    watch: {
+        selectedCode1: {
+            handler() {
+                if (this.selectedBrand1 && this.selectedModel1 && this.selectedMotorization1 && this.selectedCode1) {
+                    this.getDetalle(this.selectedBrand1, this.selectedModel1, this.selectedMotorization1, this.selectedCode1, 1);
+                }
+            },
+            immediate: false
+        },
+        selectedCode2: {
+            handler() {
+                if (this.selectedBrand2 && this.selectedModel2 && this.selectedMotorization2 && this.selectedCode2) {
+                    this.getDetalle(this.selectedBrand2, this.selectedModel2, this.selectedMotorization2, this.selectedCode2, 2);
+                }
+            },
+            immediate: false
         }
-      },
-      immediate: false,
-    },
-    detalle1: {
-      handler() {
-        this.renderChart();
-      },
-      deep: true,
-    },
-    detalle2: {
-      handler() {
-        this.renderChart();
-      },
-      deep: true,
-    },
-  },
+    }
 };
 </script>
