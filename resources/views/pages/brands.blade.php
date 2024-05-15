@@ -12,13 +12,15 @@
     <div class="container p-4 bg-black text-white">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
-                <h1 class="display-3 mb-4">¡Bienvenido a tu Área Privada!</h1>
-                <p class="lead">Descubre el acceso exclusivo a las últimas noticias, eventos y actualizaciones del mundo automotriz.</p>
-                <p class="lead">¡Explora y mantente al tanto de todo lo que te interesa!</p>
+                <h1 class="display-3 mb-4">¡Bienvenido a tu Espacio de Marcas!</h1>
+                <p class="lead">Sumérgete en el apasionante mundo automotriz y explora una amplia selección de marcas líderes en la industria.</p>
+                <p class="lead">Aquí encontrarás acceso exclusivo a las últimas novedades, eventos emocionantes y actualizaciones relevantes.</p>
+                <p class="lead">¡Explora nuestras marcas y mantente al tanto de todo lo que te interesa!</p>
             </div>
         </div>
     </div>
 </section>
+
 
 
 <div class="container mt-5">

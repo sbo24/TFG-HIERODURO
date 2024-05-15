@@ -8,31 +8,71 @@
 @include('components.header')
 
 
-<section class="intro-section mt-20 mt-sm-0">
-    <div class="container p-4 bg-black text-white">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 text-center">
-                <h1 class="display-3 mb-4">¡Bienvenido a tu JEJEJEJEJJ!</h1>
-                <p class="lead">Descubre el acceso exclusivo a las últimas noticias, eventos y actualizaciones del mundo automotriz.</p>
-                <p class="lead">¡Explora y mantente al tanto de todo lo que te interesa!</p>
+
+
+
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-center">
+            <img class="img-fluid w-10" src="/img/Brands/{{ $marca->nombre }}.png" alt="{{ $marca->nombre }}">
+    </div>
+    <h2 class="text-center">{{ $marca->nombre }}</h2>
+    <div class="row">
+        @foreach ($modelos as $modelo)
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <h3 class="card-title text-center">{{ $modelo->nombre }}</h3>
+                    <ul class="list-group list-group-flush">
+                        @foreach ($modelo->motorizaciones as $motorizacion)
+                        <li class="list-group-item">
+                            <strong>Motorización:</strong> {{ $motorizacion->nombre }}
+                            <ul class="list-group list-group-flush">
+                                @foreach ($motorizacion->codigosVersion as $version)
+                                <div class="text-center mt-3">
+                                    <img src="/img/{{ $marca->nombre }}/{{ $modelo->nombre }}/{{ $motorizacion->nombre }}/{{ $version->codigo }}/image1.png" class="img-fluid vehicle-image " alt="{{ $version->nombre }}">
+                                </div>
+                                <li class="list-group-item text-center">Código de Versión: {{ $version->codigo }}</li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
+        @endforeach
     </div>
-</section>
+</div>
 
+<style>
+    .card {
+        transition: transform 0.3s ease;
+    }
 
+    .card:hover {
+        transform: scale(1.05);
+    }
 
-@foreach ($modelos as $modelo)
-<li>{{ $modelo->nombre }}</li>
-@endforeach
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
 
+    .vehicle-image {
+        max-height: 150px;
+        object-fit: contain;
+    }
 
+    .w-10{
+        width: 10%;
+    }
+</style>
 
 
 
 @include('components.footer')
 @endsection
-
 
 @vite('resources/js/brandApp.js')
 

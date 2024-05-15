@@ -13,6 +13,7 @@ use App\Http\Controllers\DetalleController;
 Route::middleware(['auth'])->group(function () {
     Route::get('/api/v1/privatevehicles', [PrivateVehicleController::class, 'index']);
     Route::get('/api/v1/privatevehicles/{id}', [PrivateVehicleController::class, 'show']);
+    Route::post('/api/v1/privatevehicles/store', [PrivateVehicleController::class, 'store']);
     Route::post('/api/v1/vehicles/change-mileage', [PrivateVehicleController::class, 'changeMileage']);
 });
 

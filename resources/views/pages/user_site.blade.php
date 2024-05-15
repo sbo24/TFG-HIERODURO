@@ -21,15 +21,6 @@
 
 <div class="container mt-5 ">
     <h2 class="mb-5 text-center">Mis Vehículos</h2>
-
-
-
-
-    <!-- Lista de vehículos -->
-
-
-
-
 </div>
 
 <div class="mt-5">

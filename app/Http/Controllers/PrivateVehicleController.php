@@ -18,54 +18,64 @@ class PrivateVehicleController extends Controller
 {
     public function index()
     {
-        // Obtener todos los vehículos privados con sus detalles asociados y las relaciones de marca, modelo y motorización cargadas paginados
-        $privateVehicles = PrivateVehicle::with('detail.marca', 'detail.modelo', 'detail.motorizacion', 'detail.codigoModelo')->paginate(3);
+        // Obtener el usuario autenticado actualmente
+        $user = Auth::user();
 
-        // Formatear los datos de los vehículos privados
-        $formattedData = $privateVehicles->map(function ($vehicle) {
-            // Construir la ruta de la imagen
-            $imagePath = 'img/' . $vehicle->detail->marca->nombre . '/' . $vehicle->detail->modelo->nombre . '/' . $vehicle->detail->motorizacion->nombre . '/' . $vehicle->detail->codigoModelo->codigo . '/image1.png' ;
+        // Verificar si el usuario está autenticado
+        if ($user) {
+            // Obtener los vehículos privados del usuario autenticado con sus detalles asociados y las relaciones de marca, modelo y motorización cargadas paginados
+            $privateVehicles = $user->privateVehicles()->with('detail.marca', 'detail.modelo', 'detail.motorizacion', 'detail.codigoModelo')->paginate(3);
 
-            // Asignar la ruta de la imagen al campo correspondiente
-            return [
-                'id' => $vehicle->id,
-                'user_id' => $vehicle->user_id,
-                'details_id' => $vehicle->details_id,
-                'marca' => $vehicle->detail->marca->nombre,
-                'modelo' => $vehicle->detail->modelo->nombre,
-                'version' => $vehicle->detail->motorizacion->nombre,
-                'año_desde' => $vehicle->detail->año_desde,
-                'cambio' => $vehicle->detail->cambio,
-                'c_aceite' => $vehicle->c_aceite,
-                'combustible' => $vehicle->detail->combustible,
-                'año_hasta' => $vehicle->detail->año_hasta,
-                'codigo' => $vehicle->detail->codigoModelo->codigo,
-                'torque' => $vehicle->detail->torque,
-                'proximo_c_aceite' => $vehicle->detail->proximo_c_aceite,
-                'cv' => $vehicle->detail->cv,
-                'descripcion' => $vehicle->detail->descripcion,
-                'image_url' => asset($imagePath), // Ruta completa de la imagen
+            // Formatear los datos de los vehículos privados
+            $formattedData = $privateVehicles->map(function ($vehicle) {
+                // Construir la ruta de la imagen
+                $imagePath = 'img/' . $vehicle->detail->marca->nombre . '/' . $vehicle->detail->modelo->nombre . '/' . $vehicle->detail->motorizacion->nombre . '/' . $vehicle->detail->codigoModelo->codigo . '/image1.png';
+
+                // Asignar la ruta de la imagen al campo correspondiente
+                return [
+                    'id' => $vehicle->id,
+                    'user_id' => $vehicle->user_id,
+                    'details_id' => $vehicle->details_id,
+                    'marca' => $vehicle->detail->marca->nombre,
+                    'modelo' => $vehicle->detail->modelo->nombre,
+                    'version' => $vehicle->detail->motorizacion->nombre,
+                    'año_desde' => $vehicle->detail->año_desde,
+                    'cambio' => $vehicle->detail->cambio,
+                    'c_aceite' => $vehicle->c_aceite,
+                    'combustible' => $vehicle->detail->combustible,
+                    'año_hasta' => $vehicle->detail->año_hasta,
+                    'codigo' => $vehicle->detail->codigoModelo->codigo,
+                    'torque' => $vehicle->detail->torque,
+                    'proximo_c_aceite' => $vehicle->detail->proximo_c_aceite,
+                    'cv' => $vehicle->detail->cv,
+                    'descripcion' => $vehicle->detail->descripcion,
+                    'image_url' => asset($imagePath), // Ruta completa de la imagen
+                ];
+            });
+
+            // Obtener la información de paginación
+            $paginationData = [
+                'current_page' => $privateVehicles->currentPage(),
+                'per_page' => $privateVehicles->perPage(),
+                'total' => $privateVehicles->total(),
+                'last_page' => $privateVehicles->lastPage(),
+                'next_page_url' => null,
             ];
-        });
-        // Obtener la información de paginación
-        $paginationData = [
-            'current_page' => $privateVehicles->currentPage(),
-            'per_page' => $privateVehicles->perPage(),
-            'total' => $privateVehicles->total(),
-            'last_page' => $privateVehicles->lastPage(),
-            'next_page_url' => null,
-        ];
 
-        // Obtener la URL para la página siguiente si existe
-        if ($privateVehicles->hasMorePages()) {
-            $paginationData['next_page_url'] = $privateVehicles->nextPageUrl();
+            // Obtener la URL para la página siguiente si existe
+            if ($privateVehicles->hasMorePages()) {
+                $paginationData['next_page_url'] = $privateVehicles->nextPageUrl();
+            }
+
+            // Devolver los datos formateados y la información de paginación como una respuesta JSON
+            return response()->json([
+                'data' => $formattedData,
+                'pagination' => $paginationData
+            ]);
+        } else {
+            // Si el usuario no está autenticado, retornar un mensaje de error
+            return response()->json(['error' => 'Usuario no autenticado'], 401);
         }
-
-        // Devolver los datos formateados y la información de paginación como una respuesta JSON
-        return response()->json([
-            'data' => $formattedData,
-            'pagination' => $paginationData
-        ]);
     }
 
 
@@ -137,5 +147,34 @@ class PrivateVehicleController extends Controller
             return response()->json(['message' => 'Error al actualizar el kilometraje del vehículo'], 500);
         }
     }
+
+    public function store(Request $request)
+    {
+        // Verificar si el usuario está autenticado
+        if (!Auth::check()) {
+            return response()->json(['message' => 'Usuario no autenticado'], 401);
+        }
+
+        // Validar la solicitud
+        $request->validate([
+            'details_id' => 'required|exists:details,id', // Asegurarse de que los detalles del vehículo existan en la base de datos
+        ]);
+
+        try {
+            // Crear un nuevo vehículo privado con los datos proporcionados en la solicitud y el ID del usuario autenticado
+            $privateVehicle = PrivateVehicle::create([
+                'details_id' => $request->input('details_id'),
+                'user_id' => Auth::id(),
+                // Aquí puedes agregar más campos según sea necesario
+            ]);
+
+            // Retornar el vehículo recién creado como respuesta JSON
+            return response()->json($privateVehicle, 201);
+        } catch (\Exception $e) {
+            // Manejar cualquier error que pueda ocurrir durante la creación del vehículo
+            return response()->json(['message' => 'Error al crear el vehículo'], 500);
+        }
+    }
+
 
 }

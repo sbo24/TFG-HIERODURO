@@ -24,7 +24,10 @@ class MarcaController extends Controller
     public function showModelsByBrand($nombreMarca)
     {
         $marca = Marca::where('nombre', $nombreMarca)->firstOrFail();
-        $modelos = Modelo::where('marca_id', $marca->id)->get();
+        $modelos = Modelo::where('marca_id', $marca->id)
+            ->with('motorizaciones', 'motorizaciones.codigosVersion')
+            ->get();
         return view('pages.brandsModel', ['marca' => $marca, 'modelos' => $modelos]);
     }
+
 }

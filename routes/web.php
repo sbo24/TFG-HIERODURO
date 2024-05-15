@@ -41,8 +41,9 @@ Route::get('/vehiculos', function () {
 //BRANDS
 
 
-Route::get('/marcas', [MarcaController::class, 'showAllBrands'])->name('brands');;
+Route::get('/marcas', [MarcaController::class, 'showAllBrands'])->name('brands');
 Route::get('/marcas/{nombreMarca}', [MarcaController::class, 'showModelsByBrand']);
+
 
 
 

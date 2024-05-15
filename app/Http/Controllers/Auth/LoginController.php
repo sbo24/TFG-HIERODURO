@@ -11,6 +11,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Hash;
+use Throwable;
 
 class LoginController extends Controller
 {
@@ -61,7 +62,14 @@ class LoginController extends Controller
 
     public function handleGoogleCallback()
     {
-        $googleUser = Socialite::driver('google')->user();
+        try {
+            $googleUser = Socialite::driver('google')->user();
+        } catch (Throwable $e) {
+            // Manejar la excepción InvalidStateException aquí
+            return redirect()->route('login')->with('error', 'Hubo un problema al intentar iniciar sesión con Google. Por favor, inténtalo de nuevo.');
+        }
+
+        // Si no hubo excepciones, continuamos con el flujo normal
         $user = User::where('email', $googleUser->email)->first();
         if (!$user) {
             $user = User::create(['name' => $googleUser->name, 'email' => $googleUser->email, 'password' => Hash::make(rand(100000, 999999))]);
@@ -69,9 +77,8 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return redirect()->to('home');
+        return redirect()->to('/');
     }
-
 
 
 }
