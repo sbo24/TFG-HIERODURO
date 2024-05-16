@@ -27,6 +27,9 @@
     <div id="user-components">
         <father></father>
     </div>
+    <div id="newcar">
+        <newcar></newcar>
+    </div>
 </div>
 
 

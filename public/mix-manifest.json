@@ -30,6 +30,7 @@
     "/js/components/FilterComponent.vue": "/js/components/FilterComponent.vue",
     "/js/components/user_site/Father.vue": "/js/components/user_site/Father.vue",
     "/js/components/user_site/FilterComponent.vue": "/js/components/user_site/FilterComponent.vue",
+    "/js/components/user_site/NewCar.vue": "/js/components/user_site/NewCar.vue",
     "/js/components/user_site/VehicleDetails.vue": "/js/components/user_site/VehicleDetails.vue",
     "/js/components/user_site/VehicleList.vue": "/js/components/user_site/VehicleList.vue",
     "/js/components/VehicleDetails.vue": "/js/components/VehicleDetails.vue",

@@ -13,6 +13,7 @@ use App\Models\Motorizaciones;
 use App\Models\Detalle;
 
 use App\Models\CodigoModelo;
+use Illuminate\Support\Facades\Log;
 
 class PrivateVehicleController extends Controller
 {
@@ -156,11 +157,12 @@ class PrivateVehicleController extends Controller
         }
 
         // Validar la solicitud
-        $request->validate([
+        $validatedData = $request->validate([
             'details_id' => 'required|exists:details,id', // Asegurarse de que los detalles del vehículo existan en la base de datos
         ]);
 
         try {
+            Log::info('Datos validados: ', $validatedData);
             // Crear un nuevo vehículo privado con los datos proporcionados en la solicitud y el ID del usuario autenticado
             $privateVehicle = PrivateVehicle::create([
                 'details_id' => $request->input('details_id'),
@@ -168,13 +170,16 @@ class PrivateVehicleController extends Controller
                 // Aquí puedes agregar más campos según sea necesario
             ]);
 
+            Log::info('Vehículo creado: ', $privateVehicle->toArray());
             // Retornar el vehículo recién creado como respuesta JSON
             return response()->json($privateVehicle, 201);
         } catch (\Exception $e) {
-            // Manejar cualquier error que pueda ocurrir durante la creación del vehículo
-            return response()->json(['message' => 'Error al crear el vehículo'], 500);
+            Log::error('Error al crear el vehículo: ' . $e->getMessage());
+            return response()->json(['message' => 'Error al crear el vehículo', 'error' => $e->getMessage()], 500);
         }
     }
+
+
 
 
 }

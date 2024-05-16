@@ -4,11 +4,19 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MarcaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 include_once 'api.php';
 
 Route::get('/', function () {
     return view('pages.index');
+});
+
+
+Route::get('/get-token', function () {
+    // Obtener el token de sesión
+    $token = Session::token();
+    return response()->json(['token' => $token], 200);
 });
 
 Auth::routes();
