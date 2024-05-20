@@ -61,108 +61,87 @@
     </nav>
 </header>
 
+
 <!-- Modal de Iniciar Sesión -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow-lg">
+            <div class="modal-header bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                <h5 class="modal-title text-white" id="loginModalLabel">Bienvenido de Nuevo</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bg-white p-5">
                 <!-- Formulario de inicio de sesión -->
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control custom-input @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required autofocus>
-                        @error('email')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control rounded-pill border-0 shadow-sm px-4" id="email" name="email" value="{{ old('email') }}" required autofocus>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control custom-input @error('password') is-invalid @enderror" id="password" name="password" required>
-                        @error('password')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <input type="password" class="form-control rounded-pill border-0 shadow-sm px-4" id="password" name="password" required>
                     </div>
 
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input custom-checkbox" id="remember" name="remember">
+                    <div class="mb-4 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
                         <label class="form-check-label" for="remember">Recuérdame</label>
                     </div>
 
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
-                        <a href="{{ route('google.redirect') }}" class="btn btn-google btn-lg"><i class="fab fa-google"></i> Iniciar sesión con Google</a>
+                        <button type="submit" class="btn btn-primary rounded-pill shadow-sm px-4">Iniciar Sesión</button>
+                        <button class="btn btn-google rounded-pill shadow-sm px-4 text-white bg-black"><i class="fab fa-google"></i> Iniciar sesión con Google</button>
                     </div>
                 </form>
             </div>
-
-
         </div>
     </div>
 </div>
+
+
 
 
 
 <!-- Modal de Registrarse -->
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Contenido del modal -->
-            <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow-lg">
+            <div class="modal-header bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                <h5 class="modal-title text-white" id="registerModalLabel">Crea tu Cuenta</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <!-- Contenido del formulario de registro -->
+            <div class="modal-body bg-white p-5">
+                <!-- Formulario de registro -->
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
-
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="name" class="form-label">Nombre</label>
-                        <input id="name" type="text" class="form-control custom-input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                        @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <input id="name" type="text" class="form-control rounded-pill border-0 shadow-sm px-4" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo electrónico</label>
-                        <input id="email" type="email" class="form-control custom-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input id="email" type="email" class="form-control rounded-pill border-0 shadow-sm px-4" name="email" value="{{ old('email') }}" required autocomplete="email">
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input id="password" type="password" class="form-control custom-input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <input id="password" type="password" class="form-control rounded-pill border-0 shadow-sm px-4" name="password" required autocomplete="new-password">
                     </div>
 
-                    <div class="mb-3">
-                        <label for="password-confirm" class="form-label">Confirmar contraseña</label>
-                        <input id="password-confirm" type="password" class="form-control custom-input" name="password_confirmation" required autocomplete="new-password">
+                    <div class="mb-4">
+                        <label for="password-confirm" class="form-label">Confirmar Contraseña</label>
+                        <input id="password-confirm" type="password" class="form-control rounded-pill border-0 shadow-sm px-4" name="password_confirmation" required autocomplete="new-password">
                     </div>
 
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
-                        <a href="{{ route('google.redirect') }}" class="btn btn-google btn-lg"><i class="fab fa-google"></i> Registrarse con Google</a>
+                        <button type="submit" class="btn btn-primary rounded-pill shadow-sm px-4">Registrarse</button>
+                        <button class="btn btn-google rounded-pill shadow-sm px-4 text-white bg-black"><i class="fab fa-google"></i> Registrarse con Google</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+

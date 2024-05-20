@@ -215,6 +215,54 @@ header {
   /* Cambiar color de fondo al pasar el cursor */
 }
 
+/* Estilo degradado para el encabezado del modal */
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, #000000, #434343);
+}
+
+/* Botón de cierre con contraste para visibilidad */
+.btn-close-white {
+  filter: invert(1) brightness(2);
+}
+
+/* Estilo para botones de acción principal */
+.btn-primary {
+  background-color: #ffcc00;
+  border-color: #ffcc00;
+  color: #000000;
+}
+.btn-primary:hover {
+  background-color: #e6b800;
+  border-color: #e6b800;
+}
+
+/* Estilo para botones de Google con un toque de deportividad */
+.btn-google {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+.btn-google:hover {
+  background-color: #e6e6e6;
+}
+
+/* Sombra dinámica para el modal */
+.shadow-lg {
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para campos de entrada con un toque deportivo */
+.custom-input {
+  border-radius: 0.375rem;
+  border: 2px solid #ffcc00;
+  background-color: #000000;
+  color: #ffffff;
+}
+.custom-input:focus {
+  border-color: #e6b800;
+  box-shadow: 0 0 0 0.2rem rgba(255, 204, 0, 0.25);
+}
+
 /* Estilos para los elementos del menú desplegable */
 /* Estilos al pasar el cursor sobre los elementos del menú desplegable */
 

@@ -8,7 +8,7 @@
 @include('components.header')
 
 <section class="intro-section mt-20 mt-sm-0">
-    <div class="container p-4 bg-dark text-white">
+    <div class="container p-4 bg-black text-white">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <h1 class="display-3 mb-4">Explora Nuestra Colección de Coches</h1>
@@ -32,6 +32,7 @@
             <filters></filters>
         </div>
 
+       
     </div>
 </section>
 

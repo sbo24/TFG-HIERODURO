@@ -40,26 +40,80 @@
     </div>
 
     <!-- Vehículos -->
-    <div class="d-flex flex-wrap">
-      <div v-for="vehicle in filteredVehicles" :key="vehicle.id" class="col-6 col-md-4 mb-4">
-        <div class="card mx-4">
-          <img :src="vehicle.image_url" class="card-img-top img-fluid h-100"
-            :alt="vehicle.marca + ' ' + vehicle.modelo + ' ' + vehicle.version + ' ' + vehicle.codigo">
-          <div class="card-body">
-            <h5 class="card-title">{{ vehicle.marca }} {{ vehicle.modelo }}{{ vehicle.version }} {{ vehicle.codigo }}
-            </h5>
-            <p class="card-text">Año: {{ vehicle.año_desde }} - {{ vehicle.año_hasta }}</p>
-            <p class="card-text">Combustible: {{ vehicle.combustible }}</p>
-            <p class="card-text">Cambio: {{ vehicle.cambio }}</p>
-            <button @click="showDetails(vehicle.id)" class="btn btn-primary btn-details">Más Detalles</button>
+    <!-- Contenedor principal -->
+    <div class="container py-4">
+      <!-- Fila de tarjetas -->
+      <div class="row g-4">
+        <!-- Bucle para generar tarjetas de vehículos -->
+        <div v-for="vehicle in filteredVehicles" :key="vehicle.id" class="col-md-6 col-lg-4">
+          <!-- Tarjeta individual -->
+          <div class="card car-card overflow-hidden shadow">
+            <!-- Imagen del vehículo -->
+            <div class="position-relative">
+              <img :src="vehicle.image_url" class="card-img-top" :alt="vehicle.marca + ' ' + vehicle.modelo">
+              <!-- Etiqueta de año -->
+              <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-3">{{ vehicle.año_desde }} - {{
+          vehicle.año_hasta }}</span>
+            </div>
+            <!-- Cuerpo de la tarjeta -->
+            <div class="card-body">
+              <h5 class="card-title">{{ vehicle.marca }} {{ vehicle.modelo }}</h5>
+              <p class="card-text">
+                <strong>Combustible:</strong> {{ vehicle.combustible }}<br>
+                <strong>Cambio:</strong> {{ vehicle.cambio }}
+              </p>
+            </div>
+            <!-- Botón de detalles -->
+            <div class="card-footer bg-transparent border-0">
+              <button @click="showDetails(vehicle.id)" class="btn btn-outline-primary w-100">
+                Más Detalles
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+
+
+
+
+
     <button v-if="currentPage < totalPages" @click="loadMoreVehicles" class="btn btn-primary mx-auto mt-3 w-100">Cargar
       más</button>
+
+
   </div>
 </template>
+
+<style>
+/* Estilos CSS para las tarjetas de coches */
+.car-card {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.car-card img {
+  height: 200px;
+  /* Ajusta la altura según tus necesidades */
+  object-fit: cover;
+}
+
+.badge {
+  font-size: 0.9em;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 767px) {
+  .car-card img {
+    height: auto;
+  }
+}
+</style>
 
 <script>
 export default {
@@ -73,7 +127,8 @@ export default {
       availableGearboxes: [],
       pageSize: 3,
       currentPage: 1,
-      totalPages: 1
+      totalPages: 1,
+      showLoadMoreButton: true
     };
   },
   methods: {
@@ -81,14 +136,23 @@ export default {
       fetch(`/api/v1/privatevehicles?page=${page}&limit=${this.pageSize}`)
         .then(response => response.json())
         .then(data => {
-          // Agregar los nuevos vehículos a la matriz existente
-          this.vehicles = [...this.vehicles, ...data.data];
+          // Actualizar o reemplazar la lista de vehículos según la página
+          if (page === 1) {
+            this.vehicles = data.data;
+          } else {
+            this.vehicles.push(...data.data);
+          }
+          // Aplicar los filtros para actualizar los vehículos mostrados
+          this.applyFilters();
+          // Actualizar el número total de páginas
           this.totalPages = data.pagination.last_page;
-          this.applyFilters(); // Aplicar los filtros inicialmente
+          // Mostrar el botón "Cargar más" si hay más páginas disponibles
+          this.showLoadMoreButton = this.currentPage < this.totalPages;
         })
         .catch(error => console.error('Error fetching vehicles:', error));
     },
     loadMoreVehicles() {
+      // Incrementar la página actual y cargar más vehículos
       this.currentPage++;
       this.fetchVehicles(this.currentPage);
     },
@@ -115,8 +179,8 @@ export default {
         return matchesYear && matchesBrand && matchesFuelType && matchesGearbox && matchesSearch;
       });
 
-      // Recalcular el número total de páginas basado en los vehículos filtrados
-      this.totalPages = Math.ceil(this.filteredVehicles.length / this.pageSize);
+      // Mostrar el botón "Cargar más" si hay más páginas disponibles
+      this.showLoadMoreButton = this.currentPage < this.totalPages;
     },
     loadOptions() {
       fetch('/api/v1/privatevehicles')

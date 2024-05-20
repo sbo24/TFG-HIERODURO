@@ -2,92 +2,222 @@
     <div class="container mt-5">
 
         <div class="row mb-4">
+            <!-- Selector de marcas -->
             <div class="col-md-3">
-                <select v-model="selectedBrand" @change="onBrandChange" class="form-select">
-                    <option value="">Selecciona una marca</option>
-                    <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedBrand" @change="onBrandChange" class="custom-select">
+                        <option value="">Selecciona una marca</option>
+                        <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Selector de modelos -->
             <div class="col-md-3" v-if="selectedBrand">
-                <select v-model="selectedModel" @change="onModelChange" class="form-select">
-                    <option value="">Selecciona el modelo</option>
-                    <option v-for="model in models" :key="model.id" :value="model.id">{{ model.nombre }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedModel" @change="onModelChange" class="custom-select">
+                        <option value="">Selecciona el modelo</option>
+                        <option v-for="model in models" :key="model.id" :value="model.id">{{ model.nombre }}</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Selector de motorizaciones -->
             <div class="col-md-3" v-if="selectedModel">
-                <select v-model="selectedMotorization" @change="onMotorizationChange" class="form-select">
-                    <option value="">Selecciona la motroizacion</option>
-                    <option v-for="motorization in motorizations" :key="motorization.id" :value="motorization.id">{{
-                    motorization.nombre }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedMotorization" @change="onMotorizationChange" class="custom-select">
+                        <option value="">Selecciona la motorización</option>
+                        <option v-for="motorization in motorizations" :key="motorization.id" :value="motorization.id">{{
+                            motorization.nombre }}</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Selector de códigos -->
             <div class="col-md-3" v-if="selectedMotorization">
-                <select v-model="selectedCode" class="form-select">
-                    <option value="">Selecciona el codigo</option>
-                    <option v-for="code in codes" :key="code.id" :value="code.id">{{ code.codigo }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedCode" class="custom-select">
+                        <option value="">Selecciona el código</option>
+                        <option v-for="code in codes" :key="code.id" :value="code.id">{{ code.codigo }}</option>
+                    </select>
+                </div>
             </div>
         </div>
 
         <div class="card" v-if="detalle">
-            <div class="card-header bg-dark text-white ">
-                <h5 class="card-title p-4">{{ detalle[0].descripcion }}</h5>
+            <div class="card-body advanced-design">
+                <!-- Motor Section -->
+                <div class="section motor mb-3">
+                    <h6 class="section-header">Motor <i class="fas fa-cogs"></i></h6>
+                    <ul class="details-list">
+                        <li class="details-item">
+                            Torque: <span class="details-value torque">{{ detalle[0].torque }} NM</span>
+                        </li>
+                        <li class="details-item">
+                            CV: <span class="details-value cv">{{ detalle[0].cv }}cv</span>
+                        </li>
+                        <!-- More motor details -->
+                    </ul>
+                </div>
+                <!-- Estadísticas Section -->
+                <div class="section statistics mb-3">
+                    <h6 class="section-header">Estadísticas <i class="fas fa-tachometer-alt"></i></h6>
+                    <ul class="details-list">
+                        <li class="details-item">
+                            Velocidad Máxima: <span class="details-value max-speed">{{ detalle[0].vm }} km/h</span>
+                        </li>
+                        <li class="details-item">
+                            0-100: <span class="details-value acceleration">{{ detalle[0].cien }} segundos</span>
+                        </li>
+                        <!-- More statistics details -->
+                    </ul>
+                </div>
+                <!-- Chasis Section -->
+                <div class="section chassis mb-3">
+                    <h6 class="section-header">Chasis <i class="fas fa-car"></i></h6>
+                    <ul class="details-list">
+                        <li class="details-item">
+                            Dimensiones Neumáticos: <span class="details-value tires">{{ detalle[0].neumaticos }}</span>
+                        </li>
+                        <!-- More chasis details -->
+                    </ul>
+                </div>
+                <!-- Mantenimientos Section -->
+                <div class="section maintenance">
+                    <h6 class="section-header">Mantenimientos <i class="fas fa-tools"></i></h6>
+                    <ul class="details-list">
+                        <li class="details-item">
+                            Próximo Cambio de Aceite: <span class="details-value oil-change">{{
+                                detalle[0].proximo_c_aceite }} KM</span>
+                        </li>
+                        <!-- More maintenance details -->
+                    </ul>
+                </div>
             </div>
-            <div class="card-body">
-                <ul class="list-group list-group-flush">
-                    <!-- Motor Section -->
-                    <div class="section mb-4">
-                        <li class="list-group-item bg-secondary text-white d-flex align-items-center">
-                            <strong>Motor</strong>
-                            <i class="fas fa-cogs ms-2"></i>
-                        </li>
-                        <li class="list-group-item">Torque: {{ detalle[0].torque }} NM</li>
-                        <li class="list-group-item">CV: {{ detalle[0].cv }}cv</li>
-                        <li class="list-group-item">Cambio: {{ detalle[0].cambio }}</li>
-                        <li class="list-group-item">Combustible: {{ detalle[0].combustible }}</li>
-                        <li class="list-group-item">Par Medio: {{ detalle[0].par_medio }}</li>
-                        <li class="list-group-item">Par Máximo: {{ detalle[0].par_maximo }}</li>
-                    </div>
-                    <!-- Estadísticas Section -->
-                    <div class="section mb-4">
-                        <li class="list-group-item bg-secondary text-white d-flex align-items-center">
-                            <strong>Estadísticas</strong>
-                            <i class="fas fa-tachometer-alt ms-2"></i>
-                        </li>
-                        <li class="list-group-item">Velocidad Máxima: {{ detalle[0].vm }} km/h</li>
-                        <li class="list-group-item">0-100: {{ detalle[0].cien }} segundos</li>
-                    </div>
-                    <!-- Chasis Section -->
-                    <div class="section mb-4">
-                        <li class="list-group-item bg-secondary text-white d-flex align-items-center">
-                            <strong>Chasis</strong>
-                            <i class="fas fa-car ms-2"></i>
-                        </li>
-                        <li class="list-group-item">Dimensiones Neumáticos: {{ detalle[0].neumaticos }}</li>
-                        <li class="list-group-item">Frenos Delanteros: {{ detalle[0].frenos_del }}</li>
-                        <li class="list-group-item">Frenos Traseros: {{ detalle[0].frenos_tras }}</li>
-                    </div>
-                    <!-- Mantenimientos Section -->
-                    <div class="section">
-                        <li class="list-group-item bg-secondary text-white d-flex align-items-center">
-                            <strong>Mantenimientos</strong>
-                            <i class="fas fa-tools ms-2"></i>
-                        </li>
-                        <li class="list-group-item">Próximo Cambio de Aceite: {{ detalle[0].proximo_c_aceite }} KM</li>
-                    </div>
-                </ul>
-            </div>
+
+
         </div>
+
+
     </div>
 
 </template>
 
+<style>
+.custom-select-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.custom-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Estilos para cuando el selector está deshabilitado */
+.custom-select:disabled {
+    background-color: #e9ecef;
+    opacity: 0.5;
+}
+
+/* Animación al pasar el ratón */
+.custom-select-wrapper:hover .custom-select {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.advanced-design {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    padding: 20px;
+    color: #333;
+}
+
+.section-header {
+    background: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.details-list {
+    list-style: none;
+    padding: 0;
+}
+
+.details-item {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.details-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.details-value {
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.torque {
+    background-color: #007bff;
+}
+
+.cv {
+    background-color: #28a745;
+}
+
+.max-speed {
+    background-color: #dc3545;
+}
+
+.acceleration {
+    background-color: #ffc107;
+}
+
+.tires {
+    background-color: #17a2b8;
+}
+
+.oil-change {
+    background-color: #fd7e14;
+}
+
+.details-value:hover {
+    background-color: #333;
+    color: #fff;
+}
+</style>
 
 
 <script>

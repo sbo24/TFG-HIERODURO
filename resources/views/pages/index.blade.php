@@ -12,27 +12,12 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start">
-                        <h1 class="fw-bold animated fadeInDown">Alfa Romeo</h1>
-                        <h2 class="fw-normal animated fadeInLeft">C4</h2>
-                        <p class="animated fadeInUp">El Alfa Romeo C4 es un modelo emblemático conocido por su diseño elegante y su potente motor. Su combinación de estilo italiano y rendimiento deportivo lo convierte en un automóvil deseable para los entusiastas de los vehículos deportivos.</p>
+                        <h1 class="display-1 text-uppercase fw-bold text-shadow">Alfa Romeo</h1>
+                        <h2 class="display-4 fw-normal text-muted">C4</h2>
+                        <p class="lead">El Alfa Romeo C4 es un modelo emblemático conocido por su diseño elegante y su potente motor. Su combinación de estilo italiano y rendimiento deportivo lo convierte en un automóvil deseable para los entusiastas de los vehículos deportivos.</p>
                     </div>
-                    <div class="col-md-6 mx-auto text-center fade-in-right">
-                        <img src="../../img/carusel/caruselalfa.png" class="d-block w-100 rounded animated fadeInUp carousel-img" alt="Alfa Romeo C4">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="carousel-item py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
-                        <h1 class="fw-bold animated fadeInDown">Audi A5</h1>
-                        <h2 class="fw-normal animated fadeInLeft">3.0 TDI</h2>
-                        <p class="animated fadeInUp">El Audi A5 3.0 TDI es un automóvil elegante y potente que combina el lujo con un rendimiento impresionante. Con su motor diésel de alta eficiencia y su diseño aerodinámico, ofrece una experiencia de conducción excepcional tanto en carretera como en ciudad.</p>
-                    </div>
-                    <div class="col-md-6 mx-auto text-center fade-in-right">
-                        <img src="../../img/carusel/caruselaudi.png" class="d-block w-100 rounded animated fadeInUp carousel-img" alt="Audi A5 3.0 TDI">
+                    <div class="col-md-6 mx-auto text-center animated">
+                        <img src="../../img/carusel/caruselalfa.png" class="d-block img-fluid " alt="Alfa Romeo C4">
                     </div>
                 </div>
             </div>
@@ -41,17 +26,30 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start">
-                        <h1 class="fw-bold animated fadeInDown">BMW Serie 3</h1>
-                        <h2 class="fw-normal animated fadeInLeft">F80</h2>
-                        <p class="animated fadeInUp">El BMW Serie 3 F80 es un sedán deportivo que combina elegancia con rendimiento. Equipado con tecnología de vanguardia y un potente motor, ofrece una experiencia de conducción emocionante tanto en carreteras sinuosas como en autopistas.</p>
+                        <h1 class="display-1 text-uppercase fw-bold text-shadow">Audi A5</h1>
+                        <h2 class="display-4 fw-normal text-muted">3.0 TDI</h2>
+                        <p class="lead">El Audi A5 3.0 TDI es un automóvil elegante y potente que combina el lujo con un rendimiento impresionante. Con su motor diésel de alta eficiencia y su diseño aerodinámico, ofrece una experiencia de conducción excepcional tanto en carretera como en ciudad.</p>
                     </div>
-                    <div class="col-md-6 mx-auto text-center fade-in-right">
-                        <img src="../../img/carusel/caruselhellcar.png" class="d-block w-100 rounded animated fadeInUp carousel-img" alt="BMW Serie 3 F80">
+                    <div class="col-md-6 mx-auto text-center animated">
+                        <img src="../../img/carusel/caruselaudi.png" class="d-block img-fluid  " alt="Audi A5 3.0 TDI">
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Agrega más elementos carousel-item aquí si necesitas más cartas -->
+        <div class="carousel-item py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <h1 class="display-1 text-uppercase fw-bold text-shadow">BMW Serie 3</h1>
+                        <h2 class="display-4 fw-normal text-muted">F80</h2>
+                        <p class="lead">El BMW Serie 3 F80 es un sedán deportivo que combina elegancia con rendimiento. Equipado con tecnología de vanguardia y un potente motor, ofrece una experiencia de conducción emocionante tanto en carreteras sinuosas como en autopistas.</p>
+                    </div>
+                    <div class="col-md-6 mx-auto text-center animated ">
+                        <img src="../../img/carusel/caruselhellcar.png" class="d-block img-fluid   " alt="BMW Serie 3 F80">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -62,9 +60,6 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-
-
-
 
 
 
