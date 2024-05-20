@@ -7,45 +7,46 @@
 @section('content')
 @include('components.header')
 <div id="carousel" class="carousel slide mt-20  mt-lg-5" data-bs-ride="carousel">
-    <div class="carousel-inner ">
-        <div class="carousel-item active">
+    <div class="carousel-inner py-4">
+        <div class="carousel-item active py-4">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start">
-                        <h1 class="fw-bold animated fadeInDown">Título del vehículo 1</h1>
-                        <h2 class="fw-normal animated fadeInLeft">Nombre del modelo 1</h2>
-                        <p class="animated fadeInUp">Explicación sobre el vehículo 1...</p>
+                        <h1 class="fw-bold animated fadeInDown">Alfa Romeo</h1>
+                        <h2 class="fw-normal animated fadeInLeft">C4</h2>
+                        <p class="animated fadeInUp">El Alfa Romeo C4 es un modelo emblemático conocido por su diseño elegante y su potente motor. Su combinación de estilo italiano y rendimiento deportivo lo convierte en un automóvil deseable para los entusiastas de los vehículos deportivos.</p>
                     </div>
                     <div class="col-md-6 mx-auto text-center fade-in-right">
-                        <img src="../../img/carusel.png" class="d-block w-100 rounded animated fadeInUp" alt="...">
+                        <img src="../../img/carusel/caruselalfa.png" class="d-block w-100 rounded animated fadeInUp carousel-img" alt="Alfa Romeo C4">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="carousel-item py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <h1 class="fw-bold animated fadeInDown">Audi A5</h1>
+                        <h2 class="fw-normal animated fadeInLeft">3.0 TDI</h2>
+                        <p class="animated fadeInUp">El Audi A5 3.0 TDI es un automóvil elegante y potente que combina el lujo con un rendimiento impresionante. Con su motor diésel de alta eficiencia y su diseño aerodinámico, ofrece una experiencia de conducción excepcional tanto en carretera como en ciudad.</p>
+                    </div>
+                    <div class="col-md-6 mx-auto text-center fade-in-right">
+                        <img src="../../img/carusel/caruselaudi.png" class="d-block w-100 rounded animated fadeInUp carousel-img" alt="Audi A5 3.0 TDI">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item py-4">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start">
-                        <h1 class="fw-bold animated fadeInDown">Título del vehículo 2</h1>
-                        <h2 class="fw-normal animated fadeInLeft">Nombre del modelo 2</h2>
-                        <p class="animated fadeInUp">Explicación sobre el vehículo 2...</p>
+                        <h1 class="fw-bold animated fadeInDown">BMW Serie 3</h1>
+                        <h2 class="fw-normal animated fadeInLeft">F80</h2>
+                        <p class="animated fadeInUp">El BMW Serie 3 F80 es un sedán deportivo que combina elegancia con rendimiento. Equipado con tecnología de vanguardia y un potente motor, ofrece una experiencia de conducción emocionante tanto en carreteras sinuosas como en autopistas.</p>
                     </div>
                     <div class="col-md-6 mx-auto text-center fade-in-right">
-                        <img src="../../img/carusel.png" class="d-block w-100 rounded animated fadeInUp" alt="...">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
-                        <h1 class="fw-bold animated fadeInDown">Título del vehículo 3</h1>
-                        <h2 class="fw-normal animated fadeInLeft">Nombre del modelo 3</h2>
-                        <p class="animated fadeInUp">Explicación sobre el vehículo 3...</p>
-                    </div>
-                    <div class="col-md-6 mx-auto text-center fade-in-right">
-                        <img src="../../img/carusel.png" class="d-block w-100 rounded animated fadeInUp" alt="...">
+                        <img src="../../img/carusel/caruselhellcar.png" class="d-block w-100 rounded animated fadeInUp carousel-img" alt="BMW Serie 3 F80">
                     </div>
                 </div>
             </div>
@@ -77,7 +78,7 @@
                     <i class="fas fa-handshake fa-3x"></i>
                 </div>
                 <h3 class="h5 mb-3 text-white">Duelos</h3>
-                <p class="text-white">¡Compite en emocionantes desafíos!</p>
+                <p class="text-white"> ¡Compite en emocionantes desafíos!</p>
             </div>
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="circle bg-success text-white rounded-circle mx-auto mb-3">
@@ -182,7 +183,7 @@
                     automotriz
                     en emocionantes duelos.</p>
                 <div class=" mt-5">
-                    <a href="#" class="btn btn-primary btn-lg btn-block rounded-pill">¡Explora Ahora!</a>
+                    <a href="{{ route('comparation') }}" class="btn btn-primary btn-lg btn-block rounded-pill">¡Explora Ahora!</a>
                 </div>
             </div>
             <div class="col-md-4">

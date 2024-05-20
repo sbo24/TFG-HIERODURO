@@ -1,47 +1,75 @@
 <template>
     <div class="container mt-5">
-        <div class="row mb-4">
-            <div class="col-md-3">
-                <select v-model="selectedBrand" @change="onBrandChange" class="form-select">
-                    <option value="">Select a brand</option>
-                    <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}</option>
-                </select>
-            </div>
 
-            <div class="col-md-3" v-if="selectedBrand">
-                <select v-model="selectedModel" @change="onModelChange" class="form-select">
-                    <option value="">Select a model</option>
-                    <option v-for="model in models" :key="model.id" :value="model.id">{{ model.nombre }}</option>
-                </select>
-            </div>
 
-            <div class="col-md-3" v-if="selectedModel">
-                <select v-model="selectedMotorization" @change="onMotorizationChange" class="form-select">
-                    <option value="">Select a motorization</option>
-                    <option v-for="motorization in motorizations" :key="motorization.id" :value="motorization.id">{{
-                    motorization.nombre }}</option>
-                </select>
-            </div>
 
-            <div class="col-md-3" v-if="selectedMotorization">
-                <select v-model="selectedCode" class="form-select">
-                    <option value="">Select a code</option>
-                    <option v-for="code in codes" :key="code.id" :value="code.id">{{ code.codigo }}</option>
-                </select>
+
+        <!-- Modal trigger button -->
+        <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#modalId">
+            Añadir vehiculo
+        </button>
+
+
+        <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Añadir vehículo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="brandSelect" class="form-label">Brand:</label>
+                            <select id="brandSelect" v-model="selectedBrand" @change="onBrandChange"
+                                class="form-select">
+                                <option value="">Select a brand</option>
+                                <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-3" v-if="selectedBrand">
+                            <label for="modelSelect" class="form-label">Model:</label>
+                            <select id="modelSelect" v-model="selectedModel" @change="onModelChange"
+                                class="form-select">
+                                <option value="">Select a model</option>
+                                <option v-for="model in models" :key="model.id" :value="model.id">{{ model.nombre }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-3" v-if="selectedModel">
+                            <label for="motorizationSelect" class="form-label">Motorization:</label>
+                            <select id="motorizationSelect" v-model="selectedMotorization"
+                                @change="onMotorizationChange" class="form-select">
+                                <option value="">Select a motorization</option>
+                                <option v-for="motorization in motorizations" :key="motorization.id"
+                                    :value="motorization.id">{{ motorization.nombre }}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3" v-if="selectedMotorization">
+                            <label for="codeSelect" class="form-label">Code:</label>
+                            <select id="codeSelect" v-model="selectedCode" class="form-select">
+                                <option value="">Select a code</option>
+                                <option v-for="code in codes" :key="code.id" :value="code.id">{{ code.codigo }}</option>
+                            </select>
+                        </div>
+                        <div v-if="selectedRowId" class="row mt-4">
+                            <div class="col-md-12">
+                                <button @click="addPrivateVehicle" class="btn btn-primary">Agregar a mis
+                                    vehículos</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div v-if="selectedRowId" class="row mt-4">
-            <div class="col-md-12">
-                <p>ID de la fila seleccionada: {{ selectedRowId }}</p>
-                <button @click="addPrivateVehicle" class="btn btn-primary">Agregar a mis vehículos</button>
-            </div>
-        </div>
-        
     </div>
+
 </template>
 
 <script>
+
 export default {
     data() {
         return {
@@ -162,6 +190,9 @@ export default {
         async onMotorizationChange() {
             this.selectedCode = '';
             await this.getCodes();
+        },
+        initializeModal() {
+            new bootstrap.Modal(document.getElementById("modalId"), {});
         },
     },
     watch: {

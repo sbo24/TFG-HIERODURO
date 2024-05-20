@@ -1,0 +1,38 @@
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.list-group-item {
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+
+    &.bg-secondary {
+        background-color: #007bff !important;
+
+        strong {
+            color: white;
+        }
+    }
+
+    i {
+        color: white;
+    }
+
+    &:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    &:nth-child(odd) {
+        background-color: #ffffff;
+    }
+}
+
+.section+.section {
+    margin-top: 1.5rem;
+}

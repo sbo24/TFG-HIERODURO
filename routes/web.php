@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\Configuration\ConfiguracionController;
+
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -65,6 +69,16 @@ Route::get('/duelos', function () {
 
 Route::get('/auth/google/redirect', [LoginController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/auth/google/callback', [LoginController::class,  'handleGoogleCallback'])->name('google.callback');
+
+
+
+//ADMIN
+
+Route::middleware([AdminMiddleware::class])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+
+
 
 
 

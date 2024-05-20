@@ -1,12 +1,11 @@
- 
  <footer class="footer mt-10 py-5 bg-dark text-light">
      <div class="container">
          <div class="row align-items-center">
              <div class="col-lg-4 mb-3 mb-md-0 text-center">
                  <ul class="list-inline text-xl-start text-center">
-                     <li class="list-inline-item"><a href="#" class="text-light">Enlace 1</a></li>
-                     <li class="list-inline-item"><a href="#" class="text-light">Enlace 2</a></li>
-                     <li class="list-inline-item"><a href="#" class="text-light">Enlace 3</a></li>
+                     <li class="list-inline-item"><a href="{{ route('vehicle') }}" class="text-light">Vehículos</a></li>
+                     <li class="list-inline-item"><a href="{{ route('brands') }}" class="text-light">Marcas</a></li>
+                     <li class="list-inline-item"><a href="{{ route('comparation') }}" class="text-light">Duelos</a></li>
                  </ul>
              </div>
              <div class="col-lg-4 text-center mb-3 mb-md-0">

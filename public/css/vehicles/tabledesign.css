@@ -1,0 +1,35 @@
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.list-group-item {
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+}
+.list-group-item.bg-secondary {
+  background-color: #007bff !important;
+}
+.list-group-item.bg-secondary strong {
+  color: white;
+}
+.list-group-item i {
+  color: white;
+}
+.list-group-item:nth-child(even) {
+  background-color: #f8f9fa;
+}
+.list-group-item:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.section + .section {
+  margin-top: 1.5rem;
+}
+
+/*# sourceMappingURL=tabledesign.css.map */

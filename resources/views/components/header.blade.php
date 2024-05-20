@@ -23,7 +23,7 @@
                         <a class="nav-link" href="{{ route('brands') }}">Marcas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('comparation') }}">Comparar</a>
+                        <a class="nav-link" href="{{ route('comparation') }}">Duelos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user') }}">Mi Área</a>
@@ -56,7 +56,6 @@
                     </div>
                     @endauth
                 </div>
-
             </div>
         </div>
     </nav>

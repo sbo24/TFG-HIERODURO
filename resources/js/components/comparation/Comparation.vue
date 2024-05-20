@@ -5,7 +5,7 @@
             <!-- Selector de marcas del primer vehículo -->
             <div class="col-md-3">
                 <select v-model="selectedBrand1" @change="onBrandChange(1)" class="form-select">
-                    <option value="">Select a brand</option>
+                    <option value="">Selecciona una marca</option>
                     <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}</option>
                 </select>
             </div>
@@ -13,7 +13,7 @@
             <!-- Selector de modelos del primer vehículo -->
             <div class="col-md-3" v-if="selectedBrand1">
                 <select v-model="selectedModel1" @change="onModelChange(1)" class="form-select">
-                    <option value="">Select a model</option>
+                    <option value="">Selecciona un modelo</option>
                     <option v-for="model in models1" :key="model.id" :value="model.id">{{ model.nombre }}</option>
                 </select>
             </div>
@@ -21,7 +21,7 @@
             <!-- Selector de motorizaciones del primer vehículo -->
             <div class="col-md-3" v-if="selectedModel1">
                 <select v-model="selectedMotorization1" @change="onMotorizationChange(1)" class="form-select">
-                    <option value="">Select a motorization</option>
+                    <option value="">Selecciona una motorizacion</option>
                     <option v-for="motorization in motorizations1" :key="motorization.id" :value="motorization.id">{{
                     motorization.nombre }}</option>
                 </select>
@@ -30,7 +30,7 @@
             <!-- Selector de códigos del primer vehículo -->
             <div class="col-md-3" v-if="selectedMotorization1">
                 <select v-model="selectedCode1" class="form-select">
-                    <option value="">Select a code</option>
+                    <option value="">Selecciona un codigo</option>
                     <option v-for="code in codes1" :key="code.id" :value="code.id">{{ code.codigo }}</option>
                 </select>
             </div>
@@ -41,7 +41,7 @@
             <!-- Selector de marcas del segundo vehículo -->
             <div class="col-md-3">
                 <select v-model="selectedBrand2" @change="onBrandChange(2)" class="form-select">
-                    <option value="">Select a brand</option>
+                    <option value="">Selecciona una marca</option>
                     <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}</option>
                 </select>
             </div>
@@ -49,7 +49,7 @@
             <!-- Selector de modelos del segundo vehículo -->
             <div class="col-md-3" v-if="selectedBrand2">
                 <select v-model="selectedModel2" @change="onModelChange(2)" class="form-select">
-                    <option value="">Select a model</option>
+                    <option value="">Selecciona un modelo</option>
                     <option v-for="model in models2" :key="model.id" :value="model.id">{{ model.nombre }}</option>
                 </select>
             </div>
@@ -57,7 +57,7 @@
             <!-- Selector de motorizaciones del segundo vehículo -->
             <div class="col-md-3" v-if="selectedModel2">
                 <select v-model="selectedMotorization2" @change="onMotorizationChange(2)" class="form-select">
-                    <option value="">Select a motorization</option>
+                    <option value="">Selecciona una motorizacion</option>
                     <option v-for="motorization in motorizations2" :key="motorization.id" :value="motorization.id">{{
                     motorization.nombre }}</option>
                 </select>
@@ -66,7 +66,7 @@
             <!-- Selector de códigos del segundo vehículo -->
             <div class="col-md-3" v-if="selectedMotorization2">
                 <select v-model="selectedCode2" class="form-select">
-                    <option value="">Select a code</option>
+                    <option value="">Selecciona un codigo</option>
                     <option v-for="code in codes2" :key="code.id" :value="code.id">{{ code.codigo }}</option>
                 </select>
             </div>
@@ -79,8 +79,8 @@
                     <thead>
                         <tr>
                             <th>Categoria</th>
-                            <th>Vehiculo 1</th>
-                            <th>Vehiculo 2</th>
+                            <th>Primer vehiculo</th>
+                            <th>Segundo vehiculo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,120 +90,138 @@
                             <td
                                 :class="{ 'text-success': motor1Wins > motor2Wins, 'text-danger': motor1Wins < motor2Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group"
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle1[0].torque > detalle2[0].torque, 'text-danger': detalle1[0].torque < detalle2[0].torque }">
-                                        Torque: {{ detalle1[0].torque }} NM</li>
-                                    <li class="list-group"
+                                        Torque: {{ detalle1[0].torque }} NM
+                                    </li>
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle1[0].cv > detalle2[0].cv, 'text-danger': detalle1[0].cv < detalle2[0].cv }">
-                                        CV: {{ detalle1[0].cv }}cv</li>
-                                    <li class="list-group">
-                                        Cambio: {{ detalle1[0].cambio }}</li>
-                                    <li class="list-group"
+                                        CV: {{ detalle1[0].cv }} cv
+                                    </li>
+                                    <li class="list-group-item">
+                                        Cambio: {{ detalle1[0].cambio }}
+                                    </li>
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle1[0].combustible > detalle2[0].combustible, 'text-danger': detalle1[0].combustible < detalle2[0].combustible }">
-                                        Combustible: {{ detalle1[0].combustible }}</li>
-                                    <li class="list-group"
+                                        Combustible: {{ detalle1[0].combustible }}
+                                    </li>
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle1[0].par_medio > detalle2[0].par_medio, 'text-danger': detalle1[0].par_medio < detalle2[0].par_medio }">
-                                        Par Medio: {{ detalle1[0].par_medio }}</li>
-                                    <li class="list-group"
+                                        Par Medio: {{ detalle1[0].par_medio }}
+                                    </li>
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle1[0].par_maximo > detalle2[0].par_maximo, 'text-danger': detalle1[0].par_maximo < detalle2[0].par_maximo }">
-                                        Par Maximo: {{ detalle1[0].par_maximo }}</li>
+                                        Par Maximo: {{ detalle1[0].par_maximo }}
+                                    </li>
                                 </ul>
                             </td>
                             <td
                                 :class="{ 'text-success': motor2Wins > motor1Wins, 'text-danger': motor2Wins < motor1Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group"
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle2[0].torque > detalle1[0].torque, 'text-danger': detalle2[0].torque < detalle1[0].torque }">
-                                        Torque: {{ detalle2[0].torque }} NM</li>
-                                    <li class="list-group"
+                                        Torque: {{ detalle2[0].torque }} NM
+                                    </li>
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle2[0].cv > detalle1[0].cv, 'text-danger': detalle2[0].cv < detalle1[0].cv }">
-                                        CV: {{ detalle2[0].cv }}cv</li>
-                                    <li class="list-group">
-                                        Cambio: {{ detalle2[0].cambio }}</li>
-                                    <li class="list-group">
-                                        Combustible: {{ detalle2[0].combustible }}</li>
-                                    <li class="list-group"
+                                        CV: {{ detalle2[0].cv }} cv
+                                    </li>
+                                    <li class="list-group-item">
+                                        Cambio: {{ detalle2[0].cambio }}
+                                    </li>
+                                    <li class="list-group-item">
+                                        Combustible: {{ detalle2[0].combustible }}
+                                    </li>
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle2[0].par_medio > detalle1[0].par_medio, 'text-danger': detalle2[0].par_medio < detalle1[0].par_medio }">
-                                        Par Medio: {{ detalle2[0].par_medio }}</li>
-                                    <li class="list-group"
+                                        Par Medio: {{ detalle2[0].par_medio }}
+                                    </li>
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle2[0].par_maximo > detalle1[0].par_maximo, 'text-danger': detalle2[0].par_maximo < detalle1[0].par_maximo }">
-                                        Par Maximo: {{ detalle2[0].par_maximo }}</li>
+                                        Par Maximo: {{ detalle2[0].par_maximo }}
+                                    </li>
                                 </ul>
                             </td>
                         </tr>
+
                         <!-- Estadisticas section -->
                         <tr v-if="detalle1 && detalle2">
                             <td>Estadisticas</td>
                             <td
                                 :class="{ 'text-success': estadisticas1Wins > estadisticas2Wins, 'text-danger': estadisticas1Wins < estadisticas2Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group"
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle1[0].vm > detalle2[0].vm, 'text-danger': detalle1[0].vm < detalle2[0].vm }">
-                                        Velocidad Maxima: {{ detalle1[0].vm }}</li>
-                                    <li class="list-group"
+                                        Velocidad Maxima: {{ detalle1[0].vm }}
+                                    </li>
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle1[0].cien < detalle2[0].cien, 'text-danger': detalle1[0].cien > detalle2[0].cien }">
-                                        0-100: {{ detalle1[0].cien }}</li>
+                                        0-100: {{ detalle1[0].cien }}
+                                    </li>
                                 </ul>
                             </td>
                             <td
                                 :class="{ 'text-success': estadisticas2Wins > estadisticas1Wins, 'text-danger': estadisticas2Wins < estadisticas1Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group"
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle2[0].vm > detalle1[0].vm, 'text-danger': detalle2[0].vm < detalle1[0].vm }">
-                                        Velocidad Maxima: {{ detalle2[0].vm }}</li>
-                                    <li class="list-group"
+                                        Velocidad Maxima: {{ detalle2[0].vm }}
+                                    </li>
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle2[0].cien < detalle1[0].cien, 'text-danger': detalle2[0].cien > detalle1[0].cien }">
-                                        0-100: {{ detalle2[0].cien }}</li>
+                                        0-100: {{ detalle2[0].cien }}
+                                    </li>
                                 </ul>
                             </td>
                         </tr>
+
                         <!-- Chasis section -->
                         <tr v-if="detalle1 && detalle2">
                             <td>Chasis</td>
                             <td
                                 :class="{ 'text-success': chasis1Wins > chasis2Wins, 'text-danger': chasis1Wins < chasis2Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group">
-                                        Dimensiones Neumaticos: {{ detalle1[0].neumaticos }}</li>
-                                    <li class="list-group">
-                                        Frenos Delanteros: {{ detalle1[0].frenos_del }}</li>
-                                    <li class="list-group">
-                                        Frenos Traseros: {{ detalle1[0].frenos_tras }}</li>
+                                    <li class="list-group-item">Dimensiones Neumaticos: {{ detalle1[0].neumaticos }}
+                                    </li>
+                                    <li class="list-group-item">Frenos Delanteros: {{ detalle1[0].frenos_del }}</li>
+                                    <li class="list-group-item">Frenos Traseros: {{ detalle1[0].frenos_tras }}</li>
                                 </ul>
                             </td>
                             <td
                                 :class="{ 'text-success': chasis2Wins > chasis1Wins, 'text-danger': chasis2Wins < chasis1Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group">
-                                        Dimensiones Neumaticos: {{ detalle2[0].neumaticos }}</li>
-                                    <li class="list-group">
-                                        Frenos Delanteros: {{ detalle2[0].frenos_del }}</li>
-                                    <li class="list-group">
-                                        Frenos Traseros: {{ detalle2[0].frenos_tras }}</li>
+                                    <li class="list-group-item">Dimensiones Neumaticos: {{ detalle2[0].neumaticos }}
+                                    </li>
+                                    <li class="list-group-item">Frenos Delanteros: {{ detalle2[0].frenos_del }}</li>
+                                    <li class="list-group-item">Frenos Traseros: {{ detalle2[0].frenos_tras }}</li>
                                 </ul>
                             </td>
                         </tr>
+
                         <!-- Mantenimientos section -->
                         <tr v-if="detalle1 && detalle2">
                             <td>Mantenimientos</td>
                             <td
                                 :class="{ 'text-success': mantenimientos1Wins > mantenimientos2Wins, 'text-danger': mantenimientos1Wins < mantenimientos2Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group"
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle1[0].proximo_c_aceite > detalle2[0].proximo_c_aceite, 'text-danger': detalle1[0].proximo_c_aceite < detalle2[0].proximo_c_aceite }">
-                                        Cambio de Aceite: {{ detalle1[0].proximo_c_aceite }} KM</li>
+                                        Cambio de Aceite: {{ detalle1[0].proximo_c_aceite }} KM
+                                    </li>
                                 </ul>
                             </td>
                             <td
                                 :class="{ 'text-success': mantenimientos2Wins > mantenimientos1Wins, 'text-danger': mantenimientos2Wins < mantenimientos1Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group"
+                                    <li class="list-group-item"
                                         :class="{ 'text-success': detalle2[0].proximo_c_aceite > detalle1[0].proximo_c_aceite, 'text-danger': detalle2[0].proximo_c_aceite < detalle1[0].proximo_c_aceite }">
-                                        Cambio de Aceite: {{ detalle2[0].proximo_c_aceite }} KM</li>
+                                        Cambio de Aceite: {{ detalle2[0].proximo_c_aceite }} KM
+                                    </li>
                                 </ul>
                             </td>
                         </tr>
                     </tbody>
+
                 </table>
 
 
@@ -214,6 +232,66 @@
         </div>
     </div>
 </template>
+
+<style>
+    /* Estilos personalizados para resaltar elementos clave */
+    .fw-bold {
+        font-weight: bold;
+    }
+
+    .text-success {
+        color: green;
+    }
+
+    .text-danger {
+        color: red;
+    }
+
+    /* Estilos para la tabla */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 0.25rem;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .table td,
+    .table th {
+        padding: 1rem;
+        border-bottom: 1px solid #dee2e6;
+        text-align: left;
+    }
+
+    .table thead th {
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    /* Estilos para la lista de grupo */
+    .list-group {
+        margin-bottom: 0;
+        border-radius: 0.25rem;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .list-group-item {
+        padding: 1rem;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .list-group-item:last-child {
+        border-bottom: none;
+    }
+
+    .list-group-item span {
+        font-weight: bold;
+    }
+</style>
+
+<!-- Aquí va tu tabla HTML -->
+
+
 
 <script>
 
