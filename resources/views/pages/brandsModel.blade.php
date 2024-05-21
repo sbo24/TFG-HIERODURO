@@ -11,61 +11,134 @@
 
 
 
-
 <div class="container mt-5">
-    <div class="d-flex justify-content-center">
-        <img class="img-fluid w-10" src="/img/Brands/{{ $marca->nombre }}.png" alt="{{ $marca->nombre }}">
+    <!-- Encabezado de la Marca -->
+    <div class="brand-header">
+        <img class="brand-logo" src="/img/Brands/{{ $marca->nombre }}.png" alt="{{ $marca->nombre }}">
+        <h2 class="brand-name">{{ $marca->nombre }}</h2>
     </div>
-    <h2 class="text-center">{{ $marca->nombre }}</h2>
-    <div class="row">
+    <!-- Grid de Modelos -->
+    <div class="model-grid">
         @foreach ($modelos as $modelo)
-        <div class="col-md-4 mb-4">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-body d-flex flex-column">
-                    <h3 class="card-title text-center mb-3">{{ $modelo->nombre }}</h3>
-                    <ul class="list-group list-group-flush flex-grow-1">
-                        @foreach ($modelo->motorizaciones as $motorizacion)
-                        <li class="list-group-item">
-                            <strong>Motorización:</strong> {{ $motorizacion->nombre }}
-                            <ul class="list-group list-group-flush">
-                                @foreach ($motorizacion->codigosVersion as $version)
-                                <div class="text-center mt-3">
-                                    <img src="/img/{{ $marca->nombre }}/{{ $modelo->nombre }}/{{ $motorizacion->nombre }}/{{ $version->codigo }}/image1.png" class="img-fluid vehicle-image rounded" alt="{{ $version->nombre }}">
-                                </div>
-                                <li class="list-group-item text-center">Código de Versión: {{ $version->codigo }}</li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
+        <div class="model-card">
+            <!-- Imagen del Modelo -->
+
+            <!-- Información del Modelo -->
+            <div class="model-info">
+                <h3 class="model-title">{{ $modelo->nombre }}</h3>
+                <ul class="model-details">
+                    @foreach ($modelo->motorizaciones as $motorizacion)
+
+                    <li class="motorization">
+                        <strong>Motorización:</strong> {{ $motorizacion->nombre }}
+                        <ul class="version-details">
+                            @foreach ($motorizacion->codigosVersion as $version)
+                            <div class="model-image">
+                                <img src="/img/{{ $marca->nombre }}/{{ $modelo->nombre }}/{{ $motorizacion->nombre }}/{{ $version->codigo }}/image1.png" class="vehicle-image w-100" alt="{{ $version->nombre }}">
+                            </div>
+                            <li class="version">
+                                <p class="version-code">Código de Versión: {{ $version->codigo }}</p>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
         @endforeach
     </div>
 </div>
 
+
+
 <style>
-    .card {
+    /* Estilos Generales */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .brand-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .brand-logo {
+        width: 100px;
+        height: auto;
+    }
+
+    .brand-name {
+        font-size: 2rem;
+        color: #333;
+    }
+
+    /* Estilos de la Cuadrícula de Modelos */
+    .model-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 30px;
+    }
+
+    .model-card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
     }
 
-    .card:hover {
-        transform: scale(1.05);
+    .model-card:hover {
+        transform: translateY(-5px);
     }
 
-    .card-img-top {
-        height: 200px;
-        object-fit: cover;
+    .model-image {
+        overflow: hidden;
+        border-bottom: 1px solid #ddd;
     }
 
-    .vehicle-image {
-        max-height: 150px;
-        object-fit: contain;
+    .model-image img {
+        display: block;
+        width: 100%;
+        height: auto;
     }
 
-    .w-10 {
-        width: 10%;
+    .model-info {
+        padding: 20px;
+    }
+
+    .model-title {
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: #333;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .model-details {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .motorization {
+        margin-bottom: 20px;
+        color: #555;
+    }
+
+    .version {
+        padding: 10px;
+        border-top: 1px solid #eee;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .version-code {
+        margin: 0;
+        color: #666;
     }
 </style>
 

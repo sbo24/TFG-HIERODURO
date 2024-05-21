@@ -11,45 +11,75 @@
         <div class="carousel-item active py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
-                        <h1 class="display-1 text-uppercase fw-bold text-shadow">Alfa Romeo</h1>
-                        <h2 class="display-4 fw-normal text-muted">C4</h2>
-                        <p class="lead">El Alfa Romeo C4 es un modelo emblemático conocido por su diseño elegante y su potente motor. Su combinación de estilo italiano y rendimiento deportivo lo convierte en un automóvil deseable para los entusiastas de los vehículos deportivos.</p>
+                    <!-- Columna de texto e información -->
+                    <div class="col-md-6 text-center text-lg-start mb-4 mb-lg-0">
+                        <h1 class="display-1 text-uppercase fw-bold">Alfa Romeo</h1>
+                        <h2 class="display-4 fw-normal text-secondary">4C</h2>
+                        <p class="lead">El Alfa Romeo 4C es un modelo emblemático conocido por su diseño elegante y su potente motor. Su combinación de estilo italiano y rendimiento deportivo lo convierte en un automóvil deseable para los entusiastas de los vehículos deportivos.</p>
+                        <ul class="list-unstyled animated">
+                            <li><strong>Motor:</strong> 1.75L Turbo Gasolina</li>
+                            <li><strong>Potencia:</strong> 240 CV</li>
+                            <li><strong>Velocidad Máxima:</strong> 258 km/h</li>
+                            <li><strong>0-100 km/h:</strong> 4.5 segundos</li>
+                            <li><strong>Precio de salida:</strong> Desde 60.000€</li>
+                        </ul>
                     </div>
-                    <div class="col-md-6 mx-auto text-center animated">
-                        <img src="../../img/carusel/caruselalfa.png" class="d-block img-fluid " alt="Alfa Romeo C4">
+                    <!-- Columna de imagen -->
+                    <div class="col-md-6 text-center">
+                        <img src="../../img/carusel/caruselalfa.png" class="img-fluid" alt="Alfa Romeo 4C">
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="carousel-item py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
+                    <!-- Columna de texto e información -->
+                    <div class="col-md-6 text-center text-lg-start mb-4 mb-lg-0">
                         <h1 class="display-1 text-uppercase fw-bold text-shadow">Audi A5</h1>
                         <h2 class="display-4 fw-normal text-muted">3.0 TDI</h2>
                         <p class="lead">El Audi A5 3.0 TDI es un automóvil elegante y potente que combina el lujo con un rendimiento impresionante. Con su motor diésel de alta eficiencia y su diseño aerodinámico, ofrece una experiencia de conducción excepcional tanto en carretera como en ciudad.</p>
+                        <ul class="list-unstyled animated">
+                            <li><strong>Motor:</strong> 3.0L TDI Diesel</li>
+                            <li><strong>Potencia:</strong> 286 CV</li>
+                            <li><strong>Velocidad Máxima:</strong> 250 km/h</li>
+                            <li><strong>0-100 km/h:</strong> 5.7 segundos</li>
+                            <li><strong>Precio de salida:</strong> Desde 50.000€</li>
+                        </ul>
                     </div>
-                    <div class="col-md-6 mx-auto text-center animated">
-                        <img src="../../img/carusel/caruselaudi.png" class="d-block img-fluid  " alt="Audi A5 3.0 TDI">
+                    <!-- Columna de imagen -->
+                    <div class="col-md-6 text-center">
+                        <img src="../../img/carusel/caruselaudi.png" class="img-fluid" alt="Audi A5 3.0 TDI">
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="carousel-item py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
+                    <!-- Columna de texto e información -->
+                    <div class="col-md-6 text-center text-lg-start mb-4 mb-lg-0">
                         <h1 class="display-1 text-uppercase fw-bold text-shadow">BMW Serie 3</h1>
                         <h2 class="display-4 fw-normal text-muted">F80</h2>
                         <p class="lead">El BMW Serie 3 F80 es un sedán deportivo que combina elegancia con rendimiento. Equipado con tecnología de vanguardia y un potente motor, ofrece una experiencia de conducción emocionante tanto en carreteras sinuosas como en autopistas.</p>
+                        <ul class="list-unstyled animated ">
+                            <li><strong>Motor:</strong> 3.0L Twin-Turbo Inline-6</li>
+                            <li><strong>Potencia:</strong> 431 CV</li>
+                            <li><strong>Velocidad Máxima:</strong> 250 km/h</li>
+                            <li><strong>0-100 km/h:</strong> 4.1 segundos</li>
+                            <li><strong>Precio de salida:</strong> Desde 70.000€</li>
+                        </ul>
                     </div>
-                    <div class="col-md-6 mx-auto text-center animated ">
-                        <img src="../../img/carusel/caruselhellcar.png" class="d-block img-fluid   " alt="BMW Serie 3 F80">
+                    <!-- Columna de imagen -->
+                    <div class="col-md-6 text-center">
+                        <img src="../../img/carusel/caruselhellcar.png" class="img-fluid" alt="BMW Serie 3 F80">
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -65,7 +95,7 @@
 
 
 
-<div class="bg-black">
+<div class="bg-black ">
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-3 col-sm-6 text-center">
@@ -178,7 +208,7 @@
                     automotriz
                     en emocionantes duelos.</p>
                 <div class=" mt-5">
-                    <a href="{{ route('comparation') }}" class="btn btn-primary btn-lg btn-block rounded-pill">¡Explora Ahora!</a>
+                    <a href="{{ route('comparation') }}" class="btn btn-success btn-lg btn-block rounded-pill">¡Explora Ahora!</a>
                 </div>
             </div>
             <div class="col-md-4">
