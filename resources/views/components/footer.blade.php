@@ -8,9 +8,9 @@
         <li><a href="duelos.html">Duelos</a></li>
     </ul>
     <div class="social-icons">
-        <a href="#" ><i class="fab fa-instagram"></i></a>
-        <a href="#" ><i class="fab fa-twitter"></i></a>
-        <a href="#" ><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
     </div>
     <div class="footer-bottom">
         <p>©2024 HIERRO DURO SLU, TODOS LOS DERECHOS RESERVADOS</p>
@@ -20,8 +20,6 @@
 
 
 
-<button id="scrollToTopBtn" title="TOP">
-    <i>
-        <div class="lights"></div>
-    </i>
+<button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">
+    <i class="fas fa-car "></i> 
 </button>

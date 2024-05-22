@@ -4,14 +4,15 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\Configuration\ConfiguracionController;
-
+use App\Http\Controllers\LanguageController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 include_once 'api.php';
-
+Route::middleware([SetLocale::class])->group(function () {
 Route::get('/', function () {
     return view('pages.index');
 });
@@ -76,6 +77,17 @@ Route::get('/auth/google/callback', [LoginController::class,  'handleGoogleCallb
 
 Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+
+
+//LANG
+
+
+
+// routes/web.php
+
+
+    Route::get('lang/{locale}', [LanguageController::class, 'changeLanguage'])->name('changeLanguage');
 });
 
 

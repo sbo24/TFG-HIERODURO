@@ -6,8 +6,8 @@
             <div class="col-md-3">
                 <div class="custom-select-wrapper">
                     <select v-model="selectedBrand" @change="onBrandChange" class="custom-select">
-                        <option value="">Selecciona una marca</option>
-                        <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}</option>
+                        <option :value="null">Selecciona una marca</option>
+                        <option v-for="brand in brands" :key="brand.id" :value="brand">{{ brand.nombre }}</option>
                     </select>
                 </div>
             </div>
@@ -16,8 +16,8 @@
             <div class="col-md-3" v-if="selectedBrand">
                 <div class="custom-select-wrapper">
                     <select v-model="selectedModel" @change="onModelChange" class="custom-select">
-                        <option value="">Selecciona el modelo</option>
-                        <option v-for="model in models" :key="model.id" :value="model.id">{{ model.nombre }}</option>
+                        <option :value="null">Selecciona el modelo</option>
+                        <option v-for="model in models" :key="model.id" :value="model">{{ model.nombre }}</option>
                     </select>
                 </div>
             </div>
@@ -26,8 +26,8 @@
             <div class="col-md-3" v-if="selectedModel">
                 <div class="custom-select-wrapper">
                     <select v-model="selectedMotorization" @change="onMotorizationChange" class="custom-select">
-                        <option value="">Selecciona la motorización</option>
-                        <option v-for="motorization in motorizations" :key="motorization.id" :value="motorization.id">{{
+                        <option :value="null">Selecciona la motorización</option>
+                        <option v-for="motorization in motorizations" :key="motorization.id" :value="motorization">{{
                             motorization.nombre }}</option>
                     </select>
                 </div>
@@ -37,15 +37,27 @@
             <div class="col-md-3" v-if="selectedMotorization">
                 <div class="custom-select-wrapper">
                     <select v-model="selectedCode" class="custom-select">
-                        <option value="">Selecciona el código</option>
-                        <option v-for="code in codes" :key="code.id" :value="code.id">{{ code.codigo }}</option>
+                        <option :value="null">Selecciona el código</option>
+                        <option v-for="code in codes" :key="code.id" :value="code">{{ code.codigo }}</option>
                     </select>
                 </div>
             </div>
         </div>
 
+
+
+
         <div class="card" v-if="detalle">
             <div class="card-body advanced-design">
+                <div class="row vehicle-info align-items-center mb-3 custom-vehicle-info">
+                    <div class="col-md-3">
+                        <img :src="vehicleImagePath" alt="Imagen del vehículo"
+                            class="img-fluid rounded custom-vehicle-image">
+                    </div>
+                    <div class="col-md-9">
+                        <p class="custom-vehicle-description">{{ detalle[0].descripcion }}</p>
+                    </div>
+                </div>
                 <!-- Motor Section -->
                 <div class="section motor mb-3">
                     <h6 class="section-header">Motor <i class="fas fa-cogs"></i></h6>
@@ -114,6 +126,26 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.custom-vehicle-info {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.custom-vehicle-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-vehicle-description {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
 .custom-select {
     display: block;
     width: 100%;
@@ -123,7 +155,7 @@
     line-height: 1.5;
     color: #000000;
     background-color: #ffffff;
-    border: none;
+   
     border-radius: 0.5rem;
     transition: all 0.2s ease-in-out;
 }
@@ -139,10 +171,6 @@
 }
 
 /* Animación al pasar el ratón */
-.custom-select-wrapper:hover .custom-select {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-}
 
 .advanced-design {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -228,10 +256,10 @@ export default {
             models: [],
             motorizations: [],
             codes: [],
-            selectedBrand: '',
-            selectedModel: '',
-            selectedMotorization: '',
-            selectedCode: '',
+            selectedBrand: null,
+            selectedModel: null,
+            selectedMotorization: null,
+            selectedCode: null,
             detalle: null
         };
     },
@@ -251,7 +279,7 @@ export default {
         async getModels() {
             if (!this.selectedBrand) return;
             try {
-                const response = await fetch(`/api/v1/models/${this.selectedBrand}`);
+                const response = await fetch(`/api/v1/models/${this.selectedBrand.id}`);
                 const data = await response.json();
                 this.models = data;
             } catch (error) {
@@ -261,7 +289,7 @@ export default {
         async getMotorizations() {
             if (!this.selectedModel) return;
             try {
-                const response = await fetch(`/api/v1/motorization/${this.selectedModel}`);
+                const response = await fetch(`/api/v1/motorization/${this.selectedModel.id}`);
                 const data = await response.json();
                 this.motorizations = data;
             } catch (error) {
@@ -271,7 +299,7 @@ export default {
         async getCodes() {
             if (!this.selectedMotorization) return;
             try {
-                const response = await fetch(`/api/v1/cp/${this.selectedMotorization}`);
+                const response = await fetch(`/api/v1/cp/${this.selectedMotorization.id}`);
                 const data = await response.json();
                 this.codes = data;
             } catch (error) {
@@ -280,7 +308,7 @@ export default {
         },
         async getDetalle() {
             try {
-                const response = await fetch(`/api/v1/detalles/${this.selectedBrand}/${this.selectedModel}/${this.selectedMotorization}/${this.selectedCode}`);
+                const response = await fetch(`/api/v1/detalles/${this.selectedBrand.id}/${this.selectedModel.id}/${this.selectedMotorization.id}/${this.selectedCode.id}`);
                 const data = await response.json();
                 this.detalle = data;
             } catch (error) {
@@ -288,26 +316,31 @@ export default {
             }
         },
         async onBrandChange() {
-            this.selectedModel = '';
-            this.selectedMotorization = '';
-            this.selectedCode = '';
+            this.selectedModel = null;
+            this.selectedMotorization = null;
+            this.selectedCode = null;
             this.models = [];
             this.motorizations = [];
             this.codes = [];
             await this.getModels();
         },
-
         async onModelChange() {
-            this.selectedMotorization = '';
-            this.selectedCode = '';
+            this.selectedMotorization = null;
+            this.selectedCode = null;
             await this.getMotorizations();
         },
         async onMotorizationChange() {
-            this.selectedCode = '';
+            this.selectedCode = null;
             await this.getCodes();
-        },
-
-
+        }
+    },
+    computed: {
+        vehicleImagePath() {
+            if (this.selectedBrand && this.selectedModel && this.selectedMotorization && this.selectedCode) {
+                return `/img/${this.selectedBrand.nombre}/${this.selectedModel.nombre}/${this.selectedMotorization.nombre}/${this.selectedCode.codigo}/image1.png`;
+            }
+            return ''; // Ruta de imagen predeterminada o vacía si faltan selecciones
+        }
     },
     watch: {
         selectedCode: {
@@ -319,6 +352,6 @@ export default {
             immediate: false
         }
     }
-
 };
+
 </script>

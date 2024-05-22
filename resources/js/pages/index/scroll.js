@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     var scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-    // Mostrar o ocultar el botón cuando el usuario se desplaza hacia abajo
+    // Mostrar u ocultar el botón cuando el usuario se desplaza hacia abajo
     window.addEventListener("scroll", function () {
         if (window.pageYOffset > 100) {
-            scrollToTopBtn.style.display = "block";
+            scrollToTopBtn.classList.add("show");
         } else {
-            scrollToTopBtn.style.display = "none";
+            scrollToTopBtn.classList.remove("show");
         }
     });
 

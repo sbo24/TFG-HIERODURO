@@ -44,8 +44,10 @@
             </div>
         </div>
 
+        
         <div class="card" v-if="detalle">
             <div class="card-body advanced-design">
+                
                 <!-- Motor Section -->
                 <div class="section motor mb-3">
                     <h6 class="section-header">Motor <i class="fas fa-cogs"></i></h6>
@@ -123,7 +125,7 @@
     line-height: 1.5;
     color: #000000;
     background-color: #ffffff;
-    border: none;
+   
     border-radius: 0.5rem;
     transition: all 0.2s ease-in-out;
 }
@@ -139,10 +141,6 @@
 }
 
 /* Animación al pasar el ratón */
-.custom-select-wrapper:hover .custom-select {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-}
 
 .advanced-design {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);

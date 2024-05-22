@@ -218,7 +218,7 @@
     </div>
 </div>
 
-
+@include('lenguage')
 @include('components.footer')
 @endsection
 

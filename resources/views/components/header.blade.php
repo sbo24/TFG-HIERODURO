@@ -14,45 +14,44 @@
             <div class="collapse navbar-collapse justify-content-end animated fadeInUp" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('index') }}">Inicio</a>
+                        <a class="nav-link" href="{{ route('index') }}">{{ __('header.home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('vehicle') }}">Vehículos</a>
+                        <a class="nav-link" href="{{ route('vehicle') }}">{{ __('header.vehicles') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('brands') }}">Marcas</a>
+                        <a class="nav-link" href="{{ route('brands') }}">{{ __('header.brands') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('comparation') }}">Duelos</a>
+                        <a class="nav-link" href="{{ route('comparation') }}">{{ __('header.comparison') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user') }}">Mi Área</a>
+                        <a class="nav-link" href="{{ route('user') }}">{{ __('header.my_area') }}</a>
                     </li>
                 </ul>
                 <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center text-center text-lg-start ms-lg-3">
                     @auth
                     <div class="dropdown mr-1">
                         <button class="btn btn-outline-dark dropdown-toggle me-2" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Bienvenido, {{ Auth::user()->name }}
+                            {{ __('header.welcome', ['name' => Auth::user()->name]) }}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="{{ route('user') }}">Mi Área</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user') }}">{{ __('header.my_area') }}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                                    <button type="submit" class="dropdown-item">{{ __('header.logout') }}</button>
                                 </form>
                             </li>
                         </ul>
                     </div>
-
                     @else
                     <div class="mt-3 mt-lg-0">
-                        <button type="button" class="btn btn-outline-dark me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</button>
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</button>
+                        <button type="button" class="btn btn-outline-dark me-2" data-bs-toggle="modal" data-bs-target="#loginModal">{{ __('header.login') }}</button>
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">{{ __('header.register') }}</button>
                     </div>
                     @endauth
                 </div>
@@ -67,7 +66,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-                <h5 class="modal-title text-white" id="loginModalLabel">Bienvenido de Nuevo</h5>
+                <h5 class="modal-title text-white" id="loginModalLabel">{{ __('header.welcome_back') }}</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

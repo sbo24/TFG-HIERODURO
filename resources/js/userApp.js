@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import 'toastr/build/toastr.min.css';
 import VehicleList from './components/user_site/VehicleList.vue';
 import VehicleDetails from './components/user_site/VehicleDetails.vue';
 import Newcar from './components/user_site/NewCar.vue';

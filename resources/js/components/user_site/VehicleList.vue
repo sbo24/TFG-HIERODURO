@@ -47,37 +47,38 @@
         <!-- Bucle para generar tarjetas de vehículos -->
         <div v-for="vehicle in filteredVehicles" :key="vehicle.id" class="col-md-6 col-lg-4">
           <!-- Tarjeta individual -->
-          <div class="card car-card overflow-hidden shadow">
+          <div class="card car-card overflow-hidden shadow-sm">
             <!-- Imagen del vehículo -->
-            <div class="position-relative">
+            <div class="position-relative car-image-container">
               <img :src="vehicle.image_url" class="card-img-top" :alt="vehicle.marca + ' ' + vehicle.modelo">
               <!-- Etiqueta de año -->
               <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-3">{{ vehicle.año_desde }} - {{
-          vehicle.año_hasta }}</span>
+                vehicle.año_hasta }}</span>
             </div>
             <!-- Cuerpo de la tarjeta -->
-            <div class="card-body">
-              <h5 class="card-title">{{ vehicle.marca }} {{ vehicle.modelo }}</h5>
-              <p class="card-text">
-                <strong>Combustible:</strong> {{ vehicle.combustible }}<br>
-                <strong>Cambio:</strong> {{ vehicle.cambio }}
+            <div class="card-body text-center">
+              <h5 class="card-title mb-3">{{ vehicle.marca }} {{ vehicle.modelo }}</h5>
+              <p class="card-text mb-2">
+                <i class="fas fa-tachometer-alt text-primary"></i> <strong>CV:</strong> {{ vehicle.cv }}
+              </p>
+              <p class="card-text mb-2">
+                <i class="fas fa-cogs text-secondary"></i> <strong>NM:</strong> {{ vehicle.torque }}
               </p>
             </div>
-            <!-- Botón de detalles -->
-            <div class="card-footer bg-transparent border-0">
-              <button @click="showDetails(vehicle.id)" class="btn btn-outline-primary w-100">
-                Más Detalles
+            <!-- Botones de acciones -->
+            <div class="card-footer bg-transparent border-0 d-flex justify-content-between align-items-center">
+              <button @click="showDetails(vehicle.id)" class="btn btn-outline-primary flex-grow-1 me-2">
+                <i class="fas fa-info-circle me-2"></i> Más Detalles
+              </button>
+              <button @click="deleteVehicle(vehicle.id)" class="btn btn-outline-danger ms-2">
+                <i class="fas fa-trash-alt"></i>
               </button>
             </div>
           </div>
         </div>
       </div>
+
     </div>
-
-
-
-
-
 
     <button v-if="currentPage < totalPages" @click="loadMoreVehicles" class="btn btn-primary mx-auto mt-3 w-100">Cargar
       más</button>
@@ -87,32 +88,82 @@
 </template>
 
 <style>
-/* Estilos CSS para las tarjetas de coches */
 .car-card {
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
 }
 
 .car-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-.car-card img {
-  height: 200px;
-  /* Ajusta la altura según tus necesidades */
-  object-fit: cover;
+.car-image-container {
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
+
+.car-image-container img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+
 
 .badge {
-  font-size: 0.9em;
+  font-size: 0.85em;
+  padding: 0.5em 0.75em;
+  border-radius: 8px;
 }
 
-/* Ajustes para pantallas más pequeñas */
-@media (max-width: 767px) {
-  .car-card img {
-    height: auto;
-  }
+.card-body {
+  background: #f8f9fa;
+  padding: 20px;
 }
+
+.card-title {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.card-text {
+  font-size: 1em;
+  color: #6c757d;
+}
+
+.card-footer {
+  background: #f8f9fa;
+  padding: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.btn-outline-primary,
+.btn-outline-danger {
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+  transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 25px;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-danger:hover {
+  color: white;
+}
+
+.btn-outline-primary:hover {
+  background: #007bff;
+}
+
+.btn-outline-danger:hover {
+  background: #dc3545;
+}
+
 </style>
 
 <script>

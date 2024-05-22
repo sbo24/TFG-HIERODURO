@@ -1,14 +1,9 @@
 <template>
     <div class="container mt-5">
-
-
-
-
         <!-- Modal trigger button -->
-        <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#modalId">
-            Añadir vehiculo
+        <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#modalId">
+           ¿Quieres añadir un nuevo vehiculo?
         </button>
-
 
         <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
             aria-hidden="true">
@@ -20,42 +15,42 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="brandSelect" class="form-label">Brand:</label>
+                            <label for="brandSelect" class="form-label">Marca:</label>
                             <select id="brandSelect" v-model="selectedBrand" @change="onBrandChange"
                                 class="form-select">
-                                <option value="">Select a brand</option>
+                                <option value="">Selecciona una marca</option>
                                 <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}
                                 </option>
                             </select>
                         </div>
                         <div class="mb-3" v-if="selectedBrand">
-                            <label for="modelSelect" class="form-label">Model:</label>
+                            <label for="modelSelect" class="form-label">Modelo:</label>
                             <select id="modelSelect" v-model="selectedModel" @change="onModelChange"
                                 class="form-select">
-                                <option value="">Select a model</option>
+                                <option value="">Selecciona un modelo</option>
                                 <option v-for="model in models" :key="model.id" :value="model.id">{{ model.nombre }}
                                 </option>
                             </select>
                         </div>
                         <div class="mb-3" v-if="selectedModel">
-                            <label for="motorizationSelect" class="form-label">Motorization:</label>
+                            <label for="motorizationSelect" class="form-label">Motorización:</label>
                             <select id="motorizationSelect" v-model="selectedMotorization"
                                 @change="onMotorizationChange" class="form-select">
-                                <option value="">Select a motorization</option>
+                                <option value="">Selecciona una motorización</option>
                                 <option v-for="motorization in motorizations" :key="motorization.id"
                                     :value="motorization.id">{{ motorization.nombre }}</option>
                             </select>
                         </div>
                         <div class="mb-3" v-if="selectedMotorization">
-                            <label for="codeSelect" class="form-label">Code:</label>
+                            <label for="codeSelect" class="form-label">Código:</label>
                             <select id="codeSelect" v-model="selectedCode" class="form-select">
-                                <option value="">Select a code</option>
+                                <option value="">Selecciona un código</option>
                                 <option v-for="code in codes" :key="code.id" :value="code.id">{{ code.codigo }}</option>
                             </select>
                         </div>
                         <div v-if="selectedRowId" class="row mt-4">
                             <div class="col-md-12">
-                                <button @click="addPrivateVehicle" class="btn btn-primary">Agregar a mis
+                                <button @click="addPrivateVehicle" class="btn btn-primary btn-block">Agregar a mis
                                     vehículos</button>
                             </div>
                         </div>
@@ -63,12 +58,114 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </template>
 
+<style>
+
+.btn-custom {
+    background: black;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-custom:hover {
+  color: white;
+    background: rgba(0, 0, 0, 0.778);
+}
+
+.modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: modalFadeIn 0.4s;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border-bottom: none;
+    padding: 1rem 1.5rem;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.modal-header .btn-close {
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.modal-body {
+    padding: 2rem 2.5rem;
+    background: #f4f4f9;
+}
+
+.modal-body .form-label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.modal-body .form-select {
+    font-size: 16px;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s;
+}
+
+.modal-body .form-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.modal-footer {
+    background: #f1f1f1;
+    border-top: none;
+    padding: 1rem 1.5rem;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004090 100%);
+    transform: scale(1.1);
+}
+
+.btn-primary:active {
+    transform: scale(0.9);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
 <script>
+
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
 
 export default {
     data() {
@@ -87,6 +184,23 @@ export default {
     },
     mounted() {
         this.getBrands();
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
     },
     methods: {
         async getBrands() {
@@ -167,10 +281,13 @@ export default {
 
                 const responseData = await response.json();
                 console.log('Vehículo agregado:', responseData);
-                alert('Vehículo agregado exitosamente');
+                toastr.success('Vehículo agregado exitosamente');
+                setTimeout(() => {
+                    location.reload();
+                }, 2000); 
             } catch (error) {
                 console.error('Error al agregar el vehículo:', error);
-                alert('Error al agregar el vehículo');
+                toastr.error('Error al agregar el vehículo');
             }
         },
         async onBrandChange() {
