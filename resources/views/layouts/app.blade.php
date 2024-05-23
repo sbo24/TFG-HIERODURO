@@ -20,6 +20,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="{{ asset('img/header.png') }}">
 
     @yield('head')
@@ -33,6 +35,29 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+
+    @if(Session::has('admin_welcome'))
+    <script>
+        toastr.success("{{ Session::get('admin_welcome') }}");
+    </script>
+    @endif
+
+    @if(Session::has('error_message'))
+    <script>
+        toastr.error("{{ Session::get('error_message') }}");
+    </script>
+    @endif
+
+    @if(session('error_auth'))
+    <script>
+        toastr.error("{{ session('error_auth') }}");
+    </script>
+    @endif
+
+
 
 
 

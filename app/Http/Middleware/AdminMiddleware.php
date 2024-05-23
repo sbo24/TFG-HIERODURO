@@ -16,18 +16,15 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        // Verifica si el usuario está autenticado
-        if (Auth::check()) {
-            // Verifica si el usuario tiene permisos de administrador
-            if (Auth::user()->is_admin == 1) {
-                return $next($request);
-            } else {
-                // Si el usuario no tiene permisos, redirigir a una página de acceso denegado o inicio
-                return redirect('/')->with('error', 'No tienes permisos para acceder a esta sección.');
-            }
+        if (Auth::check() && Auth::user()->is_admin == 1) {
+            return $next($request);
         }
 
-        // Si el usuario no está autenticado, redirigir al login
-        return redirect('/login');
+        // Si el usuario no es un administrador, redirigir o devolver una respuesta de error
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'No tienes permisos para acceder a esta área.'], 403);
+        } else {
+            return redirect()->route('index')->with('error_message', 'No tienes permisos para acceder a esta área.');
+        }
     }
 }

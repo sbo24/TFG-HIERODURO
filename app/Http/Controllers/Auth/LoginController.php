@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -42,6 +42,12 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+        if ($user->is_admin == 1) {
+            Session::flash('admin_welcome', 'Bienvenido Administrador');
+        } else {
+            Session::flash('error_message', 'No tienes permisos para acceder a esta área.');
+        }
+
         if ($request->wantsJson()) {
             return response()->json(['success' => true]);
         } else {

@@ -4,35 +4,45 @@
         <div class="row mb-4">
             <!-- Selector de marcas del primer vehículo -->
             <div class="col-md-3">
-                <select v-model="selectedBrand1" @change="onBrandChange(1)" class="form-select">
-                    <option value="">Selecciona una marca</option>
-                    <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedBrand1" @change="onBrandChange(1)" class="custom-select">
+                        <option value="">Selecciona una marca</option>
+                        <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Selector de modelos del primer vehículo -->
             <div class="col-md-3" v-if="selectedBrand1">
-                <select v-model="selectedModel1" @change="onModelChange(1)" class="form-select">
-                    <option value="">Selecciona un modelo</option>
-                    <option v-for="model in models1" :key="model.id" :value="model.id">{{ model.nombre }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedModel1" @change="onModelChange(1)" class="custom-select">
+                        <option value="">Selecciona un modelo</option>
+                        <option v-for="model in models1" :key="model.id" :value="model.id">{{ model.nombre }}
+                        </option>
+                    </select>
+                </div>
             </div>
 
             <!-- Selector de motorizaciones del primer vehículo -->
             <div class="col-md-3" v-if="selectedModel1">
-                <select v-model="selectedMotorization1" @change="onMotorizationChange(1)" class="form-select">
-                    <option value="">Selecciona una motorizacion</option>
-                    <option v-for="motorization in motorizations1" :key="motorization.id" :value="motorization.id">{{
-                    motorization.nombre }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedMotorization1" @change="onMotorizationChange(1)" class="custom-select">
+                        <option value="">Selecciona una motorizacion</option>
+                        <option v-for="motorization in motorizations1" :key="motorization.id" :value="motorization.id">
+                            {{
+                            motorization.nombre }}</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Selector de códigos del primer vehículo -->
             <div class="col-md-3" v-if="selectedMotorization1">
-                <select v-model="selectedCode1" class="form-select">
-                    <option value="">Selecciona un codigo</option>
-                    <option v-for="code in codes1" :key="code.id" :value="code.id">{{ code.codigo }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedCode1" class="custom-select">
+                        <option value="">Selecciona un codigo</option>
+                        <option v-for="code in codes1" :key="code.id" :value="code.id">{{ code.codigo }}</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -40,35 +50,45 @@
         <div class="row mb-4">
             <!-- Selector de marcas del segundo vehículo -->
             <div class="col-md-3">
-                <select v-model="selectedBrand2" @change="onBrandChange(2)" class="form-select">
-                    <option value="">Selecciona una marca</option>
-                    <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedBrand2" @change="onBrandChange(2)" class="custom-select">
+                        <option value="">Selecciona una marca</option>
+                        <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.nombre }}</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Selector de modelos del segundo vehículo -->
             <div class="col-md-3" v-if="selectedBrand2">
-                <select v-model="selectedModel2" @change="onModelChange(2)" class="form-select">
-                    <option value="">Selecciona un modelo</option>
-                    <option v-for="model in models2" :key="model.id" :value="model.id">{{ model.nombre }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedModel2" @change="onModelChange(2)" class="custom-select">
+                        <option value="">Selecciona un modelo</option>
+                        <option v-for="model in models2" :key="model.id" :value="model.id">{{ model.nombre }}
+                        </option>
+                    </select>
+                </div>
             </div>
 
             <!-- Selector de motorizaciones del segundo vehículo -->
             <div class="col-md-3" v-if="selectedModel2">
-                <select v-model="selectedMotorization2" @change="onMotorizationChange(2)" class="form-select">
-                    <option value="">Selecciona una motorizacion</option>
-                    <option v-for="motorization in motorizations2" :key="motorization.id" :value="motorization.id">{{
-                    motorization.nombre }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedMotorization2" @change="onMotorizationChange(2)" class="custom-select">
+                        <option value="">Selecciona una motorizacion</option>
+                        <option v-for="motorization in motorizations2" :key="motorization.id" :value="motorization.id">
+                            {{
+                            motorization.nombre }}</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Selector de códigos del segundo vehículo -->
             <div class="col-md-3" v-if="selectedMotorization2">
-                <select v-model="selectedCode2" class="form-select">
-                    <option value="">Selecciona un codigo</option>
-                    <option v-for="code in codes2" :key="code.id" :value="code.id">{{ code.codigo }}</option>
-                </select>
+                <div class="custom-select-wrapper">
+                    <select v-model="selectedCode2" class="custom-select">
+                        <option value="">Selecciona un codigo</option>
+                        <option v-for="code in codes2" :key="code.id" :value="code.id">{{ code.codigo }}</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -181,19 +201,25 @@
                             <td
                                 :class="{ 'text-success': chasis1Wins > chasis2Wins, 'text-danger': chasis1Wins < chasis2Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Dimensiones Neumaticos: {{ detalle1[0].neumaticos }}
+                                    <li class="list-group-item">Dimensiones Neumaticos: {{
+                                        detalle1[0].neumaticos }}
                                     </li>
-                                    <li class="list-group-item">Frenos Delanteros: {{ detalle1[0].frenos_del }}</li>
-                                    <li class="list-group-item">Frenos Traseros: {{ detalle1[0].frenos_tras }}</li>
+                                    <li class="list-group-item">Frenos Delanteros: {{ detalle1[0].frenos_del }}
+                                    </li>
+                                    <li class="list-group-item">Frenos Traseros: {{ detalle1[0].frenos_tras }}
+                                    </li>
                                 </ul>
                             </td>
                             <td
                                 :class="{ 'text-success': chasis2Wins > chasis1Wins, 'text-danger': chasis2Wins < chasis1Wins }">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Dimensiones Neumaticos: {{ detalle2[0].neumaticos }}
+                                    <li class="list-group-item">Dimensiones Neumaticos: {{
+                                        detalle2[0].neumaticos }}
                                     </li>
-                                    <li class="list-group-item">Frenos Delanteros: {{ detalle2[0].frenos_del }}</li>
-                                    <li class="list-group-item">Frenos Traseros: {{ detalle2[0].frenos_tras }}</li>
+                                    <li class="list-group-item">Frenos Delanteros: {{ detalle2[0].frenos_del }}
+                                    </li>
+                                    <li class="list-group-item">Frenos Traseros: {{ detalle2[0].frenos_tras }}
+                                    </li>
                                 </ul>
                             </td>
                         </tr>
@@ -234,59 +260,92 @@
 </template>
 
 <style>
-    /* Estilos personalizados para resaltar elementos clave */
-    .fw-bold {
-        font-weight: bold;
-    }
+.custom-select-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .text-success {
-        color: green;
-    }
+.custom-select {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000;
+    background-color: #ffffff;
 
-    .text-danger {
-        color: red;
-    }
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
 
-    /* Estilos para la tabla */
-    .table {
-        width: 100%;
-        border-collapse: collapse;
-        border-radius: 0.25rem;
-        overflow: hidden;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
+.custom-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
 
-    .table td,
-    .table th {
-        padding: 1rem;
-        border-bottom: 1px solid #dee2e6;
-        text-align: left;
-    }
+/* Estilos para cuando el selector está deshabilitado */
+.custom-select:disabled {
+    background-color: #e9ecef;
+    opacity: 0.5;
+}
 
-    .table thead th {
-        border-bottom: 2px solid #dee2e6;
-    }
+.fw-bold {
+    font-weight: bold;
+}
 
-    /* Estilos para la lista de grupo */
-    .list-group {
-        margin-bottom: 0;
-        border-radius: 0.25rem;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+.text-success {
+    color: green;
+}
 
-    .list-group-item {
-        padding: 1rem;
-        border-bottom: 1px solid #dee2e6;
-    }
+.text-danger {
+    color: red;
+}
 
-    .list-group-item:last-child {
-        border-bottom: none;
-    }
+/* Estilos para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
 
-    .list-group-item span {
-        font-weight: bold;
-    }
+.table td,
+.table th {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    text-align: left;
+}
+
+.table thead th {
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Estilos para la lista de grupo */
+.list-group {
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.list-group-item span {
+    font-weight: bold;
+}
 </style>
 
 <!-- Aquí va tu tabla HTML -->

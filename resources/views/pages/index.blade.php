@@ -223,6 +223,7 @@
 @endsection
 
 @section('scripts')
+
 @include('assets.index.indexjs')
 @include('assets.header.headerjs')
 @endsection
