@@ -2,7 +2,7 @@
 
 return array (
   'home' => 'Inicio',
-  'vehicles' => 'Vehículos',
+  'vehicles' => 'Vehículoss',
   'brands' => 'Marcas',
   'comparison' => 'Duelos',
   'my_area' => 'Mi Área',
