@@ -2,12 +2,11 @@
 <html lang="{{ app()->getLocale() }}">
 
 <head>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: 'Arial', sans-serif;
-        }
+    <!-- Incluir Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-mt3RJDOJ2nI5/1i7bexBwz5xvUvhjMt6aTf0sO9t23a0093sgpuvaqqef+jo0+6s" crossorigin="anonymous">
 
+    <style>
+     
         /* Estilos del botón y del menú desplegable con clase única */
         .btn-idiomas {
             position: fixed;
@@ -15,27 +14,24 @@
             right: 10px;
             /* Alinear el botón a la derecha */
             transform: translateY(-50%);
-
             /* Color del botón */
             color: white;
-            padding: 5px 10px;
+            padding: 5px 5px;
             /* Ajustar el padding para hacer el botón más pequeño */
-            font-size: 12px;
+            font-size: 8px;
             /* Ajustar el tamaño del texto */
             border: none;
             cursor: pointer;
             border-radius: 5px;
-
             z-index: 1000;
+            /* Fondo del botón: planeta */
+            background-color: #333;
+            /* Fondo oscuro */
         }
 
-        .btn-idiomas img {
-            width: 50px;
-            /* Ajustar el tamaño de la imagen */
-            vertical-align: middle;
-            /* Alinear verticalmente la imagen */
-            margin-right: 5px;
-            /* Añadir un pequeño margen a la derecha de la imagen */
+        .btn-idiomas .fa-globe {
+            font-size: 3em;
+            /* Tamaño del icono */
         }
 
         .btn-idiomas:hover .menu-idiomas {
@@ -46,7 +42,7 @@
             display: none;
             position: absolute;
             background-color: #f9f9f9;
-            min-width: 180px;
+            min-width: 120px;
             right: 1px;
             text-align: center;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -55,7 +51,7 @@
 
         .menu-idiomas a {
             color: black;
-            padding: 8px 12px;
+            padding: 5px 5px;
             /* Ajustar el padding de los elementos de la lista */
             text-decoration: none;
             display: block;
@@ -73,11 +69,11 @@
     <!-- Contenido de tu página -->
 
     <div class="btn-idiomas">
-        <img src="https://media.tenor.com/aLgQw5HZ2pMAAAAi/dazzle-car-detailing.gif" alt="">
-
+        <i class="fas fa-globe fa-5x"></i> <!-- Tamaño del icono -->
         <div class="menu-idiomas">
-            <a href="{{ route('changeLanguage', 'en') }}">English</a>
-            <a href="{{ route('changeLanguage', 'es') }}">Español</a>
+            <a href="{{ route('changeLanguage', 'en') }}">En</a>
+            <a href="{{ route('changeLanguage', 'es') }}">Es</a>
+            <!-- Agrega más enlaces para otros idiomas si es necesario -->
         </div>
     </div>
 

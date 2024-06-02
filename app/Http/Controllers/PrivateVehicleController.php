@@ -179,6 +179,31 @@ class PrivateVehicleController extends Controller
         }
     }
 
+    public function delete(Request $request)
+    {
+        // Validar la solicitud
+        $request->validate([
+            'id' => 'required|integer|exists:private_vehicles,id',
+        ]);
+
+        try {
+            // Obtener el ID del cuerpo de la solicitud
+            $id = $request->input('id');
+
+            // Buscar el vehículo por su ID
+            $vehicle = PrivateVehicle::findOrFail($id);
+
+            // Eliminar el vehículo
+            $vehicle->delete();
+
+            // Retornar una respuesta de éxito
+            return response()->json(['message' => 'Vehículo eliminado correctamente'], 200);
+        } catch (\Exception $e) {
+            // Manejar cualquier error que pueda ocurrir
+            return response()->json(['message' => 'Error al eliminar el vehículo', 'error' => $e->getMessage()], 500);
+        }
+    }
+
 
 
 

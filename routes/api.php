@@ -14,6 +14,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/api/v1/privatevehicles', [PrivateVehicleController::class, 'index']);
     Route::get('/api/v1/privatevehicles/{id}', [PrivateVehicleController::class, 'show']);
     Route::post('/api/v1/privatevehicles/store', [PrivateVehicleController::class, 'store']);
+    Route::delete('/api/v1/privatevehicles/delete', [PrivateVehicleController::class, 'delete']);
     Route::post('/api/v1/vehicles/change-mileage', [PrivateVehicleController::class, 'changeMileage']);
 });
 
