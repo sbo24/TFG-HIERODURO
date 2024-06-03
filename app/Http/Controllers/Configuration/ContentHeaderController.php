@@ -48,7 +48,7 @@ class ContentHeaderController extends Controller
 
         return redirect()->route('content.header.show')->with('success', 'Contenido Actualizado!');
     }
-
+    
     /**
      * Sincroniza los archivos de idioma del encabezado.
      *

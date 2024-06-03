@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Configuration\CarDetailController;
+use App\Http\Controllers\Configuration\ContentCaruselController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\Configuration\ContentHeaderController;
 use App\Http\Controllers\LanguageController;
@@ -36,11 +37,11 @@ Route::middleware([SetLocale::class])->group(function () {
 
 
     //USER_SITE
-   
-        Route::middleware([CheckAuthenticated::class])->get('/zonaPrivada', function () {
-            return view('pages.user_site');
-        })->name('user');
-    
+
+    Route::middleware([CheckAuthenticated::class])->get('/zonaPrivada', function () {
+        return view('pages.user_site');
+    })->name('user');
+
 
 
 
@@ -83,27 +84,27 @@ Route::middleware([SetLocale::class])->group(function () {
     Route::middleware([AdminMiddleware::class])->group(function () {
         Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
     });
-
     //CONTENT-HEADER
+    Route::middleware([AdminMiddleware::class])->group(function () {
+        Route::get('/admin/header', [ContentHeaderController::class, 'showHeaderContent'])->name('content.header.show');
+        Route::post('/content/header/update', [ContentHeaderController::class, 'updateHeaderContent'])->name('content.header.update');
 
-    Route::get('/admin/header', [ContentHeaderController::class, 'showHeaderContent'])->name('content.header.show');
-    Route::post('/content/header/update', [ContentHeaderController::class, 'updateHeaderContent'])->name('content.header.update');
+        //CONTENT-CARUSEL
+
+        Route::get('/admin/carusel', [ContentCaruselController::class, 'showCarouselContent'])->name('content.carusel.show');
+        Route::post('/content/carusel/update', [ContentCaruselController::class, 'updateCarouselContent'])->name('content.carusel.update');
+        Route::get('/admin/carusel/create', [ContentCaruselController::class, 'createCarouselContent'])->name('content.carusel.create');
+        Route::post('/content/carusel/store', [ContentCaruselController::class, 'storeCarouselContent'])->name('content.carusel.store');
 
 
 
-    //CONTENT-DETAILS
+        //CONTENT-DETAILS
 
-    Route::put('/details/{id}', [CarDetailController::class, 'update'])->name('detalle.update');
-    Route::get('/admin/details', [CarDetailController::class, 'index'])->name('detalle.index');
-
-
+        Route::put('/details/{id}', [CarDetailController::class, 'update'])->name('detalle.update');
+        Route::get('/admin/details', [CarDetailController::class, 'index'])->name('detalle.index');
+    });
 
 
     //LANG
     Route::get('lang/{locale}', [LanguageController::class, 'changeLanguage'])->name('changeLanguage');
 });
-
-
-
-
-

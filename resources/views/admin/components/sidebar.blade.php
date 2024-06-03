@@ -16,6 +16,9 @@
                      <li class="w-100">
                          <a href="{{ route('content.header.show') }}" class="nav-link px-0"> <span class="d-none d-sm-inline">Header</span> HD </a>
                      </li>
+                     <li class="w-100">
+                         <a href="{{ route('content.carusel.show') }}" class="nav-link px-0"> <span class="d-none d-sm-inline">Carusel</span> CR </a>
+                     </li>
 
                  </ul>
              </li>

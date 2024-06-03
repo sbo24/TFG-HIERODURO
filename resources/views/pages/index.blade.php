@@ -17,7 +17,7 @@
                         <h2 class="display-4 fw-normal text-secondary">4C</h2>
                         <p class="lead">El Alfa Romeo 4C es un modelo emblemático conocido por su diseño elegante y su potente motor. Su combinación de estilo italiano y rendimiento deportivo lo convierte en un automóvil deseable para los entusiastas de los vehículos deportivos.</p>
                         <ul class="list-unstyled animated">
-                            <li><strong>Motor:</strong> 1.75L Turbo Gasolina</li>
+                            <li><strong>Motor:</strong> {{ __('carousel.moteur1') }}</li>
                             <li><strong>Potencia:</strong> 240 CV</li>
                             <li><strong>Velocidad Máxima:</strong> 258 km/h</li>
                             <li><strong>0-100 km/h:</strong> 4.5 segundos</li>
@@ -38,7 +38,7 @@
                     <!-- Columna de texto e información -->
                     <div class="col-md-6 text-center text-lg-start mb-4 mb-lg-0">
                         <h1 class="display-1 text-uppercase fw-bold text-shadow">Audi A5</h1>
-                        <h2 class="display-4 fw-normal text-muted">3.0 TDI</h2>
+                        <h2 class="display-4 fw-normal text-secondary">3.0 TDI</h2>
                         <p class="lead">El Audi A5 3.0 TDI es un automóvil elegante y potente que combina el lujo con un rendimiento impresionante. Con su motor diésel de alta eficiencia y su diseño aerodinámico, ofrece una experiencia de conducción excepcional tanto en carretera como en ciudad.</p>
                         <ul class="list-unstyled animated">
                             <li><strong>Motor:</strong> 3.0L TDI Diesel</li>
@@ -62,7 +62,7 @@
                     <!-- Columna de texto e información -->
                     <div class="col-md-6 text-center text-lg-start mb-4 mb-lg-0">
                         <h1 class="display-1 text-uppercase fw-bold text-shadow">BMW Serie 3</h1>
-                        <h2 class="display-4 fw-normal text-muted">F80</h2>
+                        <h2 class="display-4 fw-normal text-secondary">F80</h2>
                         <p class="lead">El BMW Serie 3 F80 es un sedán deportivo que combina elegancia con rendimiento. Equipado con tecnología de vanguardia y un potente motor, ofrece una experiencia de conducción emocionante tanto en carreteras sinuosas como en autopistas.</p>
                         <ul class="list-unstyled animated ">
                             <li><strong>Motor:</strong> 3.0L Twin-Turbo Inline-6</li>
