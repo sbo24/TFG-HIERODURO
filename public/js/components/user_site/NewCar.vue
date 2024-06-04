@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-5">
         <!-- Modal trigger button -->
-        <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#modalId">
+        <button type="button" class="btn btn-custom my-5" data-bs-toggle="modal" data-bs-target="#modalId">
            ¿Quieres añadir un nuevo vehiculo?
         </button>
 

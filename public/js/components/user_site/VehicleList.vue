@@ -77,14 +77,37 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <button v-if="currentPage < totalPages" @click="loadMoreVehicles" class="btn btn-primary mx-auto mt-3 w-100">Cargar
       más</button>
-
-
   </div>
+  <div id="floating-message" class="alert alert-success floating-message" role="alert" style="display: none;">
+    <!-- Aquí se mostrará el mensaje -->
+  </div>
+
+  <!-- Modal de confirmación -->
+  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmationModalLabel">Confirmación de eliminación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que deseas eliminar este vehículo?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="deleteButton">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 </template>
 
 <style>
@@ -112,8 +135,6 @@
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-
-
 
 .badge {
   font-size: 0.85em;
@@ -164,6 +185,15 @@
   background: #dc3545;
 }
 
+ .floating-message {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 1000;
+   /* Asegura que el mensaje flotante esté sobre otros elementos */
+   display: none;
+ }
 </style>
 
 <script>
@@ -212,6 +242,57 @@ export default {
       this.$emit('show-details', vehicleId);
       console.log(vehicleId)
     },
+    deleteVehicle(vehicleId) {
+      // Mostrar modal de confirmación
+      const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+      confirmationModal.show();
+
+      // Manejar clic en el botón de eliminar dentro del modal
+      const deleteButton = document.getElementById('deleteButton');
+      deleteButton.addEventListener('click', () => {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        fetch('/api/v1/privatevehicles/delete', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+          },
+          body: JSON.stringify({ id: vehicleId })
+        })
+          .then(response => {
+            if (response.ok) {
+              // Eliminar el vehículo de la lista local
+              this.vehicles = this.vehicles.filter(vehicle => vehicle.id !== vehicleId);
+              this.applyFilters();
+              // Mostrar mensaje de éxito como un mensaje flotante
+              const floatingMessage = document.getElementById('floating-message');
+              floatingMessage.textContent = 'Vehículo eliminado correctamente';
+              // Mostrar el mensaje flotante
+              floatingMessage.style.display = 'block';
+              // Ocultar el mensaje flotante después de 3 segundos
+              setTimeout(() => {
+                floatingMessage.style.display = 'none';
+              }, 3000);
+            } else {
+              // Mostrar mensaje de error como un mensaje flotante
+              const floatingMessage = document.getElementById('floating-message');
+              floatingMessage.textContent = 'Error al eliminar el vehículo';
+              // Mostrar el mensaje flotante
+              floatingMessage.style.display = 'block';
+              // Ocultar el mensaje flotante después de 3 segundos
+              setTimeout(() => {
+                floatingMessage.style.display = 'none';
+              }, 3000);
+            }
+          })
+          .catch(error => console.error('Error eliminando el vehículo:', error));
+
+        // Cerrar el modal después de hacer clic en eliminar
+        confirmationModal.hide();
+      });
+    },
+
     applyFilters() {
       // Obtener valores de los filtros seleccionados
       const yearFilter = $('#yearFilter').val();

@@ -1,6 +1,8 @@
 {
     "/css/brands/brands.css": "/css/brands/brands.css",
     "/css/brands/brands.css.map": "/css/brands/brands.css.map",
+    "/css/cokkies/cokkies.css": "/css/cokkies/cokkies.css",
+    "/css/cokkies/cokkies.css.map": "/css/cokkies/cokkies.css.map",
     "/css/index/carrusel.css": "/css/index/carrusel.css",
     "/css/index/carrusel.css.map": "/css/index/carrusel.css.map",
     "/css/index/circle.css": "/css/index/circle.css",
@@ -38,6 +40,7 @@
     "/js/components/VehicleDetails.vue": "/js/components/VehicleDetails.vue",
     "/js/components/VehicleList.vue": "/js/components/VehicleList.vue",
     "/js/components/vehicles/Filters.vue": "/js/components/vehicles/Filters.vue",
+    "/js/pages/cookies/cokkies.js": "/js/pages/cookies/cokkies.js",
     "/js/pages/header/openmodal.js": "/js/pages/header/openmodal.js",
     "/js/pages/header/sendform.js": "/js/pages/header/sendform.js",
     "/js/pages/index/animated-containers.js": "/js/pages/index/animated-containers.js",

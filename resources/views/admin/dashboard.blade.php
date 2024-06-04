@@ -1,24 +1,22 @@
 @extends('layouts.app')
 
 @section('head')
-
-@endsection
+@include('assets.vehicle.vehicle')
+@endsection     
 
 @section('content')
 <div class="container-fluid">
     <div class="row flex-nowrap">
         @include('admin.components.sidebar')
         <div class="col py-3">
-            <h3>Left Sidebar with Submenus</h3>
+            <h3>Panel de Administración</h3>
             <p class="lead">
-                An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single
-                menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
-            <ul class="list-unstyled">
-                <li>
-                    <h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile
-                </li>
-            </ul>
+                Un panel de administración intuitivo y poderoso diseñado para gestionar eficientemente el contenido y las configuraciones del sitio web. Ofrece una amplia gama de funciones y características que facilitan la gestión de contenido, la administración de usuarios, la personalización del diseño y mucho más.
+            </p>
+
         </div>
     </div>
 </div>
 @endsection
+
+@include('assets.vehicle.vehiclejs')

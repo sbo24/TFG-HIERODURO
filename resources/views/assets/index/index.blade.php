@@ -4,3 +4,4 @@
   <link rel="stylesheet" href="../../../css/index/counter.css">
   <link rel="stylesheet" href="../../../css/index/circle.css">
   <link rel="stylesheet" href="../../../css/index/footer.css">
+  <link rel="stylesheet" href="../../../css/cokkies/cokkies.css">
