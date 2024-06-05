@@ -8,7 +8,7 @@ use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\MotorizacionController;
 use App\Http\Controllers\CodigoController;
 use App\Http\Controllers\DetalleController;
-
+use App\Http\Controllers\UserController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/api/v1/privatevehicles', [PrivateVehicleController::class, 'index']);
@@ -24,3 +24,7 @@ Route::get('/api/v1/motorization/{modelId}', [MotorizacionController::class, 'ge
 Route::get('/api/v1/cp/{motorizacionId}', [CodigoController::class, 'getcpbymotocitation']);
 Route::get('/api/v1/detalles/{marcaId}/{modeloId}/{versionId}/{codigoId}', [DetalleController::class, 'getDetails']);
 
+//usuarios-totales
+Route::get('/usuarios/total', [UserController::class, 'totalUsuarios']);
+Route::get('/marcas/total', [MarcaController::class, 'totalMarcas']);
+Route::get('/modelos/total', [ModeloController::class, 'totalModelos']);

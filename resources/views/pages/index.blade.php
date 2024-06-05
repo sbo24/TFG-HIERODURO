@@ -172,25 +172,27 @@
         <div class="row">
             <div class="col-lg-4 col-12">
                 <div class="counter text-center">
-                    <h2><i class="fas fa-tag"></i> <span id="count1" class="counter-value">500</span></h2>
+                    <h2><i class="fas fa-tag"></i> <span id="countMarcas" class="counter-value">...</span></h2>
                     <p class="text-muted">Marcas Totales</p>
                 </div>
             </div>
             <div class="col-lg-4 col-12">
                 <div class="counter text-center">
-                    <h2><i class="fas fa-car"></i> <span id="count2" class="counter-value">2000</span></h2>
+                    <h2><i class="fas fa-car"></i> <span id="countModelos" class="counter-value">...</span></h2>
                     <p class="text-muted">Modelos Totales</p>
                 </div>
             </div>
             <div class="col-lg-4 col-12">
                 <div class="counter text-center">
-                    <h2><i class="fas fa-users"></i> <span id="count3" class="counter-value">10000</span></h2>
+                    <h2><i class="fas fa-users"></i> <span id="countUsuarios" class="counter-value">...</span></h2>
                     <p class="text-muted">Usuarios Registrados</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 
 
 <div class="bg-black hidden slide-in animated-container">

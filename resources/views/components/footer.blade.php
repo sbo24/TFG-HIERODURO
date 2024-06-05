@@ -3,9 +3,9 @@
         <img src="../../img/header.png" alt="Logo de la Compañía de Coches">
     </div>
     <ul class="footer-nav">
-        <li><a href="vehiculos.html">Vehículos</a></li>
-        <li><a href="marcas.html">Marcas</a></li>
-        <li><a href="duelos.html">Duelos</a></li>
+        <li><a href="{{ route('vehicle') }}">Vehiculos</a></li>
+        <li><a href="{{ route('brands') }}">Marcas</a></li>
+        <li><a href="{{ route('comparation') }}">Duelos</a></li>
     </ul>
     <div class="social-icons">
         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -21,5 +21,5 @@
 
 
 <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">
-    <i class="fas fa-car "></i> 
+    <i class="fas fa-car "></i>
 </button>

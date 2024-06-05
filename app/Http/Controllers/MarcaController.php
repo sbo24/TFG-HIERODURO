@@ -30,4 +30,13 @@ class MarcaController extends Controller
         return view('pages.brandsModel', ['marca' => $marca, 'modelos' => $modelos]);
     }
 
+
+    public function totalMarcas()
+    {
+        // Obtén el número total de modelos
+        $totalModelos = Marca::count();
+
+        return response()->json(['total_marcas' => $totalModelos]);
+    }
+
 }
