@@ -25,8 +25,8 @@ Este proyecto es una plataforma de comparación de coches que ofrece fichas téc
 
 ## Tecnologías Utilizadas
 
-- Laravel 8.x
-- Vue.js 3.x
+- Laravel 11.x
+- Vue.js 5.x
 - Bootstrap 5.x
 - Toastr.js
 
@@ -39,6 +39,7 @@ Este proyecto es una plataforma de comparación de coches que ofrece fichas téc
 - Migraciones de esquemas de bases de datos independientes.
 - Procesamiento robusto de trabajos en segundo plano.
 - Transmisión de eventos en tiempo real.
+- ApiREST
 
 ## Requisitos del Sistema
 
@@ -52,6 +53,35 @@ Este proyecto es una plataforma de comparación de coches que ofrece fichas téc
 ### Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/nombre-del-proyecto.git
-cd nombre-del-proyecto
- hazme el readme de github y explica en el mismo como desplegarlo en local 
+git clone https://github.com/sbo24/TFG-HIERODURO.git
+cd laravel
+```
+## Instalar Dependencias
+Una vez que hayas clonado el repositorio, instala las dependencias del proyecto utilizando Composer y npm:
+```bash
+composer install
+npm install
+```
+## Configurar el Archivo de Entorno
+Copia el archivo .env.example y créalo como .env. Después, configura las variables de entorno, como la conexión a la base de datos.
+```bash
+cp .env.example .env
+```
+## Ejecutar Migraciones y Semillas
+Ejecuta las migraciones de la base de datos y las semillas para tener datos de ejemplo:
+```bash
+php artisan migrate --seed
+```
+## Compilar los Recursos Frontales
+Compila los recursos frontales utilizando npm:
+```bash
+npm run dev
+```
+## Ejecutar el Servidor de Desarrollo
+Finalmente, puedes ejecutar el servidor de desarrollo de Laravel para ver la aplicación en acción:
+```bash
+php artisan serve
+```
+## Después de ejecutar este comando, podrás acceder a la aplicación en tu navegador visitando http://localhost:8000.
+
+¡Y eso es todo! Ahora deberías tener el proyecto de comparación de coches funcionando en tu máquina local.
