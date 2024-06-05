@@ -85,3 +85,8 @@ php artisan serve
 ## Después de ejecutar este comando, podrás acceder a la aplicación en tu navegador visitando http://localhost:8000.
 
 ¡Y eso es todo! Ahora deberías tener el proyecto de comparación de coches funcionando en tu máquina local.
+
+## Licencia
+
+Este proyecto está bajo la [Licencia MIT](LICENSE.txt).
+
