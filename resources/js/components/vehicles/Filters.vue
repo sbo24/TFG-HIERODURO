@@ -47,7 +47,7 @@
 
 
 
-        <div class="card" v-if="detalle">
+        <div class="card" v-if="detalle && selectedBrand && selectedModel && selectedMotorization && selectedCode">
             <div class="card-body advanced-design">
                 <div class="row vehicle-info align-items-center mb-3 custom-vehicle-info">
                     <div class="col-md-3">
@@ -66,9 +66,14 @@
                             Torque: <span class="details-value torque">{{ detalle[0].torque }} NM</span>
                         </li>
                         <li class="details-item">
-                            CV: <span class="details-value cv">{{ detalle[0].cv }}cv</span>
+                            CV: <span class="details-value torque">{{ detalle[0].cv }}cv</span>
                         </li>
-                        <!-- More motor details -->
+                        <li class="details-item">
+                            Número Cilindros: <span class="details-value torque">{{ detalle[0].cilindros }}</span>
+                        </li>
+                        <li class="details-item">
+                            Cilindrada: <span class="details-value torque">{{ detalle[0].cilindrada }} cm³</span>
+                        </li>
                     </ul>
                 </div>
                 <!-- Estadísticas Section -->
@@ -79,7 +84,7 @@
                             Velocidad Máxima: <span class="details-value max-speed">{{ detalle[0].vm }} km/h</span>
                         </li>
                         <li class="details-item">
-                            0-100: <span class="details-value acceleration">{{ detalle[0].cien }} segundos</span>
+                            0-100: <span class="details-value max-speed">{{ detalle[0].cien }} segundos</span>
                         </li>
                         <!-- More statistics details -->
                     </ul>
@@ -91,6 +96,18 @@
                         <li class="details-item">
                             Dimensiones Neumáticos: <span class="details-value tires">{{ detalle[0].neumaticos }}</span>
                         </li>
+                        <li class="details-item">
+                            Peso: <span class="details-value tires">{{ detalle[0].peso }} KG</span>
+                        </li>
+                        <li class="details-item">
+                            Altura: <span class="details-value tires">{{ detalle[0].altura }} mm</span>
+                        </li>
+                        <li class="details-item">
+                            Anchura: <span class="details-value tires">{{ detalle[0].anchura }} mm</span>
+                        </li>
+                        <li class="details-item">
+                            Longitud: <span class="details-value tires">{{ detalle[0].longitud }} mm</span>
+                        </li>
                         <!-- More chasis details -->
                     </ul>
                 </div>
@@ -99,8 +116,20 @@
                     <h6 class="section-header">Mantenimientos <i class="fas fa-tools"></i></h6>
                     <ul class="details-list">
                         <li class="details-item">
-                            Próximo Cambio de Aceite: <span class="details-value oil-change">{{
+                            Cambio de Aceite cada: <span class="details-value oil-change">{{
                                 detalle[0].proximo_c_aceite }} KM</span>
+                        </li>
+                        <li class="details-item">
+                            Cambio de filtro del aire cada: <span class="details-value oil-change">{{
+                                detalle[0].proximo_c_aire }} KM</span>
+                        </li>
+                        <li class="details-item">
+                            Cambio de filtro del combustible cada: <span class="details-value oil-change">{{
+                                detalle[0].proximo_c_combustible }} KM</span>
+                        </li>
+                        <li class="details-item">
+                            Cambio del liquido de frenos cada: <span class="details-value oil-change">{{
+                                detalle[0].proximo_c_l_frenos }} años</span>
                         </li>
                         <!-- More maintenance details -->
                     </ul>

@@ -48,6 +48,7 @@ class PrivateVehicleController extends Controller
                     'codigo' => $vehicle->detail->codigoModelo->codigo,
                     'torque' => $vehicle->detail->torque,
                     'proximo_c_aceite' => $vehicle->detail->proximo_c_aceite,
+                    'proximo_c_aire' => $vehicle->detail->proximo_c_aire,
                     'cv' => $vehicle->detail->cv,
                     'descripcion' => $vehicle->detail->descripcion,
                     'image_url' => asset($imagePath), // Ruta completa de la imagen
@@ -104,7 +105,16 @@ class PrivateVehicleController extends Controller
             'codigo' => $vehicle->detail->codigoModelo->codigo,
             'torque' => $vehicle->detail->torque,
             'proximo_c_aceite' => $vehicle->detail->proximo_c_aceite,
+            'proximo_c_aire' => $vehicle->detail->proximo_c_aire,
+            'proximo_c_combustible' => $vehicle->detail->proximo_c_combustible,
+            'proximo_c_l_frenos' => $vehicle->detail->proximo_c_l_frenos,
+            'vm' => $vehicle->detail->vm,
             'cv' => $vehicle->detail->cv,
+            'altura' => $vehicle->detail->altura,
+            'anchura' => $vehicle->detail->anchura,
+            'longitud' => $vehicle->detail->longitud,
+            'cilindros' => $vehicle->detail->cilindros,
+            'puertas' => $vehicle->detail->puertas,
             'descripcion' => $vehicle->detail->descripcion,
             'image_url' => asset($imagePath), // Ruta completa de la imagen
         ];

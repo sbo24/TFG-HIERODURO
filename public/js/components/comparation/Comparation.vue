@@ -95,162 +95,219 @@
         <!-- Tabla de comparación -->
         <div class="card" v-if="detalle1 && detalle2">
             <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Categoria</th>
-                            <th>Primer vehiculo</th>
-                            <th>Segundo vehiculo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Motor section -->
-                        <tr v-if="detalle1 && detalle2">
-                            <td>Motor</td>
-                            <td
-                                :class="{ 'text-success': motor1Wins > motor2Wins, 'text-danger': motor1Wins < motor2Wins }">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle1[0].torque > detalle2[0].torque, 'text-danger': detalle1[0].torque < detalle2[0].torque }">
-                                        Torque: {{ detalle1[0].torque }} NM
-                                    </li>
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle1[0].cv > detalle2[0].cv, 'text-danger': detalle1[0].cv < detalle2[0].cv }">
-                                        CV: {{ detalle1[0].cv }} cv
-                                    </li>
-                                    <li class="list-group-item">
-                                        Cambio: {{ detalle1[0].cambio }}
-                                    </li>
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle1[0].combustible > detalle2[0].combustible, 'text-danger': detalle1[0].combustible < detalle2[0].combustible }">
-                                        Combustible: {{ detalle1[0].combustible }}
-                                    </li>
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle1[0].par_medio > detalle2[0].par_medio, 'text-danger': detalle1[0].par_medio < detalle2[0].par_medio }">
-                                        Par Medio: {{ detalle1[0].par_medio }}
-                                    </li>
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle1[0].par_maximo > detalle2[0].par_maximo, 'text-danger': detalle1[0].par_maximo < detalle2[0].par_maximo }">
-                                        Par Maximo: {{ detalle1[0].par_maximo }}
-                                    </li>
-                                </ul>
-                            </td>
-                            <td
-                                :class="{ 'text-success': motor2Wins > motor1Wins, 'text-danger': motor2Wins < motor1Wins }">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle2[0].torque > detalle1[0].torque, 'text-danger': detalle2[0].torque < detalle1[0].torque }">
-                                        Torque: {{ detalle2[0].torque }} NM
-                                    </li>
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle2[0].cv > detalle1[0].cv, 'text-danger': detalle2[0].cv < detalle1[0].cv }">
-                                        CV: {{ detalle2[0].cv }} cv
-                                    </li>
-                                    <li class="list-group-item">
-                                        Cambio: {{ detalle2[0].cambio }}
-                                    </li>
-                                    <li class="list-group-item">
-                                        Combustible: {{ detalle2[0].combustible }}
-                                    </li>
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle2[0].par_medio > detalle1[0].par_medio, 'text-danger': detalle2[0].par_medio < detalle1[0].par_medio }">
-                                        Par Medio: {{ detalle2[0].par_medio }}
-                                    </li>
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle2[0].par_maximo > detalle1[0].par_maximo, 'text-danger': detalle2[0].par_maximo < detalle1[0].par_maximo }">
-                                        Par Maximo: {{ detalle2[0].par_maximo }}
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              
+                                <th>Primer vehiculo</th>
+                                <th>Segundo vehiculo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Motor section -->
+                            <tr v-if="detalle1 && detalle2">
+                                
+                                <td
+                                    :class="{ 'text-success': motor1Wins > motor2Wins, 'text-danger': motor1Wins < motor2Wins }">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].torque > detalle2[0].torque, 'text-danger': detalle1[0].torque < detalle2[0].torque }">
+                                            Torque: {{ detalle1[0].torque }} NM
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].cv > detalle2[0].cv, 'text-danger': detalle1[0].cv < detalle2[0].cv }">
+                                            CV: {{ detalle1[0].cv }} cv
+                                        </li>
+                                        <li class="list-group-item">
+                                            Cambio: {{ detalle1[0].cambio }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].combustible > detalle2[0].combustible, 'text-danger': detalle1[0].combustible < detalle2[0].combustible }">
+                                            Combustible: {{ detalle1[0].combustible }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].par_medio > detalle2[0].par_medio, 'text-danger': detalle1[0].par_medio < detalle2[0].par_medio }">
+                                            Par Medio: {{ detalle1[0].par_medio }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].par_maximo > detalle2[0].par_maximo, 'text-danger': detalle1[0].par_maximo < detalle2[0].par_maximo }">
+                                            Par Maximo: {{ detalle1[0].par_maximo }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].cilindros > detalle2[0].cilindros, 'text-danger': detalle1[0].cilindros < detalle2[0].cilindros }">
+                                            Numero cilindros: {{ detalle1[0].cilindros }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].cilindrada > detalle2[0].cilindrada, 'text-danger': detalle1[0].cilindrada < detalle2[0].cilindrada }">
+                                            Cilindrada: {{ detalle1[0].cilindrada }}
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td
+                                    :class="{ 'text-success': motor2Wins > motor1Wins, 'text-danger': motor2Wins < motor1Wins }">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle2[0].torque > detalle1[0].torque, 'text-danger': detalle2[0].torque < detalle1[0].torque }">
+                                            Torque: {{ detalle2[0].torque }} NM
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle2[0].cv > detalle1[0].cv, 'text-danger': detalle2[0].cv < detalle1[0].cv }">
+                                            CV: {{ detalle2[0].cv }} cv
+                                        </li>
+                                        <li class="list-group-item">
+                                            Cambio: {{ detalle2[0].cambio }}
+                                        </li>
+                                        <li class="list-group-item">
+                                            Combustible: {{ detalle2[0].combustible }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle2[0].par_medio > detalle1[0].par_medio, 'text-danger': detalle2[0].par_medio < detalle1[0].par_medio }">
+                                            Par Medio: {{ detalle2[0].par_medio }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle2[0].par_maximo > detalle1[0].par_maximo, 'text-danger': detalle2[0].par_maximo < detalle1[0].par_maximo }">
+                                            Par Maximo: {{ detalle2[0].par_maximo }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].cilindros > detalle2[0].cilindros, 'text-danger': detalle1[0].cilindros < detalle2[0].cilindros }">
+                                            Numero cilindros: {{ detalle1[0].cilindros }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].cilindrada > detalle2[0].cilindrada, 'text-danger': detalle1[0].cilindrada < detalle2[0].cilindrada }">
+                                            Cilindrada: {{ detalle1[0].cilindrada }}
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
 
-                        <!-- Estadisticas section -->
-                        <tr v-if="detalle1 && detalle2">
-                            <td>Estadisticas</td>
-                            <td
-                                :class="{ 'text-success': estadisticas1Wins > estadisticas2Wins, 'text-danger': estadisticas1Wins < estadisticas2Wins }">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle1[0].vm > detalle2[0].vm, 'text-danger': detalle1[0].vm < detalle2[0].vm }">
-                                        Velocidad Maxima: {{ detalle1[0].vm }}
-                                    </li>
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle1[0].cien < detalle2[0].cien, 'text-danger': detalle1[0].cien > detalle2[0].cien }">
-                                        0-100: {{ detalle1[0].cien }}
-                                    </li>
-                                </ul>
-                            </td>
-                            <td
-                                :class="{ 'text-success': estadisticas2Wins > estadisticas1Wins, 'text-danger': estadisticas2Wins < estadisticas1Wins }">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle2[0].vm > detalle1[0].vm, 'text-danger': detalle2[0].vm < detalle1[0].vm }">
-                                        Velocidad Maxima: {{ detalle2[0].vm }}
-                                    </li>
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle2[0].cien < detalle1[0].cien, 'text-danger': detalle2[0].cien > detalle1[0].cien }">
-                                        0-100: {{ detalle2[0].cien }}
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
+                            <!-- Estadisticas section -->
+                            <tr v-if="detalle1 && detalle2">
+                                
+                                <td
+                                    :class="{ 'text-success': estadisticas1Wins > estadisticas2Wins, 'text-danger': estadisticas1Wins < estadisticas2Wins }">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].vm > detalle2[0].vm, 'text-danger': detalle1[0].vm < detalle2[0].vm }">
+                                            Velocidad Maxima: {{ detalle1[0].vm }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].cien < detalle2[0].cien, 'text-danger': detalle1[0].cien > detalle2[0].cien }">
+                                            0-100: {{ detalle1[0].cien }}
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td
+                                    :class="{ 'text-success': estadisticas2Wins > estadisticas1Wins, 'text-danger': estadisticas2Wins < estadisticas1Wins }">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle2[0].vm > detalle1[0].vm, 'text-danger': detalle2[0].vm < detalle1[0].vm }">
+                                            Velocidad Maxima: {{ detalle2[0].vm }}
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle2[0].cien < detalle1[0].cien, 'text-danger': detalle2[0].cien > detalle1[0].cien }">
+                                            0-100: {{ detalle2[0].cien }}
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
 
-                        <!-- Chasis section -->
-                        <tr v-if="detalle1 && detalle2">
-                            <td>Chasis</td>
-                            <td
-                                :class="{ 'text-success': chasis1Wins > chasis2Wins, 'text-danger': chasis1Wins < chasis2Wins }">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Dimensiones Neumaticos: {{
-                                        detalle1[0].neumaticos }}
-                                    </li>
-                                    <li class="list-group-item">Frenos Delanteros: {{ detalle1[0].frenos_del }}
-                                    </li>
-                                    <li class="list-group-item">Frenos Traseros: {{ detalle1[0].frenos_tras }}
-                                    </li>
-                                </ul>
-                            </td>
-                            <td
-                                :class="{ 'text-success': chasis2Wins > chasis1Wins, 'text-danger': chasis2Wins < chasis1Wins }">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Dimensiones Neumaticos: {{
-                                        detalle2[0].neumaticos }}
-                                    </li>
-                                    <li class="list-group-item">Frenos Delanteros: {{ detalle2[0].frenos_del }}
-                                    </li>
-                                    <li class="list-group-item">Frenos Traseros: {{ detalle2[0].frenos_tras }}
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
+                            <!-- Chasis section -->
+                            <tr v-if="detalle1 && detalle2">
+                             
+                                <td
+                                    :class="{ 'text-success': chasis1Wins > chasis2Wins, 'text-danger': chasis1Wins < chasis2Wins }">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Dimensiones Neumaticos: {{
+                                            detalle1[0].neumaticos }}
+                                        </li>
+                                        <li class="list-group-item">Frenos Delanteros: {{ detalle1[0].frenos_del }}
+                                        </li>
+                                        <li class="list-group-item">Frenos Traseros: {{ detalle1[0].frenos_tras }}
+                                        </li>
+                                        <li class="list-group-item">Altura: {{ detalle1[0].altura }}
+                                        </li>
+                                        <li class="list-group-item">Anchura: {{ detalle1[0].anchura }}
+                                        </li>
+                                        <li class="list-group-item">Longitud: {{ detalle1[0].longitud }}
+                                        </li>
+                                        <li class="list-group-item">Puertas: {{ detalle1[0].puertas }}
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td
+                                    :class="{ 'text-success': chasis2Wins > chasis1Wins, 'text-danger': chasis2Wins < chasis1Wins }">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Dimensiones Neumaticos: {{
+                                            detalle2[0].neumaticos }}
+                                        </li>
+                                        <li class="list-group-item">Frenos Delanteros: {{ detalle2[0].frenos_del }}
+                                        </li>
+                                        <li class="list-group-item">Frenos Traseros: {{ detalle2[0].frenos_tras }}
+                                        </li>
+                                        <li class="list-group-item">Altura: {{ detalle2[0].altura }}
+                                        </li>
+                                        <li class="list-group-item">Anchura: {{ detalle2[0].anchura }}
+                                        </li>
+                                        <li class="list-group-item">Longitud: {{ detalle2[0].longitud }}
+                                        </li>
+                                        <li class="list-group-item">Puertas: {{ detalle2[0].puertas }}
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
 
-                        <!-- Mantenimientos section -->
-                        <tr v-if="detalle1 && detalle2">
-                            <td>Mantenimientos</td>
-                            <td
-                                :class="{ 'text-success': mantenimientos1Wins > mantenimientos2Wins, 'text-danger': mantenimientos1Wins < mantenimientos2Wins }">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle1[0].proximo_c_aceite > detalle2[0].proximo_c_aceite, 'text-danger': detalle1[0].proximo_c_aceite < detalle2[0].proximo_c_aceite }">
-                                        Cambio de Aceite: {{ detalle1[0].proximo_c_aceite }} KM
-                                    </li>
-                                </ul>
-                            </td>
-                            <td
-                                :class="{ 'text-success': mantenimientos2Wins > mantenimientos1Wins, 'text-danger': mantenimientos2Wins < mantenimientos1Wins }">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"
-                                        :class="{ 'text-success': detalle2[0].proximo_c_aceite > detalle1[0].proximo_c_aceite, 'text-danger': detalle2[0].proximo_c_aceite < detalle1[0].proximo_c_aceite }">
-                                        Cambio de Aceite: {{ detalle2[0].proximo_c_aceite }} KM
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
+                            <!-- Mantenimientos section -->
+                            <tr v-if="detalle1 && detalle2">
+                                
+                                <td
+                                    :class="{ 'text-success': mantenimientos1Wins > mantenimientos2Wins, 'text-danger': mantenimientos1Wins < mantenimientos2Wins }">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].proximo_c_aceite > detalle2[0].proximo_c_aceite, 'text-danger': detalle1[0].proximo_c_aceite < detalle2[0].proximo_c_aceite }">
+                                            Cambio de Aceite: {{ detalle1[0].proximo_c_aceite }} KM
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].proximo_c_aire > detalle2[0].proximo_c_aire, 'text-danger': detalle1[0].proximo_c_aire < detalle2[0].proximo_c_aire }">
+                                            Cambio de filtro aire {{ detalle1[0].proximo_c_aire }} KM
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].proximo_c_combustible > detalle2[0].proximo_c_combustible, 'text-danger': detalle1[0].proximo_c_combustible < detalle2[0].proximo_c_combustible }">
+                                            Cambio de filtro aire {{ detalle1[0].proximo_c_combustible }} KM
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle1[0].proximo_c_l_frenos > detalle2[0].proximo_c_l_frenos, 'text-danger': detalle1[0].proximo_c_l_frenos < detalle2[0].proximo_c_l_frenos }">
+                                            Cambio de liquido frenos {{ detalle1[0].proximo_c_l_frenos }} años
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td
+                                    :class="{ 'text-success': mantenimientos2Wins > mantenimientos1Wins, 'text-danger': mantenimientos2Wins < mantenimientos1Wins }">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle2[0].proximo_c_aceite > detalle1[0].proximo_c_aceite, 'text-danger': detalle2[0].proximo_c_aceite < detalle1[0].proximo_c_aceite }">
+                                            Cambio de Aceite: {{ detalle2[0].proximo_c_aceite }} KM
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle2[0].proximo_c_aire > detalle1[0].proximo_c_aire, 'text-danger': detalle2[0].proximo_c_aire < detalle1[0].proximo_c_aire }">
+                                            Cambio de filtro Aire: {{ detalle2[0].proximo_c_aire }} KM
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle2[0].proximo_c_combustible > detalle1[0].proximo_c_combustible, 'text-danger': detalle2[0].proximo_c_combustible < detalle1[0].proximo_c_combustible }">
+                                            Cambio de filtro Combustible: {{ detalle2[0].proximo_c_combustible }} KM
+                                        </li>
+                                        <li class="list-group-item"
+                                            :class="{ 'text-success': detalle2[0].proximo_c_l_frenos > detalle1[0].proximo_c_l_frenos, 'text-danger': detalle2[0].proximo_c_l_frenos < detalle1[0].proximo_c_l_frenos }">
+                                            Cambio de liquido de frenos: {{ detalle2[0].proximo_c_l_frenos }} años
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
 
-                </table>
+                    </table>
 
-
+                </div>
             </div>
         </div>
         <div>
@@ -306,24 +363,28 @@
     color: red;
 }
 
+
+
 /* Estilos para la tabla */
 .table {
     width: 100%;
     border-collapse: collapse;
-    border-radius: 0.25rem;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
-.table td,
-.table th {
-    padding: 1rem;
+.table th,
+.table td {
+    padding: 15px;
     border-bottom: 1px solid #dee2e6;
     text-align: left;
 }
 
-.table thead th {
-    border-bottom: 2px solid #dee2e6;
+.table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
 }
 
 /* Estilos para la lista de grupo */
@@ -346,6 +407,12 @@
 .list-group-item span {
     font-weight: bold;
 }
+
+   @media (max-width: 768px) {
+       .table {
+           font-size: 14px;
+       }
+   }
 </style>
 
 <!-- Aquí va tu tabla HTML -->

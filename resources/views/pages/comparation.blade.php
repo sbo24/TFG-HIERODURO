@@ -7,7 +7,7 @@
 @section('content')
 @include('components.header')
 
-<div class="container mt-5">
+<div class="container mt-20 mt-sm-0">
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="text-center">
@@ -36,6 +36,7 @@
 </div>
 
 
+@include('news.news')
 @include('components.footer')
 @endsection
 

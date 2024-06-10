@@ -17,16 +17,46 @@
                 <h5 class="card-title">{{ vehicleDetails.marca }} {{ vehicleDetails.modelo }}{{ vehicleDetails.version
                   }} {{ vehicleDetails.codigo }}</h5>
                 <p class="card-text">Año: {{ vehicleDetails.año_desde }} - {{ vehicleDetails.año_hasta }}</p>
-                <h6 class="mt-4">Revisiones:</h6>
-                <div class="revision-list mb-4">
+                <h6 class="mt-4">Detalles:</h6>
+                <div class="revision-list mb-4" style="max-height: 200px; overflow-y: auto;">
                   <ul class="list-group">
                     <li class="list-group-item revision-list-item p-2">
                       <strong>Cambio de aceite:</strong><br>
-                      Kilometraje: <span id="mileageValue">{{ vehicleDetails.c_aceite }}</span><br>
-                      Próxima revisión: {{ vehicleDetails.proximo_c_aceite }} km
+                      Cambio de aceite cada {{ vehicleDetails.proximo_c_aceite }} km
                     </li>
+                    <li class="list-group-item revision-list-item p-2">
+                      <strong>Cambio del filtro del aire:</strong><br>
+                      Cambio del fitro cada {{ vehicleDetails.proximo_c_aire }} km
+                    </li>
+                    <li class="list-group-item revision-list-item p-2">
+                      <strong>Cambio del filtro del combustible:</strong><br>
+                      Cambio del fitro cada {{ vehicleDetails.proximo_c_combustible }} km
+                    </li>
+                    <li class="list-group-item revision-list-item p-2">
+                      <strong>Cambio del liquido de frenos:</strong><br>
+                      Cambio del fitro cada {{ vehicleDetails.proximo_c_l_frenos }} años
+                    </li>
+                    <li class="list-group-item revision-list-item p-2">
+                      <strong>Altura:</strong><br>
+                      {{ vehicleDetails.altura}} mm
+                    </li>
+                    <li class="list-group-item revision-list-item p-2">
+                      <strong>Altura:</strong><br>
+                      {{ vehicleDetails.anchura }} mm
+                    </li>
+                    <li class="list-group-item revision-list-item p-2">
+                      <strong>Altura:</strong><br>
+                      {{ vehicleDetails.longitud }} mm
+                    </li>
+                    <li class="list-group-item revision-list-item p-2">
+                      <strong>Puertas:</strong><br>
+                      {{ vehicleDetails.puertas}}
+                    </li>
+
+                    <!-- Agrega más elementos de la lista si es necesario -->
                   </ul>
                 </div>
+
                 <p><i class="fas fa-horse-head"></i> {{ vehicleDetails.cv }} CV</p>
                 <p><i class="fas fa-cogs"></i> {{ vehicleDetails.torque }} Nm</p>
               </div>
